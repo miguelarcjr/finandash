@@ -1,0 +1,39 @@
+# Diff de Modificações (Multi-tenant)
+
+## 1. prisma/schema.prisma (MODIFICADO)
+Foi alterado de PostgreSQL para SQLite.
+Enum original removido (`UserRole`) pois SQLite não suporta enums nativamente.
+Role tornou-se String: `role String @default("FINANCEIRO")`.
+Foi adicionado model `Tenant` relacionando a `User` 1:N com `tenantId`.
+
+## 2. prisma/config.ts (NOVO)
+Arquivo de configuração do Prisma 6:
+```ts
+import { defineConfig } from '@prisma/config'
+
+export default defineConfig({
+  schema: 'prisma/schema.prisma',
+  migrations: {
+    path: 'prisma/migrations',
+    seed: 'npx tsx prisma/seed.ts'
+  }
+})
+```
+
+## 3. prisma/seed.ts (NOVO)
+Cria um tenant "Escritório Demo" e um admin associado com hash bcrypt ("senha123"). Usa `bcryptjs`. Verifica duplicidade e gera os IDs CUID.
+
+## 4. src/server/auth/config.ts (MODIFICADO)
+Adicionado module augmentation para extender `JWT` e `Session` interface com `tenantId` e `role`.
+Em `authorize`, substituído mock por busca usando `db.user.findUnique({ email })` e comparando senha por `bcrypt.compare`.
+Callbacks injetam `tenantId` e `role` do user no `token` (JWT) e expõe na `session`.
+Adicionada rota customizada no block options `pages: { signIn: "/login" }`.
+
+## 5. src/server/api/trpc.ts (MODIFICADO)
+Em `.protectedProcedure`: Exigida a verificação tanto se existe o user, **como se existe `session.user.tenantId`**, jogando erro UNAUTHORIZED caso falte.
+
+## 6. src/middleware.ts (NOVO)
+Middleware interceptando requisições, roteando quem não está logado validado pelo `auth()` para `/login`. Matcher ignora api, _next e login file.
+
+## 7. src/app/(auth)/login/page.tsx e layout.tsx (NOVOS)
+Renderizam um auth form simples centrado no tailwindcss com cor primária #ff6e00. Puxa react-hook-form e zod para o frontend validation. Lida com chamadas de signIn client side. Exibe os erros se submetidos usando `error=CredentialsSignin`.
