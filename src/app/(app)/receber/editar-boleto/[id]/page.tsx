@@ -4,7 +4,8 @@ export const metadata = {
   title: "Editar Boleto | ERP Financeiro",
 };
 
-export default function EditarBoletoPage({ params }: { params: { id: string } }) {
+export default async function EditarBoletoPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   return (
     <div className="flex-1 p-8 flex flex-col gap-6">
       <div className="flex flex-col gap-1">
@@ -19,7 +20,7 @@ export default function EditarBoletoPage({ params }: { params: { id: string } })
         <p className="text-slate-500 dark:text-slate-400">Corriga eventuais erros de um boleto antes de gerar a remessa para o banco.</p>
       </div>
 
-      <EditarBoletoForm boletoId={params.id} />
+      <EditarBoletoForm boletoId={id} />
     </div>
   );
 }
