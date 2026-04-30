@@ -131,6 +131,7 @@ exports.Prisma.UserScalarFieldEnum = {
   passwordHash: 'passwordHash',
   role: 'role',
   tenantId: 'tenantId',
+  ativo: 'ativo',
   createdAt: 'createdAt',
   emailVerified: 'emailVerified',
   image: 'image'
@@ -165,6 +166,75 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.ClienteScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  nome: 'nome',
+  cpfCnpj: 'cpfCnpj',
+  email: 'email',
+  telefone: 'telefone',
+  ativo: 'ativo',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BoletoScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  clienteId: 'clienteId',
+  nossoNumero: 'nossoNumero',
+  valor: 'valor',
+  vencimento: 'vencimento',
+  banco: 'banco',
+  status: 'status',
+  descricao: 'descricao',
+  parcela: 'parcela',
+  totalParcelas: 'totalParcelas',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ConfiguracaoBancariaScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  banco: 'banco',
+  agencia: 'agencia',
+  conta: 'conta',
+  convenio: 'convenio',
+  nossoNumeroInicial: 'nossoNumeroInicial',
+  nossoNumeroAtual: 'nossoNumeroAtual',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.LancamentoScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  clienteId: 'clienteId',
+  valor: 'valor',
+  vencimento: 'vencimento',
+  metodo: 'metodo',
+  status: 'status',
+  descricao: 'descricao',
+  dataPagamento: 'dataPagamento',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.DespesaScalarFieldEnum = {
+  id: 'id',
+  tenantId: 'tenantId',
+  descricao: 'descricao',
+  valor: 'valor',
+  vencimento: 'vencimento',
+  categoria: 'categoria',
+  status: 'status',
+  dataPagamento: 'dataPagamento',
+  formaPagamento: 'formaPagamento',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -181,7 +251,12 @@ exports.Prisma.ModelName = {
   User: 'User',
   Account: 'Account',
   Session: 'Session',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  Cliente: 'Cliente',
+  Boleto: 'Boleto',
+  ConfiguracaoBancaria: 'ConfiguracaoBancaria',
+  Lancamento: 'Lancamento',
+  Despesa: 'Despesa'
 };
 
 /**

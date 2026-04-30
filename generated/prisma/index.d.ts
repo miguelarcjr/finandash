@@ -38,6 +38,31 @@ export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
  * 
  */
 export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTokenPayload>
+/**
+ * Model Cliente
+ * 
+ */
+export type Cliente = $Result.DefaultSelection<Prisma.$ClientePayload>
+/**
+ * Model Boleto
+ * 
+ */
+export type Boleto = $Result.DefaultSelection<Prisma.$BoletoPayload>
+/**
+ * Model ConfiguracaoBancaria
+ * 
+ */
+export type ConfiguracaoBancaria = $Result.DefaultSelection<Prisma.$ConfiguracaoBancariaPayload>
+/**
+ * Model Lancamento
+ * 
+ */
+export type Lancamento = $Result.DefaultSelection<Prisma.$LancamentoPayload>
+/**
+ * Model Despesa
+ * 
+ */
+export type Despesa = $Result.DefaultSelection<Prisma.$DespesaPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -206,6 +231,56 @@ export class PrismaClient<
     * ```
     */
   get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.cliente`: Exposes CRUD operations for the **Cliente** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Clientes
+    * const clientes = await prisma.cliente.findMany()
+    * ```
+    */
+  get cliente(): Prisma.ClienteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.boleto`: Exposes CRUD operations for the **Boleto** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Boletos
+    * const boletos = await prisma.boleto.findMany()
+    * ```
+    */
+  get boleto(): Prisma.BoletoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.configuracaoBancaria`: Exposes CRUD operations for the **ConfiguracaoBancaria** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ConfiguracaoBancarias
+    * const configuracaoBancarias = await prisma.configuracaoBancaria.findMany()
+    * ```
+    */
+  get configuracaoBancaria(): Prisma.ConfiguracaoBancariaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.lancamento`: Exposes CRUD operations for the **Lancamento** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Lancamentos
+    * const lancamentos = await prisma.lancamento.findMany()
+    * ```
+    */
+  get lancamento(): Prisma.LancamentoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.despesa`: Exposes CRUD operations for the **Despesa** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Despesas
+    * const despesas = await prisma.despesa.findMany()
+    * ```
+    */
+  get despesa(): Prisma.DespesaDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -651,7 +726,12 @@ export namespace Prisma {
     User: 'User',
     Account: 'Account',
     Session: 'Session',
-    VerificationToken: 'VerificationToken'
+    VerificationToken: 'VerificationToken',
+    Cliente: 'Cliente',
+    Boleto: 'Boleto',
+    ConfiguracaoBancaria: 'ConfiguracaoBancaria',
+    Lancamento: 'Lancamento',
+    Despesa: 'Despesa'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -670,7 +750,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "tenant" | "user" | "account" | "session" | "verificationToken"
+      modelProps: "tenant" | "user" | "account" | "session" | "verificationToken" | "cliente" | "boleto" | "configuracaoBancaria" | "lancamento" | "despesa"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1044,6 +1124,376 @@ export namespace Prisma {
           }
         }
       }
+      Cliente: {
+        payload: Prisma.$ClientePayload<ExtArgs>
+        fields: Prisma.ClienteFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClienteFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClienteFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>
+          }
+          findFirst: {
+            args: Prisma.ClienteFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClienteFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>
+          }
+          findMany: {
+            args: Prisma.ClienteFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>[]
+          }
+          create: {
+            args: Prisma.ClienteCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>
+          }
+          createMany: {
+            args: Prisma.ClienteCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClienteCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>[]
+          }
+          delete: {
+            args: Prisma.ClienteDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>
+          }
+          update: {
+            args: Prisma.ClienteUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>
+          }
+          deleteMany: {
+            args: Prisma.ClienteDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClienteUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClienteUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>[]
+          }
+          upsert: {
+            args: Prisma.ClienteUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientePayload>
+          }
+          aggregate: {
+            args: Prisma.ClienteAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCliente>
+          }
+          groupBy: {
+            args: Prisma.ClienteGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClienteGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClienteCountArgs<ExtArgs>
+            result: $Utils.Optional<ClienteCountAggregateOutputType> | number
+          }
+        }
+      }
+      Boleto: {
+        payload: Prisma.$BoletoPayload<ExtArgs>
+        fields: Prisma.BoletoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BoletoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BoletoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>
+          }
+          findFirst: {
+            args: Prisma.BoletoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BoletoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>
+          }
+          findMany: {
+            args: Prisma.BoletoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>[]
+          }
+          create: {
+            args: Prisma.BoletoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>
+          }
+          createMany: {
+            args: Prisma.BoletoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BoletoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>[]
+          }
+          delete: {
+            args: Prisma.BoletoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>
+          }
+          update: {
+            args: Prisma.BoletoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>
+          }
+          deleteMany: {
+            args: Prisma.BoletoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BoletoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BoletoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>[]
+          }
+          upsert: {
+            args: Prisma.BoletoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BoletoPayload>
+          }
+          aggregate: {
+            args: Prisma.BoletoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBoleto>
+          }
+          groupBy: {
+            args: Prisma.BoletoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BoletoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BoletoCountArgs<ExtArgs>
+            result: $Utils.Optional<BoletoCountAggregateOutputType> | number
+          }
+        }
+      }
+      ConfiguracaoBancaria: {
+        payload: Prisma.$ConfiguracaoBancariaPayload<ExtArgs>
+        fields: Prisma.ConfiguracaoBancariaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ConfiguracaoBancariaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ConfiguracaoBancariaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>
+          }
+          findFirst: {
+            args: Prisma.ConfiguracaoBancariaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ConfiguracaoBancariaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>
+          }
+          findMany: {
+            args: Prisma.ConfiguracaoBancariaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>[]
+          }
+          create: {
+            args: Prisma.ConfiguracaoBancariaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>
+          }
+          createMany: {
+            args: Prisma.ConfiguracaoBancariaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ConfiguracaoBancariaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>[]
+          }
+          delete: {
+            args: Prisma.ConfiguracaoBancariaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>
+          }
+          update: {
+            args: Prisma.ConfiguracaoBancariaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>
+          }
+          deleteMany: {
+            args: Prisma.ConfiguracaoBancariaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ConfiguracaoBancariaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ConfiguracaoBancariaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>[]
+          }
+          upsert: {
+            args: Prisma.ConfiguracaoBancariaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ConfiguracaoBancariaPayload>
+          }
+          aggregate: {
+            args: Prisma.ConfiguracaoBancariaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateConfiguracaoBancaria>
+          }
+          groupBy: {
+            args: Prisma.ConfiguracaoBancariaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ConfiguracaoBancariaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ConfiguracaoBancariaCountArgs<ExtArgs>
+            result: $Utils.Optional<ConfiguracaoBancariaCountAggregateOutputType> | number
+          }
+        }
+      }
+      Lancamento: {
+        payload: Prisma.$LancamentoPayload<ExtArgs>
+        fields: Prisma.LancamentoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.LancamentoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.LancamentoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>
+          }
+          findFirst: {
+            args: Prisma.LancamentoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.LancamentoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>
+          }
+          findMany: {
+            args: Prisma.LancamentoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>[]
+          }
+          create: {
+            args: Prisma.LancamentoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>
+          }
+          createMany: {
+            args: Prisma.LancamentoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.LancamentoCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>[]
+          }
+          delete: {
+            args: Prisma.LancamentoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>
+          }
+          update: {
+            args: Prisma.LancamentoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>
+          }
+          deleteMany: {
+            args: Prisma.LancamentoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.LancamentoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.LancamentoUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>[]
+          }
+          upsert: {
+            args: Prisma.LancamentoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$LancamentoPayload>
+          }
+          aggregate: {
+            args: Prisma.LancamentoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateLancamento>
+          }
+          groupBy: {
+            args: Prisma.LancamentoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<LancamentoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.LancamentoCountArgs<ExtArgs>
+            result: $Utils.Optional<LancamentoCountAggregateOutputType> | number
+          }
+        }
+      }
+      Despesa: {
+        payload: Prisma.$DespesaPayload<ExtArgs>
+        fields: Prisma.DespesaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DespesaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DespesaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>
+          }
+          findFirst: {
+            args: Prisma.DespesaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DespesaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>
+          }
+          findMany: {
+            args: Prisma.DespesaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>[]
+          }
+          create: {
+            args: Prisma.DespesaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>
+          }
+          createMany: {
+            args: Prisma.DespesaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DespesaCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>[]
+          }
+          delete: {
+            args: Prisma.DespesaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>
+          }
+          update: {
+            args: Prisma.DespesaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>
+          }
+          deleteMany: {
+            args: Prisma.DespesaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DespesaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DespesaUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>[]
+          }
+          upsert: {
+            args: Prisma.DespesaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DespesaPayload>
+          }
+          aggregate: {
+            args: Prisma.DespesaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDespesa>
+          }
+          groupBy: {
+            args: Prisma.DespesaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DespesaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DespesaCountArgs<ExtArgs>
+            result: $Utils.Optional<DespesaCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1145,6 +1595,11 @@ export namespace Prisma {
     account?: AccountOmit
     session?: SessionOmit
     verificationToken?: VerificationTokenOmit
+    cliente?: ClienteOmit
+    boleto?: BoletoOmit
+    configuracaoBancaria?: ConfiguracaoBancariaOmit
+    lancamento?: LancamentoOmit
+    despesa?: DespesaOmit
   }
 
   /* Types for Logging */
@@ -1226,10 +1681,20 @@ export namespace Prisma {
 
   export type TenantCountOutputType = {
     users: number
+    clientes: number
+    boletos: number
+    lancamentos: number
+    configuracoesBancarias: number
+    despesas: number
   }
 
   export type TenantCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     users?: boolean | TenantCountOutputTypeCountUsersArgs
+    clientes?: boolean | TenantCountOutputTypeCountClientesArgs
+    boletos?: boolean | TenantCountOutputTypeCountBoletosArgs
+    lancamentos?: boolean | TenantCountOutputTypeCountLancamentosArgs
+    configuracoesBancarias?: boolean | TenantCountOutputTypeCountConfiguracoesBancariasArgs
+    despesas?: boolean | TenantCountOutputTypeCountDespesasArgs
   }
 
   // Custom InputTypes
@@ -1248,6 +1713,41 @@ export namespace Prisma {
    */
   export type TenantCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UserWhereInput
+  }
+
+  /**
+   * TenantCountOutputType without action
+   */
+  export type TenantCountOutputTypeCountClientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClienteWhereInput
+  }
+
+  /**
+   * TenantCountOutputType without action
+   */
+  export type TenantCountOutputTypeCountBoletosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BoletoWhereInput
+  }
+
+  /**
+   * TenantCountOutputType without action
+   */
+  export type TenantCountOutputTypeCountLancamentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LancamentoWhereInput
+  }
+
+  /**
+   * TenantCountOutputType without action
+   */
+  export type TenantCountOutputTypeCountConfiguracoesBancariasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConfiguracaoBancariaWhereInput
+  }
+
+  /**
+   * TenantCountOutputType without action
+   */
+  export type TenantCountOutputTypeCountDespesasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DespesaWhereInput
   }
 
 
@@ -1288,6 +1788,46 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SessionWhereInput
+  }
+
+
+  /**
+   * Count Type ClienteCountOutputType
+   */
+
+  export type ClienteCountOutputType = {
+    boletos: number
+    lancamentos: number
+  }
+
+  export type ClienteCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    boletos?: boolean | ClienteCountOutputTypeCountBoletosArgs
+    lancamentos?: boolean | ClienteCountOutputTypeCountLancamentosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ClienteCountOutputType without action
+   */
+  export type ClienteCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClienteCountOutputType
+     */
+    select?: ClienteCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ClienteCountOutputType without action
+   */
+  export type ClienteCountOutputTypeCountBoletosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BoletoWhereInput
+  }
+
+  /**
+   * ClienteCountOutputType without action
+   */
+  export type ClienteCountOutputTypeCountLancamentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LancamentoWhereInput
   }
 
 
@@ -1444,6 +1984,11 @@ export namespace Prisma {
     name?: boolean
     createdAt?: boolean
     users?: boolean | Tenant$usersArgs<ExtArgs>
+    clientes?: boolean | Tenant$clientesArgs<ExtArgs>
+    boletos?: boolean | Tenant$boletosArgs<ExtArgs>
+    lancamentos?: boolean | Tenant$lancamentosArgs<ExtArgs>
+    configuracoesBancarias?: boolean | Tenant$configuracoesBancariasArgs<ExtArgs>
+    despesas?: boolean | Tenant$despesasArgs<ExtArgs>
     _count?: boolean | TenantCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tenant"]>
 
@@ -1468,6 +2013,11 @@ export namespace Prisma {
   export type TenantOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "createdAt", ExtArgs["result"]["tenant"]>
   export type TenantInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     users?: boolean | Tenant$usersArgs<ExtArgs>
+    clientes?: boolean | Tenant$clientesArgs<ExtArgs>
+    boletos?: boolean | Tenant$boletosArgs<ExtArgs>
+    lancamentos?: boolean | Tenant$lancamentosArgs<ExtArgs>
+    configuracoesBancarias?: boolean | Tenant$configuracoesBancariasArgs<ExtArgs>
+    despesas?: boolean | Tenant$despesasArgs<ExtArgs>
     _count?: boolean | TenantCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type TenantIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1477,6 +2027,11 @@ export namespace Prisma {
     name: "Tenant"
     objects: {
       users: Prisma.$UserPayload<ExtArgs>[]
+      clientes: Prisma.$ClientePayload<ExtArgs>[]
+      boletos: Prisma.$BoletoPayload<ExtArgs>[]
+      lancamentos: Prisma.$LancamentoPayload<ExtArgs>[]
+      configuracoesBancarias: Prisma.$ConfiguracaoBancariaPayload<ExtArgs>[]
+      despesas: Prisma.$DespesaPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1877,6 +2432,11 @@ export namespace Prisma {
   export interface Prisma__TenantClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     users<T extends Tenant$usersArgs<ExtArgs> = {}>(args?: Subset<T, Tenant$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    clientes<T extends Tenant$clientesArgs<ExtArgs> = {}>(args?: Subset<T, Tenant$clientesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    boletos<T extends Tenant$boletosArgs<ExtArgs> = {}>(args?: Subset<T, Tenant$boletosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    lancamentos<T extends Tenant$lancamentosArgs<ExtArgs> = {}>(args?: Subset<T, Tenant$lancamentosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    configuracoesBancarias<T extends Tenant$configuracoesBancariasArgs<ExtArgs> = {}>(args?: Subset<T, Tenant$configuracoesBancariasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    despesas<T extends Tenant$despesasArgs<ExtArgs> = {}>(args?: Subset<T, Tenant$despesasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2319,6 +2879,126 @@ export namespace Prisma {
   }
 
   /**
+   * Tenant.clientes
+   */
+  export type Tenant$clientesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    where?: ClienteWhereInput
+    orderBy?: ClienteOrderByWithRelationInput | ClienteOrderByWithRelationInput[]
+    cursor?: ClienteWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClienteScalarFieldEnum | ClienteScalarFieldEnum[]
+  }
+
+  /**
+   * Tenant.boletos
+   */
+  export type Tenant$boletosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    where?: BoletoWhereInput
+    orderBy?: BoletoOrderByWithRelationInput | BoletoOrderByWithRelationInput[]
+    cursor?: BoletoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BoletoScalarFieldEnum | BoletoScalarFieldEnum[]
+  }
+
+  /**
+   * Tenant.lancamentos
+   */
+  export type Tenant$lancamentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    where?: LancamentoWhereInput
+    orderBy?: LancamentoOrderByWithRelationInput | LancamentoOrderByWithRelationInput[]
+    cursor?: LancamentoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LancamentoScalarFieldEnum | LancamentoScalarFieldEnum[]
+  }
+
+  /**
+   * Tenant.configuracoesBancarias
+   */
+  export type Tenant$configuracoesBancariasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    where?: ConfiguracaoBancariaWhereInput
+    orderBy?: ConfiguracaoBancariaOrderByWithRelationInput | ConfiguracaoBancariaOrderByWithRelationInput[]
+    cursor?: ConfiguracaoBancariaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ConfiguracaoBancariaScalarFieldEnum | ConfiguracaoBancariaScalarFieldEnum[]
+  }
+
+  /**
+   * Tenant.despesas
+   */
+  export type Tenant$despesasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    where?: DespesaWhereInput
+    orderBy?: DespesaOrderByWithRelationInput | DespesaOrderByWithRelationInput[]
+    cursor?: DespesaWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DespesaScalarFieldEnum | DespesaScalarFieldEnum[]
+  }
+
+  /**
    * Tenant without action
    */
   export type TenantDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2354,6 +3034,7 @@ export namespace Prisma {
     passwordHash: string | null
     role: string | null
     tenantId: string | null
+    ativo: boolean | null
     createdAt: Date | null
     emailVerified: Date | null
     image: string | null
@@ -2366,6 +3047,7 @@ export namespace Prisma {
     passwordHash: string | null
     role: string | null
     tenantId: string | null
+    ativo: boolean | null
     createdAt: Date | null
     emailVerified: Date | null
     image: string | null
@@ -2378,6 +3060,7 @@ export namespace Prisma {
     passwordHash: number
     role: number
     tenantId: number
+    ativo: number
     createdAt: number
     emailVerified: number
     image: number
@@ -2392,6 +3075,7 @@ export namespace Prisma {
     passwordHash?: true
     role?: true
     tenantId?: true
+    ativo?: true
     createdAt?: true
     emailVerified?: true
     image?: true
@@ -2404,6 +3088,7 @@ export namespace Prisma {
     passwordHash?: true
     role?: true
     tenantId?: true
+    ativo?: true
     createdAt?: true
     emailVerified?: true
     image?: true
@@ -2416,6 +3101,7 @@ export namespace Prisma {
     passwordHash?: true
     role?: true
     tenantId?: true
+    ativo?: true
     createdAt?: true
     emailVerified?: true
     image?: true
@@ -2501,6 +3187,7 @@ export namespace Prisma {
     passwordHash: string
     role: string
     tenantId: string
+    ativo: boolean
     createdAt: Date
     emailVerified: Date | null
     image: string | null
@@ -2530,6 +3217,7 @@ export namespace Prisma {
     passwordHash?: boolean
     role?: boolean
     tenantId?: boolean
+    ativo?: boolean
     createdAt?: boolean
     emailVerified?: boolean
     image?: boolean
@@ -2546,6 +3234,7 @@ export namespace Prisma {
     passwordHash?: boolean
     role?: boolean
     tenantId?: boolean
+    ativo?: boolean
     createdAt?: boolean
     emailVerified?: boolean
     image?: boolean
@@ -2559,6 +3248,7 @@ export namespace Prisma {
     passwordHash?: boolean
     role?: boolean
     tenantId?: boolean
+    ativo?: boolean
     createdAt?: boolean
     emailVerified?: boolean
     image?: boolean
@@ -2572,12 +3262,13 @@ export namespace Prisma {
     passwordHash?: boolean
     role?: boolean
     tenantId?: boolean
+    ativo?: boolean
     createdAt?: boolean
     emailVerified?: boolean
     image?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "passwordHash" | "role" | "tenantId" | "createdAt" | "emailVerified" | "image", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "passwordHash" | "role" | "tenantId" | "ativo" | "createdAt" | "emailVerified" | "image", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tenant?: boolean | TenantDefaultArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
@@ -2605,6 +3296,7 @@ export namespace Prisma {
       passwordHash: string
       role: string
       tenantId: string
+      ativo: boolean
       createdAt: Date
       emailVerified: Date | null
       image: string | null
@@ -3040,6 +3732,7 @@ export namespace Prisma {
     readonly passwordHash: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'String'>
     readonly tenantId: FieldRef<"User", 'String'>
+    readonly ativo: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly emailVerified: FieldRef<"User", 'DateTime'>
     readonly image: FieldRef<"User", 'String'>
@@ -6712,6 +7405,5885 @@ export namespace Prisma {
 
 
   /**
+   * Model Cliente
+   */
+
+  export type AggregateCliente = {
+    _count: ClienteCountAggregateOutputType | null
+    _min: ClienteMinAggregateOutputType | null
+    _max: ClienteMaxAggregateOutputType | null
+  }
+
+  export type ClienteMinAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    nome: string | null
+    cpfCnpj: string | null
+    email: string | null
+    telefone: string | null
+    ativo: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClienteMaxAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    nome: string | null
+    cpfCnpj: string | null
+    email: string | null
+    telefone: string | null
+    ativo: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClienteCountAggregateOutputType = {
+    id: number
+    tenantId: number
+    nome: number
+    cpfCnpj: number
+    email: number
+    telefone: number
+    ativo: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ClienteMinAggregateInputType = {
+    id?: true
+    tenantId?: true
+    nome?: true
+    cpfCnpj?: true
+    email?: true
+    telefone?: true
+    ativo?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClienteMaxAggregateInputType = {
+    id?: true
+    tenantId?: true
+    nome?: true
+    cpfCnpj?: true
+    email?: true
+    telefone?: true
+    ativo?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClienteCountAggregateInputType = {
+    id?: true
+    tenantId?: true
+    nome?: true
+    cpfCnpj?: true
+    email?: true
+    telefone?: true
+    ativo?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ClienteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Cliente to aggregate.
+     */
+    where?: ClienteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clientes to fetch.
+     */
+    orderBy?: ClienteOrderByWithRelationInput | ClienteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClienteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clientes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clientes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Clientes
+    **/
+    _count?: true | ClienteCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClienteMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClienteMaxAggregateInputType
+  }
+
+  export type GetClienteAggregateType<T extends ClienteAggregateArgs> = {
+        [P in keyof T & keyof AggregateCliente]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCliente[P]>
+      : GetScalarType<T[P], AggregateCliente[P]>
+  }
+
+
+
+
+  export type ClienteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClienteWhereInput
+    orderBy?: ClienteOrderByWithAggregationInput | ClienteOrderByWithAggregationInput[]
+    by: ClienteScalarFieldEnum[] | ClienteScalarFieldEnum
+    having?: ClienteScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClienteCountAggregateInputType | true
+    _min?: ClienteMinAggregateInputType
+    _max?: ClienteMaxAggregateInputType
+  }
+
+  export type ClienteGroupByOutputType = {
+    id: string
+    tenantId: string
+    nome: string
+    cpfCnpj: string | null
+    email: string | null
+    telefone: string | null
+    ativo: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: ClienteCountAggregateOutputType | null
+    _min: ClienteMinAggregateOutputType | null
+    _max: ClienteMaxAggregateOutputType | null
+  }
+
+  type GetClienteGroupByPayload<T extends ClienteGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClienteGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClienteGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClienteGroupByOutputType[P]>
+            : GetScalarType<T[P], ClienteGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClienteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    nome?: boolean
+    cpfCnpj?: boolean
+    email?: boolean
+    telefone?: boolean
+    ativo?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    boletos?: boolean | Cliente$boletosArgs<ExtArgs>
+    lancamentos?: boolean | Cliente$lancamentosArgs<ExtArgs>
+    _count?: boolean | ClienteCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cliente"]>
+
+  export type ClienteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    nome?: boolean
+    cpfCnpj?: boolean
+    email?: boolean
+    telefone?: boolean
+    ativo?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cliente"]>
+
+  export type ClienteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    nome?: boolean
+    cpfCnpj?: boolean
+    email?: boolean
+    telefone?: boolean
+    ativo?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cliente"]>
+
+  export type ClienteSelectScalar = {
+    id?: boolean
+    tenantId?: boolean
+    nome?: boolean
+    cpfCnpj?: boolean
+    email?: boolean
+    telefone?: boolean
+    ativo?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ClienteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tenantId" | "nome" | "cpfCnpj" | "email" | "telefone" | "ativo" | "createdAt" | "updatedAt", ExtArgs["result"]["cliente"]>
+  export type ClienteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    boletos?: boolean | Cliente$boletosArgs<ExtArgs>
+    lancamentos?: boolean | Cliente$lancamentosArgs<ExtArgs>
+    _count?: boolean | ClienteCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ClienteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }
+  export type ClienteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }
+
+  export type $ClientePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Cliente"
+    objects: {
+      tenant: Prisma.$TenantPayload<ExtArgs>
+      boletos: Prisma.$BoletoPayload<ExtArgs>[]
+      lancamentos: Prisma.$LancamentoPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tenantId: string
+      nome: string
+      cpfCnpj: string | null
+      email: string | null
+      telefone: string | null
+      ativo: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["cliente"]>
+    composites: {}
+  }
+
+  type ClienteGetPayload<S extends boolean | null | undefined | ClienteDefaultArgs> = $Result.GetResult<Prisma.$ClientePayload, S>
+
+  type ClienteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClienteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClienteCountAggregateInputType | true
+    }
+
+  export interface ClienteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Cliente'], meta: { name: 'Cliente' } }
+    /**
+     * Find zero or one Cliente that matches the filter.
+     * @param {ClienteFindUniqueArgs} args - Arguments to find a Cliente
+     * @example
+     * // Get one Cliente
+     * const cliente = await prisma.cliente.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClienteFindUniqueArgs>(args: SelectSubset<T, ClienteFindUniqueArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Cliente that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClienteFindUniqueOrThrowArgs} args - Arguments to find a Cliente
+     * @example
+     * // Get one Cliente
+     * const cliente = await prisma.cliente.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClienteFindUniqueOrThrowArgs>(args: SelectSubset<T, ClienteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Cliente that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClienteFindFirstArgs} args - Arguments to find a Cliente
+     * @example
+     * // Get one Cliente
+     * const cliente = await prisma.cliente.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClienteFindFirstArgs>(args?: SelectSubset<T, ClienteFindFirstArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Cliente that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClienteFindFirstOrThrowArgs} args - Arguments to find a Cliente
+     * @example
+     * // Get one Cliente
+     * const cliente = await prisma.cliente.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClienteFindFirstOrThrowArgs>(args?: SelectSubset<T, ClienteFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Clientes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClienteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Clientes
+     * const clientes = await prisma.cliente.findMany()
+     * 
+     * // Get first 10 Clientes
+     * const clientes = await prisma.cliente.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clienteWithIdOnly = await prisma.cliente.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClienteFindManyArgs>(args?: SelectSubset<T, ClienteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Cliente.
+     * @param {ClienteCreateArgs} args - Arguments to create a Cliente.
+     * @example
+     * // Create one Cliente
+     * const Cliente = await prisma.cliente.create({
+     *   data: {
+     *     // ... data to create a Cliente
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClienteCreateArgs>(args: SelectSubset<T, ClienteCreateArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Clientes.
+     * @param {ClienteCreateManyArgs} args - Arguments to create many Clientes.
+     * @example
+     * // Create many Clientes
+     * const cliente = await prisma.cliente.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClienteCreateManyArgs>(args?: SelectSubset<T, ClienteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Clientes and returns the data saved in the database.
+     * @param {ClienteCreateManyAndReturnArgs} args - Arguments to create many Clientes.
+     * @example
+     * // Create many Clientes
+     * const cliente = await prisma.cliente.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Clientes and only return the `id`
+     * const clienteWithIdOnly = await prisma.cliente.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClienteCreateManyAndReturnArgs>(args?: SelectSubset<T, ClienteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Cliente.
+     * @param {ClienteDeleteArgs} args - Arguments to delete one Cliente.
+     * @example
+     * // Delete one Cliente
+     * const Cliente = await prisma.cliente.delete({
+     *   where: {
+     *     // ... filter to delete one Cliente
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClienteDeleteArgs>(args: SelectSubset<T, ClienteDeleteArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Cliente.
+     * @param {ClienteUpdateArgs} args - Arguments to update one Cliente.
+     * @example
+     * // Update one Cliente
+     * const cliente = await prisma.cliente.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClienteUpdateArgs>(args: SelectSubset<T, ClienteUpdateArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Clientes.
+     * @param {ClienteDeleteManyArgs} args - Arguments to filter Clientes to delete.
+     * @example
+     * // Delete a few Clientes
+     * const { count } = await prisma.cliente.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClienteDeleteManyArgs>(args?: SelectSubset<T, ClienteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Clientes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClienteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Clientes
+     * const cliente = await prisma.cliente.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClienteUpdateManyArgs>(args: SelectSubset<T, ClienteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Clientes and returns the data updated in the database.
+     * @param {ClienteUpdateManyAndReturnArgs} args - Arguments to update many Clientes.
+     * @example
+     * // Update many Clientes
+     * const cliente = await prisma.cliente.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Clientes and only return the `id`
+     * const clienteWithIdOnly = await prisma.cliente.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClienteUpdateManyAndReturnArgs>(args: SelectSubset<T, ClienteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Cliente.
+     * @param {ClienteUpsertArgs} args - Arguments to update or create a Cliente.
+     * @example
+     * // Update or create a Cliente
+     * const cliente = await prisma.cliente.upsert({
+     *   create: {
+     *     // ... data to create a Cliente
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Cliente we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClienteUpsertArgs>(args: SelectSubset<T, ClienteUpsertArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Clientes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClienteCountArgs} args - Arguments to filter Clientes to count.
+     * @example
+     * // Count the number of Clientes
+     * const count = await prisma.cliente.count({
+     *   where: {
+     *     // ... the filter for the Clientes we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClienteCountArgs>(
+      args?: Subset<T, ClienteCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClienteCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Cliente.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClienteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClienteAggregateArgs>(args: Subset<T, ClienteAggregateArgs>): Prisma.PrismaPromise<GetClienteAggregateType<T>>
+
+    /**
+     * Group by Cliente.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClienteGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClienteGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClienteGroupByArgs['orderBy'] }
+        : { orderBy?: ClienteGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClienteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClienteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Cliente model
+   */
+  readonly fields: ClienteFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Cliente.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClienteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tenant<T extends TenantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TenantDefaultArgs<ExtArgs>>): Prisma__TenantClient<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    boletos<T extends Cliente$boletosArgs<ExtArgs> = {}>(args?: Subset<T, Cliente$boletosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    lancamentos<T extends Cliente$lancamentosArgs<ExtArgs> = {}>(args?: Subset<T, Cliente$lancamentosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Cliente model
+   */
+  interface ClienteFieldRefs {
+    readonly id: FieldRef<"Cliente", 'String'>
+    readonly tenantId: FieldRef<"Cliente", 'String'>
+    readonly nome: FieldRef<"Cliente", 'String'>
+    readonly cpfCnpj: FieldRef<"Cliente", 'String'>
+    readonly email: FieldRef<"Cliente", 'String'>
+    readonly telefone: FieldRef<"Cliente", 'String'>
+    readonly ativo: FieldRef<"Cliente", 'Boolean'>
+    readonly createdAt: FieldRef<"Cliente", 'DateTime'>
+    readonly updatedAt: FieldRef<"Cliente", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Cliente findUnique
+   */
+  export type ClienteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * Filter, which Cliente to fetch.
+     */
+    where: ClienteWhereUniqueInput
+  }
+
+  /**
+   * Cliente findUniqueOrThrow
+   */
+  export type ClienteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * Filter, which Cliente to fetch.
+     */
+    where: ClienteWhereUniqueInput
+  }
+
+  /**
+   * Cliente findFirst
+   */
+  export type ClienteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * Filter, which Cliente to fetch.
+     */
+    where?: ClienteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clientes to fetch.
+     */
+    orderBy?: ClienteOrderByWithRelationInput | ClienteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Clientes.
+     */
+    cursor?: ClienteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clientes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clientes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Clientes.
+     */
+    distinct?: ClienteScalarFieldEnum | ClienteScalarFieldEnum[]
+  }
+
+  /**
+   * Cliente findFirstOrThrow
+   */
+  export type ClienteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * Filter, which Cliente to fetch.
+     */
+    where?: ClienteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clientes to fetch.
+     */
+    orderBy?: ClienteOrderByWithRelationInput | ClienteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Clientes.
+     */
+    cursor?: ClienteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clientes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clientes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Clientes.
+     */
+    distinct?: ClienteScalarFieldEnum | ClienteScalarFieldEnum[]
+  }
+
+  /**
+   * Cliente findMany
+   */
+  export type ClienteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * Filter, which Clientes to fetch.
+     */
+    where?: ClienteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clientes to fetch.
+     */
+    orderBy?: ClienteOrderByWithRelationInput | ClienteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Clientes.
+     */
+    cursor?: ClienteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clientes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clientes.
+     */
+    skip?: number
+    distinct?: ClienteScalarFieldEnum | ClienteScalarFieldEnum[]
+  }
+
+  /**
+   * Cliente create
+   */
+  export type ClienteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Cliente.
+     */
+    data: XOR<ClienteCreateInput, ClienteUncheckedCreateInput>
+  }
+
+  /**
+   * Cliente createMany
+   */
+  export type ClienteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Clientes.
+     */
+    data: ClienteCreateManyInput | ClienteCreateManyInput[]
+  }
+
+  /**
+   * Cliente createManyAndReturn
+   */
+  export type ClienteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * The data used to create many Clientes.
+     */
+    data: ClienteCreateManyInput | ClienteCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Cliente update
+   */
+  export type ClienteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Cliente.
+     */
+    data: XOR<ClienteUpdateInput, ClienteUncheckedUpdateInput>
+    /**
+     * Choose, which Cliente to update.
+     */
+    where: ClienteWhereUniqueInput
+  }
+
+  /**
+   * Cliente updateMany
+   */
+  export type ClienteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Clientes.
+     */
+    data: XOR<ClienteUpdateManyMutationInput, ClienteUncheckedUpdateManyInput>
+    /**
+     * Filter which Clientes to update
+     */
+    where?: ClienteWhereInput
+    /**
+     * Limit how many Clientes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Cliente updateManyAndReturn
+   */
+  export type ClienteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * The data used to update Clientes.
+     */
+    data: XOR<ClienteUpdateManyMutationInput, ClienteUncheckedUpdateManyInput>
+    /**
+     * Filter which Clientes to update
+     */
+    where?: ClienteWhereInput
+    /**
+     * Limit how many Clientes to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Cliente upsert
+   */
+  export type ClienteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Cliente to update in case it exists.
+     */
+    where: ClienteWhereUniqueInput
+    /**
+     * In case the Cliente found by the `where` argument doesn't exist, create a new Cliente with this data.
+     */
+    create: XOR<ClienteCreateInput, ClienteUncheckedCreateInput>
+    /**
+     * In case the Cliente was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClienteUpdateInput, ClienteUncheckedUpdateInput>
+  }
+
+  /**
+   * Cliente delete
+   */
+  export type ClienteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+    /**
+     * Filter which Cliente to delete.
+     */
+    where: ClienteWhereUniqueInput
+  }
+
+  /**
+   * Cliente deleteMany
+   */
+  export type ClienteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Clientes to delete
+     */
+    where?: ClienteWhereInput
+    /**
+     * Limit how many Clientes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Cliente.boletos
+   */
+  export type Cliente$boletosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    where?: BoletoWhereInput
+    orderBy?: BoletoOrderByWithRelationInput | BoletoOrderByWithRelationInput[]
+    cursor?: BoletoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BoletoScalarFieldEnum | BoletoScalarFieldEnum[]
+  }
+
+  /**
+   * Cliente.lancamentos
+   */
+  export type Cliente$lancamentosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    where?: LancamentoWhereInput
+    orderBy?: LancamentoOrderByWithRelationInput | LancamentoOrderByWithRelationInput[]
+    cursor?: LancamentoWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LancamentoScalarFieldEnum | LancamentoScalarFieldEnum[]
+  }
+
+  /**
+   * Cliente without action
+   */
+  export type ClienteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Cliente
+     */
+    select?: ClienteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Cliente
+     */
+    omit?: ClienteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClienteInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Boleto
+   */
+
+  export type AggregateBoleto = {
+    _count: BoletoCountAggregateOutputType | null
+    _avg: BoletoAvgAggregateOutputType | null
+    _sum: BoletoSumAggregateOutputType | null
+    _min: BoletoMinAggregateOutputType | null
+    _max: BoletoMaxAggregateOutputType | null
+  }
+
+  export type BoletoAvgAggregateOutputType = {
+    valor: Decimal | null
+    parcela: number | null
+    totalParcelas: number | null
+  }
+
+  export type BoletoSumAggregateOutputType = {
+    valor: Decimal | null
+    parcela: number | null
+    totalParcelas: number | null
+  }
+
+  export type BoletoMinAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    clienteId: string | null
+    nossoNumero: string | null
+    valor: Decimal | null
+    vencimento: Date | null
+    banco: string | null
+    status: string | null
+    descricao: string | null
+    parcela: number | null
+    totalParcelas: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BoletoMaxAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    clienteId: string | null
+    nossoNumero: string | null
+    valor: Decimal | null
+    vencimento: Date | null
+    banco: string | null
+    status: string | null
+    descricao: string | null
+    parcela: number | null
+    totalParcelas: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BoletoCountAggregateOutputType = {
+    id: number
+    tenantId: number
+    clienteId: number
+    nossoNumero: number
+    valor: number
+    vencimento: number
+    banco: number
+    status: number
+    descricao: number
+    parcela: number
+    totalParcelas: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BoletoAvgAggregateInputType = {
+    valor?: true
+    parcela?: true
+    totalParcelas?: true
+  }
+
+  export type BoletoSumAggregateInputType = {
+    valor?: true
+    parcela?: true
+    totalParcelas?: true
+  }
+
+  export type BoletoMinAggregateInputType = {
+    id?: true
+    tenantId?: true
+    clienteId?: true
+    nossoNumero?: true
+    valor?: true
+    vencimento?: true
+    banco?: true
+    status?: true
+    descricao?: true
+    parcela?: true
+    totalParcelas?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BoletoMaxAggregateInputType = {
+    id?: true
+    tenantId?: true
+    clienteId?: true
+    nossoNumero?: true
+    valor?: true
+    vencimento?: true
+    banco?: true
+    status?: true
+    descricao?: true
+    parcela?: true
+    totalParcelas?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BoletoCountAggregateInputType = {
+    id?: true
+    tenantId?: true
+    clienteId?: true
+    nossoNumero?: true
+    valor?: true
+    vencimento?: true
+    banco?: true
+    status?: true
+    descricao?: true
+    parcela?: true
+    totalParcelas?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BoletoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Boleto to aggregate.
+     */
+    where?: BoletoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Boletos to fetch.
+     */
+    orderBy?: BoletoOrderByWithRelationInput | BoletoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BoletoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Boletos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Boletos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Boletos
+    **/
+    _count?: true | BoletoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BoletoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BoletoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BoletoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BoletoMaxAggregateInputType
+  }
+
+  export type GetBoletoAggregateType<T extends BoletoAggregateArgs> = {
+        [P in keyof T & keyof AggregateBoleto]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBoleto[P]>
+      : GetScalarType<T[P], AggregateBoleto[P]>
+  }
+
+
+
+
+  export type BoletoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BoletoWhereInput
+    orderBy?: BoletoOrderByWithAggregationInput | BoletoOrderByWithAggregationInput[]
+    by: BoletoScalarFieldEnum[] | BoletoScalarFieldEnum
+    having?: BoletoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BoletoCountAggregateInputType | true
+    _avg?: BoletoAvgAggregateInputType
+    _sum?: BoletoSumAggregateInputType
+    _min?: BoletoMinAggregateInputType
+    _max?: BoletoMaxAggregateInputType
+  }
+
+  export type BoletoGroupByOutputType = {
+    id: string
+    tenantId: string
+    clienteId: string
+    nossoNumero: string
+    valor: Decimal
+    vencimento: Date
+    banco: string
+    status: string
+    descricao: string | null
+    parcela: number | null
+    totalParcelas: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: BoletoCountAggregateOutputType | null
+    _avg: BoletoAvgAggregateOutputType | null
+    _sum: BoletoSumAggregateOutputType | null
+    _min: BoletoMinAggregateOutputType | null
+    _max: BoletoMaxAggregateOutputType | null
+  }
+
+  type GetBoletoGroupByPayload<T extends BoletoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BoletoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BoletoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BoletoGroupByOutputType[P]>
+            : GetScalarType<T[P], BoletoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BoletoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    clienteId?: boolean
+    nossoNumero?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    banco?: boolean
+    status?: boolean
+    descricao?: boolean
+    parcela?: boolean
+    totalParcelas?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["boleto"]>
+
+  export type BoletoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    clienteId?: boolean
+    nossoNumero?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    banco?: boolean
+    status?: boolean
+    descricao?: boolean
+    parcela?: boolean
+    totalParcelas?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["boleto"]>
+
+  export type BoletoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    clienteId?: boolean
+    nossoNumero?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    banco?: boolean
+    status?: boolean
+    descricao?: boolean
+    parcela?: boolean
+    totalParcelas?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["boleto"]>
+
+  export type BoletoSelectScalar = {
+    id?: boolean
+    tenantId?: boolean
+    clienteId?: boolean
+    nossoNumero?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    banco?: boolean
+    status?: boolean
+    descricao?: boolean
+    parcela?: boolean
+    totalParcelas?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BoletoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tenantId" | "clienteId" | "nossoNumero" | "valor" | "vencimento" | "banco" | "status" | "descricao" | "parcela" | "totalParcelas" | "createdAt" | "updatedAt", ExtArgs["result"]["boleto"]>
+  export type BoletoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }
+  export type BoletoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }
+  export type BoletoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }
+
+  export type $BoletoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Boleto"
+    objects: {
+      tenant: Prisma.$TenantPayload<ExtArgs>
+      cliente: Prisma.$ClientePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tenantId: string
+      clienteId: string
+      nossoNumero: string
+      valor: Prisma.Decimal
+      vencimento: Date
+      banco: string
+      status: string
+      descricao: string | null
+      parcela: number | null
+      totalParcelas: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["boleto"]>
+    composites: {}
+  }
+
+  type BoletoGetPayload<S extends boolean | null | undefined | BoletoDefaultArgs> = $Result.GetResult<Prisma.$BoletoPayload, S>
+
+  type BoletoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BoletoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BoletoCountAggregateInputType | true
+    }
+
+  export interface BoletoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Boleto'], meta: { name: 'Boleto' } }
+    /**
+     * Find zero or one Boleto that matches the filter.
+     * @param {BoletoFindUniqueArgs} args - Arguments to find a Boleto
+     * @example
+     * // Get one Boleto
+     * const boleto = await prisma.boleto.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BoletoFindUniqueArgs>(args: SelectSubset<T, BoletoFindUniqueArgs<ExtArgs>>): Prisma__BoletoClient<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Boleto that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BoletoFindUniqueOrThrowArgs} args - Arguments to find a Boleto
+     * @example
+     * // Get one Boleto
+     * const boleto = await prisma.boleto.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BoletoFindUniqueOrThrowArgs>(args: SelectSubset<T, BoletoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BoletoClient<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Boleto that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BoletoFindFirstArgs} args - Arguments to find a Boleto
+     * @example
+     * // Get one Boleto
+     * const boleto = await prisma.boleto.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BoletoFindFirstArgs>(args?: SelectSubset<T, BoletoFindFirstArgs<ExtArgs>>): Prisma__BoletoClient<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Boleto that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BoletoFindFirstOrThrowArgs} args - Arguments to find a Boleto
+     * @example
+     * // Get one Boleto
+     * const boleto = await prisma.boleto.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BoletoFindFirstOrThrowArgs>(args?: SelectSubset<T, BoletoFindFirstOrThrowArgs<ExtArgs>>): Prisma__BoletoClient<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Boletos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BoletoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Boletos
+     * const boletos = await prisma.boleto.findMany()
+     * 
+     * // Get first 10 Boletos
+     * const boletos = await prisma.boleto.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const boletoWithIdOnly = await prisma.boleto.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BoletoFindManyArgs>(args?: SelectSubset<T, BoletoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Boleto.
+     * @param {BoletoCreateArgs} args - Arguments to create a Boleto.
+     * @example
+     * // Create one Boleto
+     * const Boleto = await prisma.boleto.create({
+     *   data: {
+     *     // ... data to create a Boleto
+     *   }
+     * })
+     * 
+     */
+    create<T extends BoletoCreateArgs>(args: SelectSubset<T, BoletoCreateArgs<ExtArgs>>): Prisma__BoletoClient<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Boletos.
+     * @param {BoletoCreateManyArgs} args - Arguments to create many Boletos.
+     * @example
+     * // Create many Boletos
+     * const boleto = await prisma.boleto.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BoletoCreateManyArgs>(args?: SelectSubset<T, BoletoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Boletos and returns the data saved in the database.
+     * @param {BoletoCreateManyAndReturnArgs} args - Arguments to create many Boletos.
+     * @example
+     * // Create many Boletos
+     * const boleto = await prisma.boleto.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Boletos and only return the `id`
+     * const boletoWithIdOnly = await prisma.boleto.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BoletoCreateManyAndReturnArgs>(args?: SelectSubset<T, BoletoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Boleto.
+     * @param {BoletoDeleteArgs} args - Arguments to delete one Boleto.
+     * @example
+     * // Delete one Boleto
+     * const Boleto = await prisma.boleto.delete({
+     *   where: {
+     *     // ... filter to delete one Boleto
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BoletoDeleteArgs>(args: SelectSubset<T, BoletoDeleteArgs<ExtArgs>>): Prisma__BoletoClient<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Boleto.
+     * @param {BoletoUpdateArgs} args - Arguments to update one Boleto.
+     * @example
+     * // Update one Boleto
+     * const boleto = await prisma.boleto.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BoletoUpdateArgs>(args: SelectSubset<T, BoletoUpdateArgs<ExtArgs>>): Prisma__BoletoClient<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Boletos.
+     * @param {BoletoDeleteManyArgs} args - Arguments to filter Boletos to delete.
+     * @example
+     * // Delete a few Boletos
+     * const { count } = await prisma.boleto.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BoletoDeleteManyArgs>(args?: SelectSubset<T, BoletoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Boletos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BoletoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Boletos
+     * const boleto = await prisma.boleto.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BoletoUpdateManyArgs>(args: SelectSubset<T, BoletoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Boletos and returns the data updated in the database.
+     * @param {BoletoUpdateManyAndReturnArgs} args - Arguments to update many Boletos.
+     * @example
+     * // Update many Boletos
+     * const boleto = await prisma.boleto.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Boletos and only return the `id`
+     * const boletoWithIdOnly = await prisma.boleto.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BoletoUpdateManyAndReturnArgs>(args: SelectSubset<T, BoletoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Boleto.
+     * @param {BoletoUpsertArgs} args - Arguments to update or create a Boleto.
+     * @example
+     * // Update or create a Boleto
+     * const boleto = await prisma.boleto.upsert({
+     *   create: {
+     *     // ... data to create a Boleto
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Boleto we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BoletoUpsertArgs>(args: SelectSubset<T, BoletoUpsertArgs<ExtArgs>>): Prisma__BoletoClient<$Result.GetResult<Prisma.$BoletoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Boletos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BoletoCountArgs} args - Arguments to filter Boletos to count.
+     * @example
+     * // Count the number of Boletos
+     * const count = await prisma.boleto.count({
+     *   where: {
+     *     // ... the filter for the Boletos we want to count
+     *   }
+     * })
+    **/
+    count<T extends BoletoCountArgs>(
+      args?: Subset<T, BoletoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BoletoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Boleto.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BoletoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BoletoAggregateArgs>(args: Subset<T, BoletoAggregateArgs>): Prisma.PrismaPromise<GetBoletoAggregateType<T>>
+
+    /**
+     * Group by Boleto.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BoletoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BoletoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BoletoGroupByArgs['orderBy'] }
+        : { orderBy?: BoletoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BoletoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBoletoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Boleto model
+   */
+  readonly fields: BoletoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Boleto.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BoletoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tenant<T extends TenantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TenantDefaultArgs<ExtArgs>>): Prisma__TenantClient<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    cliente<T extends ClienteDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClienteDefaultArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Boleto model
+   */
+  interface BoletoFieldRefs {
+    readonly id: FieldRef<"Boleto", 'String'>
+    readonly tenantId: FieldRef<"Boleto", 'String'>
+    readonly clienteId: FieldRef<"Boleto", 'String'>
+    readonly nossoNumero: FieldRef<"Boleto", 'String'>
+    readonly valor: FieldRef<"Boleto", 'Decimal'>
+    readonly vencimento: FieldRef<"Boleto", 'DateTime'>
+    readonly banco: FieldRef<"Boleto", 'String'>
+    readonly status: FieldRef<"Boleto", 'String'>
+    readonly descricao: FieldRef<"Boleto", 'String'>
+    readonly parcela: FieldRef<"Boleto", 'Int'>
+    readonly totalParcelas: FieldRef<"Boleto", 'Int'>
+    readonly createdAt: FieldRef<"Boleto", 'DateTime'>
+    readonly updatedAt: FieldRef<"Boleto", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Boleto findUnique
+   */
+  export type BoletoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * Filter, which Boleto to fetch.
+     */
+    where: BoletoWhereUniqueInput
+  }
+
+  /**
+   * Boleto findUniqueOrThrow
+   */
+  export type BoletoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * Filter, which Boleto to fetch.
+     */
+    where: BoletoWhereUniqueInput
+  }
+
+  /**
+   * Boleto findFirst
+   */
+  export type BoletoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * Filter, which Boleto to fetch.
+     */
+    where?: BoletoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Boletos to fetch.
+     */
+    orderBy?: BoletoOrderByWithRelationInput | BoletoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Boletos.
+     */
+    cursor?: BoletoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Boletos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Boletos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Boletos.
+     */
+    distinct?: BoletoScalarFieldEnum | BoletoScalarFieldEnum[]
+  }
+
+  /**
+   * Boleto findFirstOrThrow
+   */
+  export type BoletoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * Filter, which Boleto to fetch.
+     */
+    where?: BoletoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Boletos to fetch.
+     */
+    orderBy?: BoletoOrderByWithRelationInput | BoletoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Boletos.
+     */
+    cursor?: BoletoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Boletos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Boletos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Boletos.
+     */
+    distinct?: BoletoScalarFieldEnum | BoletoScalarFieldEnum[]
+  }
+
+  /**
+   * Boleto findMany
+   */
+  export type BoletoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * Filter, which Boletos to fetch.
+     */
+    where?: BoletoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Boletos to fetch.
+     */
+    orderBy?: BoletoOrderByWithRelationInput | BoletoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Boletos.
+     */
+    cursor?: BoletoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Boletos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Boletos.
+     */
+    skip?: number
+    distinct?: BoletoScalarFieldEnum | BoletoScalarFieldEnum[]
+  }
+
+  /**
+   * Boleto create
+   */
+  export type BoletoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Boleto.
+     */
+    data: XOR<BoletoCreateInput, BoletoUncheckedCreateInput>
+  }
+
+  /**
+   * Boleto createMany
+   */
+  export type BoletoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Boletos.
+     */
+    data: BoletoCreateManyInput | BoletoCreateManyInput[]
+  }
+
+  /**
+   * Boleto createManyAndReturn
+   */
+  export type BoletoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * The data used to create many Boletos.
+     */
+    data: BoletoCreateManyInput | BoletoCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Boleto update
+   */
+  export type BoletoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Boleto.
+     */
+    data: XOR<BoletoUpdateInput, BoletoUncheckedUpdateInput>
+    /**
+     * Choose, which Boleto to update.
+     */
+    where: BoletoWhereUniqueInput
+  }
+
+  /**
+   * Boleto updateMany
+   */
+  export type BoletoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Boletos.
+     */
+    data: XOR<BoletoUpdateManyMutationInput, BoletoUncheckedUpdateManyInput>
+    /**
+     * Filter which Boletos to update
+     */
+    where?: BoletoWhereInput
+    /**
+     * Limit how many Boletos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Boleto updateManyAndReturn
+   */
+  export type BoletoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * The data used to update Boletos.
+     */
+    data: XOR<BoletoUpdateManyMutationInput, BoletoUncheckedUpdateManyInput>
+    /**
+     * Filter which Boletos to update
+     */
+    where?: BoletoWhereInput
+    /**
+     * Limit how many Boletos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Boleto upsert
+   */
+  export type BoletoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Boleto to update in case it exists.
+     */
+    where: BoletoWhereUniqueInput
+    /**
+     * In case the Boleto found by the `where` argument doesn't exist, create a new Boleto with this data.
+     */
+    create: XOR<BoletoCreateInput, BoletoUncheckedCreateInput>
+    /**
+     * In case the Boleto was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BoletoUpdateInput, BoletoUncheckedUpdateInput>
+  }
+
+  /**
+   * Boleto delete
+   */
+  export type BoletoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+    /**
+     * Filter which Boleto to delete.
+     */
+    where: BoletoWhereUniqueInput
+  }
+
+  /**
+   * Boleto deleteMany
+   */
+  export type BoletoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Boletos to delete
+     */
+    where?: BoletoWhereInput
+    /**
+     * Limit how many Boletos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Boleto without action
+   */
+  export type BoletoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Boleto
+     */
+    select?: BoletoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Boleto
+     */
+    omit?: BoletoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BoletoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ConfiguracaoBancaria
+   */
+
+  export type AggregateConfiguracaoBancaria = {
+    _count: ConfiguracaoBancariaCountAggregateOutputType | null
+    _avg: ConfiguracaoBancariaAvgAggregateOutputType | null
+    _sum: ConfiguracaoBancariaSumAggregateOutputType | null
+    _min: ConfiguracaoBancariaMinAggregateOutputType | null
+    _max: ConfiguracaoBancariaMaxAggregateOutputType | null
+  }
+
+  export type ConfiguracaoBancariaAvgAggregateOutputType = {
+    nossoNumeroInicial: number | null
+    nossoNumeroAtual: number | null
+  }
+
+  export type ConfiguracaoBancariaSumAggregateOutputType = {
+    nossoNumeroInicial: number | null
+    nossoNumeroAtual: number | null
+  }
+
+  export type ConfiguracaoBancariaMinAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    banco: string | null
+    agencia: string | null
+    conta: string | null
+    convenio: string | null
+    nossoNumeroInicial: number | null
+    nossoNumeroAtual: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ConfiguracaoBancariaMaxAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    banco: string | null
+    agencia: string | null
+    conta: string | null
+    convenio: string | null
+    nossoNumeroInicial: number | null
+    nossoNumeroAtual: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ConfiguracaoBancariaCountAggregateOutputType = {
+    id: number
+    tenantId: number
+    banco: number
+    agencia: number
+    conta: number
+    convenio: number
+    nossoNumeroInicial: number
+    nossoNumeroAtual: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ConfiguracaoBancariaAvgAggregateInputType = {
+    nossoNumeroInicial?: true
+    nossoNumeroAtual?: true
+  }
+
+  export type ConfiguracaoBancariaSumAggregateInputType = {
+    nossoNumeroInicial?: true
+    nossoNumeroAtual?: true
+  }
+
+  export type ConfiguracaoBancariaMinAggregateInputType = {
+    id?: true
+    tenantId?: true
+    banco?: true
+    agencia?: true
+    conta?: true
+    convenio?: true
+    nossoNumeroInicial?: true
+    nossoNumeroAtual?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ConfiguracaoBancariaMaxAggregateInputType = {
+    id?: true
+    tenantId?: true
+    banco?: true
+    agencia?: true
+    conta?: true
+    convenio?: true
+    nossoNumeroInicial?: true
+    nossoNumeroAtual?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ConfiguracaoBancariaCountAggregateInputType = {
+    id?: true
+    tenantId?: true
+    banco?: true
+    agencia?: true
+    conta?: true
+    convenio?: true
+    nossoNumeroInicial?: true
+    nossoNumeroAtual?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ConfiguracaoBancariaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ConfiguracaoBancaria to aggregate.
+     */
+    where?: ConfiguracaoBancariaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ConfiguracaoBancarias to fetch.
+     */
+    orderBy?: ConfiguracaoBancariaOrderByWithRelationInput | ConfiguracaoBancariaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ConfiguracaoBancariaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ConfiguracaoBancarias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ConfiguracaoBancarias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ConfiguracaoBancarias
+    **/
+    _count?: true | ConfiguracaoBancariaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ConfiguracaoBancariaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ConfiguracaoBancariaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ConfiguracaoBancariaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ConfiguracaoBancariaMaxAggregateInputType
+  }
+
+  export type GetConfiguracaoBancariaAggregateType<T extends ConfiguracaoBancariaAggregateArgs> = {
+        [P in keyof T & keyof AggregateConfiguracaoBancaria]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateConfiguracaoBancaria[P]>
+      : GetScalarType<T[P], AggregateConfiguracaoBancaria[P]>
+  }
+
+
+
+
+  export type ConfiguracaoBancariaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ConfiguracaoBancariaWhereInput
+    orderBy?: ConfiguracaoBancariaOrderByWithAggregationInput | ConfiguracaoBancariaOrderByWithAggregationInput[]
+    by: ConfiguracaoBancariaScalarFieldEnum[] | ConfiguracaoBancariaScalarFieldEnum
+    having?: ConfiguracaoBancariaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ConfiguracaoBancariaCountAggregateInputType | true
+    _avg?: ConfiguracaoBancariaAvgAggregateInputType
+    _sum?: ConfiguracaoBancariaSumAggregateInputType
+    _min?: ConfiguracaoBancariaMinAggregateInputType
+    _max?: ConfiguracaoBancariaMaxAggregateInputType
+  }
+
+  export type ConfiguracaoBancariaGroupByOutputType = {
+    id: string
+    tenantId: string
+    banco: string
+    agencia: string | null
+    conta: string | null
+    convenio: string | null
+    nossoNumeroInicial: number
+    nossoNumeroAtual: number
+    createdAt: Date
+    updatedAt: Date
+    _count: ConfiguracaoBancariaCountAggregateOutputType | null
+    _avg: ConfiguracaoBancariaAvgAggregateOutputType | null
+    _sum: ConfiguracaoBancariaSumAggregateOutputType | null
+    _min: ConfiguracaoBancariaMinAggregateOutputType | null
+    _max: ConfiguracaoBancariaMaxAggregateOutputType | null
+  }
+
+  type GetConfiguracaoBancariaGroupByPayload<T extends ConfiguracaoBancariaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ConfiguracaoBancariaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ConfiguracaoBancariaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ConfiguracaoBancariaGroupByOutputType[P]>
+            : GetScalarType<T[P], ConfiguracaoBancariaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ConfiguracaoBancariaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    banco?: boolean
+    agencia?: boolean
+    conta?: boolean
+    convenio?: boolean
+    nossoNumeroInicial?: boolean
+    nossoNumeroAtual?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["configuracaoBancaria"]>
+
+  export type ConfiguracaoBancariaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    banco?: boolean
+    agencia?: boolean
+    conta?: boolean
+    convenio?: boolean
+    nossoNumeroInicial?: boolean
+    nossoNumeroAtual?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["configuracaoBancaria"]>
+
+  export type ConfiguracaoBancariaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    banco?: boolean
+    agencia?: boolean
+    conta?: boolean
+    convenio?: boolean
+    nossoNumeroInicial?: boolean
+    nossoNumeroAtual?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["configuracaoBancaria"]>
+
+  export type ConfiguracaoBancariaSelectScalar = {
+    id?: boolean
+    tenantId?: boolean
+    banco?: boolean
+    agencia?: boolean
+    conta?: boolean
+    convenio?: boolean
+    nossoNumeroInicial?: boolean
+    nossoNumeroAtual?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ConfiguracaoBancariaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tenantId" | "banco" | "agencia" | "conta" | "convenio" | "nossoNumeroInicial" | "nossoNumeroAtual" | "createdAt" | "updatedAt", ExtArgs["result"]["configuracaoBancaria"]>
+  export type ConfiguracaoBancariaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }
+  export type ConfiguracaoBancariaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }
+  export type ConfiguracaoBancariaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }
+
+  export type $ConfiguracaoBancariaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ConfiguracaoBancaria"
+    objects: {
+      tenant: Prisma.$TenantPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tenantId: string
+      banco: string
+      agencia: string | null
+      conta: string | null
+      convenio: string | null
+      nossoNumeroInicial: number
+      nossoNumeroAtual: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["configuracaoBancaria"]>
+    composites: {}
+  }
+
+  type ConfiguracaoBancariaGetPayload<S extends boolean | null | undefined | ConfiguracaoBancariaDefaultArgs> = $Result.GetResult<Prisma.$ConfiguracaoBancariaPayload, S>
+
+  type ConfiguracaoBancariaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ConfiguracaoBancariaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ConfiguracaoBancariaCountAggregateInputType | true
+    }
+
+  export interface ConfiguracaoBancariaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ConfiguracaoBancaria'], meta: { name: 'ConfiguracaoBancaria' } }
+    /**
+     * Find zero or one ConfiguracaoBancaria that matches the filter.
+     * @param {ConfiguracaoBancariaFindUniqueArgs} args - Arguments to find a ConfiguracaoBancaria
+     * @example
+     * // Get one ConfiguracaoBancaria
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ConfiguracaoBancariaFindUniqueArgs>(args: SelectSubset<T, ConfiguracaoBancariaFindUniqueArgs<ExtArgs>>): Prisma__ConfiguracaoBancariaClient<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ConfiguracaoBancaria that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ConfiguracaoBancariaFindUniqueOrThrowArgs} args - Arguments to find a ConfiguracaoBancaria
+     * @example
+     * // Get one ConfiguracaoBancaria
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ConfiguracaoBancariaFindUniqueOrThrowArgs>(args: SelectSubset<T, ConfiguracaoBancariaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ConfiguracaoBancariaClient<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ConfiguracaoBancaria that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConfiguracaoBancariaFindFirstArgs} args - Arguments to find a ConfiguracaoBancaria
+     * @example
+     * // Get one ConfiguracaoBancaria
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ConfiguracaoBancariaFindFirstArgs>(args?: SelectSubset<T, ConfiguracaoBancariaFindFirstArgs<ExtArgs>>): Prisma__ConfiguracaoBancariaClient<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ConfiguracaoBancaria that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConfiguracaoBancariaFindFirstOrThrowArgs} args - Arguments to find a ConfiguracaoBancaria
+     * @example
+     * // Get one ConfiguracaoBancaria
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ConfiguracaoBancariaFindFirstOrThrowArgs>(args?: SelectSubset<T, ConfiguracaoBancariaFindFirstOrThrowArgs<ExtArgs>>): Prisma__ConfiguracaoBancariaClient<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ConfiguracaoBancarias that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConfiguracaoBancariaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ConfiguracaoBancarias
+     * const configuracaoBancarias = await prisma.configuracaoBancaria.findMany()
+     * 
+     * // Get first 10 ConfiguracaoBancarias
+     * const configuracaoBancarias = await prisma.configuracaoBancaria.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const configuracaoBancariaWithIdOnly = await prisma.configuracaoBancaria.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ConfiguracaoBancariaFindManyArgs>(args?: SelectSubset<T, ConfiguracaoBancariaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ConfiguracaoBancaria.
+     * @param {ConfiguracaoBancariaCreateArgs} args - Arguments to create a ConfiguracaoBancaria.
+     * @example
+     * // Create one ConfiguracaoBancaria
+     * const ConfiguracaoBancaria = await prisma.configuracaoBancaria.create({
+     *   data: {
+     *     // ... data to create a ConfiguracaoBancaria
+     *   }
+     * })
+     * 
+     */
+    create<T extends ConfiguracaoBancariaCreateArgs>(args: SelectSubset<T, ConfiguracaoBancariaCreateArgs<ExtArgs>>): Prisma__ConfiguracaoBancariaClient<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ConfiguracaoBancarias.
+     * @param {ConfiguracaoBancariaCreateManyArgs} args - Arguments to create many ConfiguracaoBancarias.
+     * @example
+     * // Create many ConfiguracaoBancarias
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ConfiguracaoBancariaCreateManyArgs>(args?: SelectSubset<T, ConfiguracaoBancariaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ConfiguracaoBancarias and returns the data saved in the database.
+     * @param {ConfiguracaoBancariaCreateManyAndReturnArgs} args - Arguments to create many ConfiguracaoBancarias.
+     * @example
+     * // Create many ConfiguracaoBancarias
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ConfiguracaoBancarias and only return the `id`
+     * const configuracaoBancariaWithIdOnly = await prisma.configuracaoBancaria.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ConfiguracaoBancariaCreateManyAndReturnArgs>(args?: SelectSubset<T, ConfiguracaoBancariaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ConfiguracaoBancaria.
+     * @param {ConfiguracaoBancariaDeleteArgs} args - Arguments to delete one ConfiguracaoBancaria.
+     * @example
+     * // Delete one ConfiguracaoBancaria
+     * const ConfiguracaoBancaria = await prisma.configuracaoBancaria.delete({
+     *   where: {
+     *     // ... filter to delete one ConfiguracaoBancaria
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ConfiguracaoBancariaDeleteArgs>(args: SelectSubset<T, ConfiguracaoBancariaDeleteArgs<ExtArgs>>): Prisma__ConfiguracaoBancariaClient<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ConfiguracaoBancaria.
+     * @param {ConfiguracaoBancariaUpdateArgs} args - Arguments to update one ConfiguracaoBancaria.
+     * @example
+     * // Update one ConfiguracaoBancaria
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ConfiguracaoBancariaUpdateArgs>(args: SelectSubset<T, ConfiguracaoBancariaUpdateArgs<ExtArgs>>): Prisma__ConfiguracaoBancariaClient<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ConfiguracaoBancarias.
+     * @param {ConfiguracaoBancariaDeleteManyArgs} args - Arguments to filter ConfiguracaoBancarias to delete.
+     * @example
+     * // Delete a few ConfiguracaoBancarias
+     * const { count } = await prisma.configuracaoBancaria.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ConfiguracaoBancariaDeleteManyArgs>(args?: SelectSubset<T, ConfiguracaoBancariaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ConfiguracaoBancarias.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConfiguracaoBancariaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ConfiguracaoBancarias
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ConfiguracaoBancariaUpdateManyArgs>(args: SelectSubset<T, ConfiguracaoBancariaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ConfiguracaoBancarias and returns the data updated in the database.
+     * @param {ConfiguracaoBancariaUpdateManyAndReturnArgs} args - Arguments to update many ConfiguracaoBancarias.
+     * @example
+     * // Update many ConfiguracaoBancarias
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ConfiguracaoBancarias and only return the `id`
+     * const configuracaoBancariaWithIdOnly = await prisma.configuracaoBancaria.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ConfiguracaoBancariaUpdateManyAndReturnArgs>(args: SelectSubset<T, ConfiguracaoBancariaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ConfiguracaoBancaria.
+     * @param {ConfiguracaoBancariaUpsertArgs} args - Arguments to update or create a ConfiguracaoBancaria.
+     * @example
+     * // Update or create a ConfiguracaoBancaria
+     * const configuracaoBancaria = await prisma.configuracaoBancaria.upsert({
+     *   create: {
+     *     // ... data to create a ConfiguracaoBancaria
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ConfiguracaoBancaria we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ConfiguracaoBancariaUpsertArgs>(args: SelectSubset<T, ConfiguracaoBancariaUpsertArgs<ExtArgs>>): Prisma__ConfiguracaoBancariaClient<$Result.GetResult<Prisma.$ConfiguracaoBancariaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ConfiguracaoBancarias.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConfiguracaoBancariaCountArgs} args - Arguments to filter ConfiguracaoBancarias to count.
+     * @example
+     * // Count the number of ConfiguracaoBancarias
+     * const count = await prisma.configuracaoBancaria.count({
+     *   where: {
+     *     // ... the filter for the ConfiguracaoBancarias we want to count
+     *   }
+     * })
+    **/
+    count<T extends ConfiguracaoBancariaCountArgs>(
+      args?: Subset<T, ConfiguracaoBancariaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ConfiguracaoBancariaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ConfiguracaoBancaria.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConfiguracaoBancariaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ConfiguracaoBancariaAggregateArgs>(args: Subset<T, ConfiguracaoBancariaAggregateArgs>): Prisma.PrismaPromise<GetConfiguracaoBancariaAggregateType<T>>
+
+    /**
+     * Group by ConfiguracaoBancaria.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ConfiguracaoBancariaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ConfiguracaoBancariaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ConfiguracaoBancariaGroupByArgs['orderBy'] }
+        : { orderBy?: ConfiguracaoBancariaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ConfiguracaoBancariaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetConfiguracaoBancariaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ConfiguracaoBancaria model
+   */
+  readonly fields: ConfiguracaoBancariaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ConfiguracaoBancaria.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ConfiguracaoBancariaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tenant<T extends TenantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TenantDefaultArgs<ExtArgs>>): Prisma__TenantClient<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ConfiguracaoBancaria model
+   */
+  interface ConfiguracaoBancariaFieldRefs {
+    readonly id: FieldRef<"ConfiguracaoBancaria", 'String'>
+    readonly tenantId: FieldRef<"ConfiguracaoBancaria", 'String'>
+    readonly banco: FieldRef<"ConfiguracaoBancaria", 'String'>
+    readonly agencia: FieldRef<"ConfiguracaoBancaria", 'String'>
+    readonly conta: FieldRef<"ConfiguracaoBancaria", 'String'>
+    readonly convenio: FieldRef<"ConfiguracaoBancaria", 'String'>
+    readonly nossoNumeroInicial: FieldRef<"ConfiguracaoBancaria", 'Int'>
+    readonly nossoNumeroAtual: FieldRef<"ConfiguracaoBancaria", 'Int'>
+    readonly createdAt: FieldRef<"ConfiguracaoBancaria", 'DateTime'>
+    readonly updatedAt: FieldRef<"ConfiguracaoBancaria", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ConfiguracaoBancaria findUnique
+   */
+  export type ConfiguracaoBancariaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * Filter, which ConfiguracaoBancaria to fetch.
+     */
+    where: ConfiguracaoBancariaWhereUniqueInput
+  }
+
+  /**
+   * ConfiguracaoBancaria findUniqueOrThrow
+   */
+  export type ConfiguracaoBancariaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * Filter, which ConfiguracaoBancaria to fetch.
+     */
+    where: ConfiguracaoBancariaWhereUniqueInput
+  }
+
+  /**
+   * ConfiguracaoBancaria findFirst
+   */
+  export type ConfiguracaoBancariaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * Filter, which ConfiguracaoBancaria to fetch.
+     */
+    where?: ConfiguracaoBancariaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ConfiguracaoBancarias to fetch.
+     */
+    orderBy?: ConfiguracaoBancariaOrderByWithRelationInput | ConfiguracaoBancariaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ConfiguracaoBancarias.
+     */
+    cursor?: ConfiguracaoBancariaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ConfiguracaoBancarias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ConfiguracaoBancarias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ConfiguracaoBancarias.
+     */
+    distinct?: ConfiguracaoBancariaScalarFieldEnum | ConfiguracaoBancariaScalarFieldEnum[]
+  }
+
+  /**
+   * ConfiguracaoBancaria findFirstOrThrow
+   */
+  export type ConfiguracaoBancariaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * Filter, which ConfiguracaoBancaria to fetch.
+     */
+    where?: ConfiguracaoBancariaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ConfiguracaoBancarias to fetch.
+     */
+    orderBy?: ConfiguracaoBancariaOrderByWithRelationInput | ConfiguracaoBancariaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ConfiguracaoBancarias.
+     */
+    cursor?: ConfiguracaoBancariaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ConfiguracaoBancarias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ConfiguracaoBancarias.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ConfiguracaoBancarias.
+     */
+    distinct?: ConfiguracaoBancariaScalarFieldEnum | ConfiguracaoBancariaScalarFieldEnum[]
+  }
+
+  /**
+   * ConfiguracaoBancaria findMany
+   */
+  export type ConfiguracaoBancariaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * Filter, which ConfiguracaoBancarias to fetch.
+     */
+    where?: ConfiguracaoBancariaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ConfiguracaoBancarias to fetch.
+     */
+    orderBy?: ConfiguracaoBancariaOrderByWithRelationInput | ConfiguracaoBancariaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ConfiguracaoBancarias.
+     */
+    cursor?: ConfiguracaoBancariaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ConfiguracaoBancarias from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ConfiguracaoBancarias.
+     */
+    skip?: number
+    distinct?: ConfiguracaoBancariaScalarFieldEnum | ConfiguracaoBancariaScalarFieldEnum[]
+  }
+
+  /**
+   * ConfiguracaoBancaria create
+   */
+  export type ConfiguracaoBancariaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ConfiguracaoBancaria.
+     */
+    data: XOR<ConfiguracaoBancariaCreateInput, ConfiguracaoBancariaUncheckedCreateInput>
+  }
+
+  /**
+   * ConfiguracaoBancaria createMany
+   */
+  export type ConfiguracaoBancariaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ConfiguracaoBancarias.
+     */
+    data: ConfiguracaoBancariaCreateManyInput | ConfiguracaoBancariaCreateManyInput[]
+  }
+
+  /**
+   * ConfiguracaoBancaria createManyAndReturn
+   */
+  export type ConfiguracaoBancariaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * The data used to create many ConfiguracaoBancarias.
+     */
+    data: ConfiguracaoBancariaCreateManyInput | ConfiguracaoBancariaCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ConfiguracaoBancaria update
+   */
+  export type ConfiguracaoBancariaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ConfiguracaoBancaria.
+     */
+    data: XOR<ConfiguracaoBancariaUpdateInput, ConfiguracaoBancariaUncheckedUpdateInput>
+    /**
+     * Choose, which ConfiguracaoBancaria to update.
+     */
+    where: ConfiguracaoBancariaWhereUniqueInput
+  }
+
+  /**
+   * ConfiguracaoBancaria updateMany
+   */
+  export type ConfiguracaoBancariaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ConfiguracaoBancarias.
+     */
+    data: XOR<ConfiguracaoBancariaUpdateManyMutationInput, ConfiguracaoBancariaUncheckedUpdateManyInput>
+    /**
+     * Filter which ConfiguracaoBancarias to update
+     */
+    where?: ConfiguracaoBancariaWhereInput
+    /**
+     * Limit how many ConfiguracaoBancarias to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ConfiguracaoBancaria updateManyAndReturn
+   */
+  export type ConfiguracaoBancariaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * The data used to update ConfiguracaoBancarias.
+     */
+    data: XOR<ConfiguracaoBancariaUpdateManyMutationInput, ConfiguracaoBancariaUncheckedUpdateManyInput>
+    /**
+     * Filter which ConfiguracaoBancarias to update
+     */
+    where?: ConfiguracaoBancariaWhereInput
+    /**
+     * Limit how many ConfiguracaoBancarias to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ConfiguracaoBancaria upsert
+   */
+  export type ConfiguracaoBancariaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ConfiguracaoBancaria to update in case it exists.
+     */
+    where: ConfiguracaoBancariaWhereUniqueInput
+    /**
+     * In case the ConfiguracaoBancaria found by the `where` argument doesn't exist, create a new ConfiguracaoBancaria with this data.
+     */
+    create: XOR<ConfiguracaoBancariaCreateInput, ConfiguracaoBancariaUncheckedCreateInput>
+    /**
+     * In case the ConfiguracaoBancaria was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ConfiguracaoBancariaUpdateInput, ConfiguracaoBancariaUncheckedUpdateInput>
+  }
+
+  /**
+   * ConfiguracaoBancaria delete
+   */
+  export type ConfiguracaoBancariaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+    /**
+     * Filter which ConfiguracaoBancaria to delete.
+     */
+    where: ConfiguracaoBancariaWhereUniqueInput
+  }
+
+  /**
+   * ConfiguracaoBancaria deleteMany
+   */
+  export type ConfiguracaoBancariaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ConfiguracaoBancarias to delete
+     */
+    where?: ConfiguracaoBancariaWhereInput
+    /**
+     * Limit how many ConfiguracaoBancarias to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ConfiguracaoBancaria without action
+   */
+  export type ConfiguracaoBancariaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ConfiguracaoBancaria
+     */
+    select?: ConfiguracaoBancariaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ConfiguracaoBancaria
+     */
+    omit?: ConfiguracaoBancariaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ConfiguracaoBancariaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Lancamento
+   */
+
+  export type AggregateLancamento = {
+    _count: LancamentoCountAggregateOutputType | null
+    _avg: LancamentoAvgAggregateOutputType | null
+    _sum: LancamentoSumAggregateOutputType | null
+    _min: LancamentoMinAggregateOutputType | null
+    _max: LancamentoMaxAggregateOutputType | null
+  }
+
+  export type LancamentoAvgAggregateOutputType = {
+    valor: Decimal | null
+  }
+
+  export type LancamentoSumAggregateOutputType = {
+    valor: Decimal | null
+  }
+
+  export type LancamentoMinAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    clienteId: string | null
+    valor: Decimal | null
+    vencimento: Date | null
+    metodo: string | null
+    status: string | null
+    descricao: string | null
+    dataPagamento: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LancamentoMaxAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    clienteId: string | null
+    valor: Decimal | null
+    vencimento: Date | null
+    metodo: string | null
+    status: string | null
+    descricao: string | null
+    dataPagamento: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type LancamentoCountAggregateOutputType = {
+    id: number
+    tenantId: number
+    clienteId: number
+    valor: number
+    vencimento: number
+    metodo: number
+    status: number
+    descricao: number
+    dataPagamento: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type LancamentoAvgAggregateInputType = {
+    valor?: true
+  }
+
+  export type LancamentoSumAggregateInputType = {
+    valor?: true
+  }
+
+  export type LancamentoMinAggregateInputType = {
+    id?: true
+    tenantId?: true
+    clienteId?: true
+    valor?: true
+    vencimento?: true
+    metodo?: true
+    status?: true
+    descricao?: true
+    dataPagamento?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LancamentoMaxAggregateInputType = {
+    id?: true
+    tenantId?: true
+    clienteId?: true
+    valor?: true
+    vencimento?: true
+    metodo?: true
+    status?: true
+    descricao?: true
+    dataPagamento?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type LancamentoCountAggregateInputType = {
+    id?: true
+    tenantId?: true
+    clienteId?: true
+    valor?: true
+    vencimento?: true
+    metodo?: true
+    status?: true
+    descricao?: true
+    dataPagamento?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type LancamentoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Lancamento to aggregate.
+     */
+    where?: LancamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Lancamentos to fetch.
+     */
+    orderBy?: LancamentoOrderByWithRelationInput | LancamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: LancamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Lancamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Lancamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Lancamentos
+    **/
+    _count?: true | LancamentoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: LancamentoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: LancamentoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: LancamentoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: LancamentoMaxAggregateInputType
+  }
+
+  export type GetLancamentoAggregateType<T extends LancamentoAggregateArgs> = {
+        [P in keyof T & keyof AggregateLancamento]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateLancamento[P]>
+      : GetScalarType<T[P], AggregateLancamento[P]>
+  }
+
+
+
+
+  export type LancamentoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LancamentoWhereInput
+    orderBy?: LancamentoOrderByWithAggregationInput | LancamentoOrderByWithAggregationInput[]
+    by: LancamentoScalarFieldEnum[] | LancamentoScalarFieldEnum
+    having?: LancamentoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: LancamentoCountAggregateInputType | true
+    _avg?: LancamentoAvgAggregateInputType
+    _sum?: LancamentoSumAggregateInputType
+    _min?: LancamentoMinAggregateInputType
+    _max?: LancamentoMaxAggregateInputType
+  }
+
+  export type LancamentoGroupByOutputType = {
+    id: string
+    tenantId: string
+    clienteId: string
+    valor: Decimal
+    vencimento: Date
+    metodo: string
+    status: string
+    descricao: string | null
+    dataPagamento: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: LancamentoCountAggregateOutputType | null
+    _avg: LancamentoAvgAggregateOutputType | null
+    _sum: LancamentoSumAggregateOutputType | null
+    _min: LancamentoMinAggregateOutputType | null
+    _max: LancamentoMaxAggregateOutputType | null
+  }
+
+  type GetLancamentoGroupByPayload<T extends LancamentoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<LancamentoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof LancamentoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], LancamentoGroupByOutputType[P]>
+            : GetScalarType<T[P], LancamentoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type LancamentoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    clienteId?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    metodo?: boolean
+    status?: boolean
+    descricao?: boolean
+    dataPagamento?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["lancamento"]>
+
+  export type LancamentoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    clienteId?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    metodo?: boolean
+    status?: boolean
+    descricao?: boolean
+    dataPagamento?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["lancamento"]>
+
+  export type LancamentoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    clienteId?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    metodo?: boolean
+    status?: boolean
+    descricao?: boolean
+    dataPagamento?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["lancamento"]>
+
+  export type LancamentoSelectScalar = {
+    id?: boolean
+    tenantId?: boolean
+    clienteId?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    metodo?: boolean
+    status?: boolean
+    descricao?: boolean
+    dataPagamento?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type LancamentoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tenantId" | "clienteId" | "valor" | "vencimento" | "metodo" | "status" | "descricao" | "dataPagamento" | "createdAt" | "updatedAt", ExtArgs["result"]["lancamento"]>
+  export type LancamentoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }
+  export type LancamentoIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }
+  export type LancamentoIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+    cliente?: boolean | ClienteDefaultArgs<ExtArgs>
+  }
+
+  export type $LancamentoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Lancamento"
+    objects: {
+      tenant: Prisma.$TenantPayload<ExtArgs>
+      cliente: Prisma.$ClientePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tenantId: string
+      clienteId: string
+      valor: Prisma.Decimal
+      vencimento: Date
+      metodo: string
+      status: string
+      descricao: string | null
+      dataPagamento: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["lancamento"]>
+    composites: {}
+  }
+
+  type LancamentoGetPayload<S extends boolean | null | undefined | LancamentoDefaultArgs> = $Result.GetResult<Prisma.$LancamentoPayload, S>
+
+  type LancamentoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<LancamentoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: LancamentoCountAggregateInputType | true
+    }
+
+  export interface LancamentoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Lancamento'], meta: { name: 'Lancamento' } }
+    /**
+     * Find zero or one Lancamento that matches the filter.
+     * @param {LancamentoFindUniqueArgs} args - Arguments to find a Lancamento
+     * @example
+     * // Get one Lancamento
+     * const lancamento = await prisma.lancamento.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LancamentoFindUniqueArgs>(args: SelectSubset<T, LancamentoFindUniqueArgs<ExtArgs>>): Prisma__LancamentoClient<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Lancamento that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LancamentoFindUniqueOrThrowArgs} args - Arguments to find a Lancamento
+     * @example
+     * // Get one Lancamento
+     * const lancamento = await prisma.lancamento.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LancamentoFindUniqueOrThrowArgs>(args: SelectSubset<T, LancamentoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__LancamentoClient<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Lancamento that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LancamentoFindFirstArgs} args - Arguments to find a Lancamento
+     * @example
+     * // Get one Lancamento
+     * const lancamento = await prisma.lancamento.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LancamentoFindFirstArgs>(args?: SelectSubset<T, LancamentoFindFirstArgs<ExtArgs>>): Prisma__LancamentoClient<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Lancamento that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LancamentoFindFirstOrThrowArgs} args - Arguments to find a Lancamento
+     * @example
+     * // Get one Lancamento
+     * const lancamento = await prisma.lancamento.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LancamentoFindFirstOrThrowArgs>(args?: SelectSubset<T, LancamentoFindFirstOrThrowArgs<ExtArgs>>): Prisma__LancamentoClient<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Lancamentos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LancamentoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Lancamentos
+     * const lancamentos = await prisma.lancamento.findMany()
+     * 
+     * // Get first 10 Lancamentos
+     * const lancamentos = await prisma.lancamento.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const lancamentoWithIdOnly = await prisma.lancamento.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends LancamentoFindManyArgs>(args?: SelectSubset<T, LancamentoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Lancamento.
+     * @param {LancamentoCreateArgs} args - Arguments to create a Lancamento.
+     * @example
+     * // Create one Lancamento
+     * const Lancamento = await prisma.lancamento.create({
+     *   data: {
+     *     // ... data to create a Lancamento
+     *   }
+     * })
+     * 
+     */
+    create<T extends LancamentoCreateArgs>(args: SelectSubset<T, LancamentoCreateArgs<ExtArgs>>): Prisma__LancamentoClient<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Lancamentos.
+     * @param {LancamentoCreateManyArgs} args - Arguments to create many Lancamentos.
+     * @example
+     * // Create many Lancamentos
+     * const lancamento = await prisma.lancamento.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends LancamentoCreateManyArgs>(args?: SelectSubset<T, LancamentoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Lancamentos and returns the data saved in the database.
+     * @param {LancamentoCreateManyAndReturnArgs} args - Arguments to create many Lancamentos.
+     * @example
+     * // Create many Lancamentos
+     * const lancamento = await prisma.lancamento.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Lancamentos and only return the `id`
+     * const lancamentoWithIdOnly = await prisma.lancamento.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends LancamentoCreateManyAndReturnArgs>(args?: SelectSubset<T, LancamentoCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Lancamento.
+     * @param {LancamentoDeleteArgs} args - Arguments to delete one Lancamento.
+     * @example
+     * // Delete one Lancamento
+     * const Lancamento = await prisma.lancamento.delete({
+     *   where: {
+     *     // ... filter to delete one Lancamento
+     *   }
+     * })
+     * 
+     */
+    delete<T extends LancamentoDeleteArgs>(args: SelectSubset<T, LancamentoDeleteArgs<ExtArgs>>): Prisma__LancamentoClient<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Lancamento.
+     * @param {LancamentoUpdateArgs} args - Arguments to update one Lancamento.
+     * @example
+     * // Update one Lancamento
+     * const lancamento = await prisma.lancamento.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends LancamentoUpdateArgs>(args: SelectSubset<T, LancamentoUpdateArgs<ExtArgs>>): Prisma__LancamentoClient<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Lancamentos.
+     * @param {LancamentoDeleteManyArgs} args - Arguments to filter Lancamentos to delete.
+     * @example
+     * // Delete a few Lancamentos
+     * const { count } = await prisma.lancamento.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends LancamentoDeleteManyArgs>(args?: SelectSubset<T, LancamentoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Lancamentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LancamentoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Lancamentos
+     * const lancamento = await prisma.lancamento.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends LancamentoUpdateManyArgs>(args: SelectSubset<T, LancamentoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Lancamentos and returns the data updated in the database.
+     * @param {LancamentoUpdateManyAndReturnArgs} args - Arguments to update many Lancamentos.
+     * @example
+     * // Update many Lancamentos
+     * const lancamento = await prisma.lancamento.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Lancamentos and only return the `id`
+     * const lancamentoWithIdOnly = await prisma.lancamento.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends LancamentoUpdateManyAndReturnArgs>(args: SelectSubset<T, LancamentoUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Lancamento.
+     * @param {LancamentoUpsertArgs} args - Arguments to update or create a Lancamento.
+     * @example
+     * // Update or create a Lancamento
+     * const lancamento = await prisma.lancamento.upsert({
+     *   create: {
+     *     // ... data to create a Lancamento
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Lancamento we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LancamentoUpsertArgs>(args: SelectSubset<T, LancamentoUpsertArgs<ExtArgs>>): Prisma__LancamentoClient<$Result.GetResult<Prisma.$LancamentoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Lancamentos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LancamentoCountArgs} args - Arguments to filter Lancamentos to count.
+     * @example
+     * // Count the number of Lancamentos
+     * const count = await prisma.lancamento.count({
+     *   where: {
+     *     // ... the filter for the Lancamentos we want to count
+     *   }
+     * })
+    **/
+    count<T extends LancamentoCountArgs>(
+      args?: Subset<T, LancamentoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], LancamentoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Lancamento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LancamentoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LancamentoAggregateArgs>(args: Subset<T, LancamentoAggregateArgs>): Prisma.PrismaPromise<GetLancamentoAggregateType<T>>
+
+    /**
+     * Group by Lancamento.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LancamentoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends LancamentoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: LancamentoGroupByArgs['orderBy'] }
+        : { orderBy?: LancamentoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, LancamentoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLancamentoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Lancamento model
+   */
+  readonly fields: LancamentoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Lancamento.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__LancamentoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tenant<T extends TenantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TenantDefaultArgs<ExtArgs>>): Prisma__TenantClient<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    cliente<T extends ClienteDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClienteDefaultArgs<ExtArgs>>): Prisma__ClienteClient<$Result.GetResult<Prisma.$ClientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Lancamento model
+   */
+  interface LancamentoFieldRefs {
+    readonly id: FieldRef<"Lancamento", 'String'>
+    readonly tenantId: FieldRef<"Lancamento", 'String'>
+    readonly clienteId: FieldRef<"Lancamento", 'String'>
+    readonly valor: FieldRef<"Lancamento", 'Decimal'>
+    readonly vencimento: FieldRef<"Lancamento", 'DateTime'>
+    readonly metodo: FieldRef<"Lancamento", 'String'>
+    readonly status: FieldRef<"Lancamento", 'String'>
+    readonly descricao: FieldRef<"Lancamento", 'String'>
+    readonly dataPagamento: FieldRef<"Lancamento", 'DateTime'>
+    readonly createdAt: FieldRef<"Lancamento", 'DateTime'>
+    readonly updatedAt: FieldRef<"Lancamento", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Lancamento findUnique
+   */
+  export type LancamentoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Lancamento to fetch.
+     */
+    where: LancamentoWhereUniqueInput
+  }
+
+  /**
+   * Lancamento findUniqueOrThrow
+   */
+  export type LancamentoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Lancamento to fetch.
+     */
+    where: LancamentoWhereUniqueInput
+  }
+
+  /**
+   * Lancamento findFirst
+   */
+  export type LancamentoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Lancamento to fetch.
+     */
+    where?: LancamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Lancamentos to fetch.
+     */
+    orderBy?: LancamentoOrderByWithRelationInput | LancamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Lancamentos.
+     */
+    cursor?: LancamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Lancamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Lancamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Lancamentos.
+     */
+    distinct?: LancamentoScalarFieldEnum | LancamentoScalarFieldEnum[]
+  }
+
+  /**
+   * Lancamento findFirstOrThrow
+   */
+  export type LancamentoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Lancamento to fetch.
+     */
+    where?: LancamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Lancamentos to fetch.
+     */
+    orderBy?: LancamentoOrderByWithRelationInput | LancamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Lancamentos.
+     */
+    cursor?: LancamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Lancamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Lancamentos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Lancamentos.
+     */
+    distinct?: LancamentoScalarFieldEnum | LancamentoScalarFieldEnum[]
+  }
+
+  /**
+   * Lancamento findMany
+   */
+  export type LancamentoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * Filter, which Lancamentos to fetch.
+     */
+    where?: LancamentoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Lancamentos to fetch.
+     */
+    orderBy?: LancamentoOrderByWithRelationInput | LancamentoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Lancamentos.
+     */
+    cursor?: LancamentoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Lancamentos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Lancamentos.
+     */
+    skip?: number
+    distinct?: LancamentoScalarFieldEnum | LancamentoScalarFieldEnum[]
+  }
+
+  /**
+   * Lancamento create
+   */
+  export type LancamentoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Lancamento.
+     */
+    data: XOR<LancamentoCreateInput, LancamentoUncheckedCreateInput>
+  }
+
+  /**
+   * Lancamento createMany
+   */
+  export type LancamentoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Lancamentos.
+     */
+    data: LancamentoCreateManyInput | LancamentoCreateManyInput[]
+  }
+
+  /**
+   * Lancamento createManyAndReturn
+   */
+  export type LancamentoCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * The data used to create many Lancamentos.
+     */
+    data: LancamentoCreateManyInput | LancamentoCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Lancamento update
+   */
+  export type LancamentoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Lancamento.
+     */
+    data: XOR<LancamentoUpdateInput, LancamentoUncheckedUpdateInput>
+    /**
+     * Choose, which Lancamento to update.
+     */
+    where: LancamentoWhereUniqueInput
+  }
+
+  /**
+   * Lancamento updateMany
+   */
+  export type LancamentoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Lancamentos.
+     */
+    data: XOR<LancamentoUpdateManyMutationInput, LancamentoUncheckedUpdateManyInput>
+    /**
+     * Filter which Lancamentos to update
+     */
+    where?: LancamentoWhereInput
+    /**
+     * Limit how many Lancamentos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Lancamento updateManyAndReturn
+   */
+  export type LancamentoUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * The data used to update Lancamentos.
+     */
+    data: XOR<LancamentoUpdateManyMutationInput, LancamentoUncheckedUpdateManyInput>
+    /**
+     * Filter which Lancamentos to update
+     */
+    where?: LancamentoWhereInput
+    /**
+     * Limit how many Lancamentos to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Lancamento upsert
+   */
+  export type LancamentoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Lancamento to update in case it exists.
+     */
+    where: LancamentoWhereUniqueInput
+    /**
+     * In case the Lancamento found by the `where` argument doesn't exist, create a new Lancamento with this data.
+     */
+    create: XOR<LancamentoCreateInput, LancamentoUncheckedCreateInput>
+    /**
+     * In case the Lancamento was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<LancamentoUpdateInput, LancamentoUncheckedUpdateInput>
+  }
+
+  /**
+   * Lancamento delete
+   */
+  export type LancamentoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+    /**
+     * Filter which Lancamento to delete.
+     */
+    where: LancamentoWhereUniqueInput
+  }
+
+  /**
+   * Lancamento deleteMany
+   */
+  export type LancamentoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Lancamentos to delete
+     */
+    where?: LancamentoWhereInput
+    /**
+     * Limit how many Lancamentos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Lancamento without action
+   */
+  export type LancamentoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lancamento
+     */
+    select?: LancamentoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Lancamento
+     */
+    omit?: LancamentoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LancamentoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Despesa
+   */
+
+  export type AggregateDespesa = {
+    _count: DespesaCountAggregateOutputType | null
+    _avg: DespesaAvgAggregateOutputType | null
+    _sum: DespesaSumAggregateOutputType | null
+    _min: DespesaMinAggregateOutputType | null
+    _max: DespesaMaxAggregateOutputType | null
+  }
+
+  export type DespesaAvgAggregateOutputType = {
+    valor: Decimal | null
+  }
+
+  export type DespesaSumAggregateOutputType = {
+    valor: Decimal | null
+  }
+
+  export type DespesaMinAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    descricao: string | null
+    valor: Decimal | null
+    vencimento: Date | null
+    categoria: string | null
+    status: string | null
+    dataPagamento: Date | null
+    formaPagamento: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DespesaMaxAggregateOutputType = {
+    id: string | null
+    tenantId: string | null
+    descricao: string | null
+    valor: Decimal | null
+    vencimento: Date | null
+    categoria: string | null
+    status: string | null
+    dataPagamento: Date | null
+    formaPagamento: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type DespesaCountAggregateOutputType = {
+    id: number
+    tenantId: number
+    descricao: number
+    valor: number
+    vencimento: number
+    categoria: number
+    status: number
+    dataPagamento: number
+    formaPagamento: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type DespesaAvgAggregateInputType = {
+    valor?: true
+  }
+
+  export type DespesaSumAggregateInputType = {
+    valor?: true
+  }
+
+  export type DespesaMinAggregateInputType = {
+    id?: true
+    tenantId?: true
+    descricao?: true
+    valor?: true
+    vencimento?: true
+    categoria?: true
+    status?: true
+    dataPagamento?: true
+    formaPagamento?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DespesaMaxAggregateInputType = {
+    id?: true
+    tenantId?: true
+    descricao?: true
+    valor?: true
+    vencimento?: true
+    categoria?: true
+    status?: true
+    dataPagamento?: true
+    formaPagamento?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type DespesaCountAggregateInputType = {
+    id?: true
+    tenantId?: true
+    descricao?: true
+    valor?: true
+    vencimento?: true
+    categoria?: true
+    status?: true
+    dataPagamento?: true
+    formaPagamento?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type DespesaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Despesa to aggregate.
+     */
+    where?: DespesaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Despesas to fetch.
+     */
+    orderBy?: DespesaOrderByWithRelationInput | DespesaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DespesaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Despesas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Despesas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Despesas
+    **/
+    _count?: true | DespesaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DespesaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DespesaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DespesaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DespesaMaxAggregateInputType
+  }
+
+  export type GetDespesaAggregateType<T extends DespesaAggregateArgs> = {
+        [P in keyof T & keyof AggregateDespesa]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDespesa[P]>
+      : GetScalarType<T[P], AggregateDespesa[P]>
+  }
+
+
+
+
+  export type DespesaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DespesaWhereInput
+    orderBy?: DespesaOrderByWithAggregationInput | DespesaOrderByWithAggregationInput[]
+    by: DespesaScalarFieldEnum[] | DespesaScalarFieldEnum
+    having?: DespesaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DespesaCountAggregateInputType | true
+    _avg?: DespesaAvgAggregateInputType
+    _sum?: DespesaSumAggregateInputType
+    _min?: DespesaMinAggregateInputType
+    _max?: DespesaMaxAggregateInputType
+  }
+
+  export type DespesaGroupByOutputType = {
+    id: string
+    tenantId: string
+    descricao: string
+    valor: Decimal
+    vencimento: Date
+    categoria: string
+    status: string
+    dataPagamento: Date | null
+    formaPagamento: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: DespesaCountAggregateOutputType | null
+    _avg: DespesaAvgAggregateOutputType | null
+    _sum: DespesaSumAggregateOutputType | null
+    _min: DespesaMinAggregateOutputType | null
+    _max: DespesaMaxAggregateOutputType | null
+  }
+
+  type GetDespesaGroupByPayload<T extends DespesaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DespesaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DespesaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DespesaGroupByOutputType[P]>
+            : GetScalarType<T[P], DespesaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DespesaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    descricao?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    categoria?: boolean
+    status?: boolean
+    dataPagamento?: boolean
+    formaPagamento?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["despesa"]>
+
+  export type DespesaSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    descricao?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    categoria?: boolean
+    status?: boolean
+    dataPagamento?: boolean
+    formaPagamento?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["despesa"]>
+
+  export type DespesaSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tenantId?: boolean
+    descricao?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    categoria?: boolean
+    status?: boolean
+    dataPagamento?: boolean
+    formaPagamento?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["despesa"]>
+
+  export type DespesaSelectScalar = {
+    id?: boolean
+    tenantId?: boolean
+    descricao?: boolean
+    valor?: boolean
+    vencimento?: boolean
+    categoria?: boolean
+    status?: boolean
+    dataPagamento?: boolean
+    formaPagamento?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type DespesaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tenantId" | "descricao" | "valor" | "vencimento" | "categoria" | "status" | "dataPagamento" | "formaPagamento" | "createdAt" | "updatedAt", ExtArgs["result"]["despesa"]>
+  export type DespesaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }
+  export type DespesaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }
+  export type DespesaIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tenant?: boolean | TenantDefaultArgs<ExtArgs>
+  }
+
+  export type $DespesaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Despesa"
+    objects: {
+      tenant: Prisma.$TenantPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      tenantId: string
+      descricao: string
+      valor: Prisma.Decimal
+      vencimento: Date
+      categoria: string
+      status: string
+      dataPagamento: Date | null
+      formaPagamento: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["despesa"]>
+    composites: {}
+  }
+
+  type DespesaGetPayload<S extends boolean | null | undefined | DespesaDefaultArgs> = $Result.GetResult<Prisma.$DespesaPayload, S>
+
+  type DespesaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DespesaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DespesaCountAggregateInputType | true
+    }
+
+  export interface DespesaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Despesa'], meta: { name: 'Despesa' } }
+    /**
+     * Find zero or one Despesa that matches the filter.
+     * @param {DespesaFindUniqueArgs} args - Arguments to find a Despesa
+     * @example
+     * // Get one Despesa
+     * const despesa = await prisma.despesa.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DespesaFindUniqueArgs>(args: SelectSubset<T, DespesaFindUniqueArgs<ExtArgs>>): Prisma__DespesaClient<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Despesa that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DespesaFindUniqueOrThrowArgs} args - Arguments to find a Despesa
+     * @example
+     * // Get one Despesa
+     * const despesa = await prisma.despesa.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DespesaFindUniqueOrThrowArgs>(args: SelectSubset<T, DespesaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DespesaClient<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Despesa that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DespesaFindFirstArgs} args - Arguments to find a Despesa
+     * @example
+     * // Get one Despesa
+     * const despesa = await prisma.despesa.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DespesaFindFirstArgs>(args?: SelectSubset<T, DespesaFindFirstArgs<ExtArgs>>): Prisma__DespesaClient<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Despesa that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DespesaFindFirstOrThrowArgs} args - Arguments to find a Despesa
+     * @example
+     * // Get one Despesa
+     * const despesa = await prisma.despesa.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DespesaFindFirstOrThrowArgs>(args?: SelectSubset<T, DespesaFindFirstOrThrowArgs<ExtArgs>>): Prisma__DespesaClient<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Despesas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DespesaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Despesas
+     * const despesas = await prisma.despesa.findMany()
+     * 
+     * // Get first 10 Despesas
+     * const despesas = await prisma.despesa.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const despesaWithIdOnly = await prisma.despesa.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DespesaFindManyArgs>(args?: SelectSubset<T, DespesaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Despesa.
+     * @param {DespesaCreateArgs} args - Arguments to create a Despesa.
+     * @example
+     * // Create one Despesa
+     * const Despesa = await prisma.despesa.create({
+     *   data: {
+     *     // ... data to create a Despesa
+     *   }
+     * })
+     * 
+     */
+    create<T extends DespesaCreateArgs>(args: SelectSubset<T, DespesaCreateArgs<ExtArgs>>): Prisma__DespesaClient<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Despesas.
+     * @param {DespesaCreateManyArgs} args - Arguments to create many Despesas.
+     * @example
+     * // Create many Despesas
+     * const despesa = await prisma.despesa.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DespesaCreateManyArgs>(args?: SelectSubset<T, DespesaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Despesas and returns the data saved in the database.
+     * @param {DespesaCreateManyAndReturnArgs} args - Arguments to create many Despesas.
+     * @example
+     * // Create many Despesas
+     * const despesa = await prisma.despesa.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Despesas and only return the `id`
+     * const despesaWithIdOnly = await prisma.despesa.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DespesaCreateManyAndReturnArgs>(args?: SelectSubset<T, DespesaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Despesa.
+     * @param {DespesaDeleteArgs} args - Arguments to delete one Despesa.
+     * @example
+     * // Delete one Despesa
+     * const Despesa = await prisma.despesa.delete({
+     *   where: {
+     *     // ... filter to delete one Despesa
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DespesaDeleteArgs>(args: SelectSubset<T, DespesaDeleteArgs<ExtArgs>>): Prisma__DespesaClient<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Despesa.
+     * @param {DespesaUpdateArgs} args - Arguments to update one Despesa.
+     * @example
+     * // Update one Despesa
+     * const despesa = await prisma.despesa.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DespesaUpdateArgs>(args: SelectSubset<T, DespesaUpdateArgs<ExtArgs>>): Prisma__DespesaClient<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Despesas.
+     * @param {DespesaDeleteManyArgs} args - Arguments to filter Despesas to delete.
+     * @example
+     * // Delete a few Despesas
+     * const { count } = await prisma.despesa.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DespesaDeleteManyArgs>(args?: SelectSubset<T, DespesaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Despesas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DespesaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Despesas
+     * const despesa = await prisma.despesa.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DespesaUpdateManyArgs>(args: SelectSubset<T, DespesaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Despesas and returns the data updated in the database.
+     * @param {DespesaUpdateManyAndReturnArgs} args - Arguments to update many Despesas.
+     * @example
+     * // Update many Despesas
+     * const despesa = await prisma.despesa.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Despesas and only return the `id`
+     * const despesaWithIdOnly = await prisma.despesa.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DespesaUpdateManyAndReturnArgs>(args: SelectSubset<T, DespesaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Despesa.
+     * @param {DespesaUpsertArgs} args - Arguments to update or create a Despesa.
+     * @example
+     * // Update or create a Despesa
+     * const despesa = await prisma.despesa.upsert({
+     *   create: {
+     *     // ... data to create a Despesa
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Despesa we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DespesaUpsertArgs>(args: SelectSubset<T, DespesaUpsertArgs<ExtArgs>>): Prisma__DespesaClient<$Result.GetResult<Prisma.$DespesaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Despesas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DespesaCountArgs} args - Arguments to filter Despesas to count.
+     * @example
+     * // Count the number of Despesas
+     * const count = await prisma.despesa.count({
+     *   where: {
+     *     // ... the filter for the Despesas we want to count
+     *   }
+     * })
+    **/
+    count<T extends DespesaCountArgs>(
+      args?: Subset<T, DespesaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DespesaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Despesa.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DespesaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DespesaAggregateArgs>(args: Subset<T, DespesaAggregateArgs>): Prisma.PrismaPromise<GetDespesaAggregateType<T>>
+
+    /**
+     * Group by Despesa.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DespesaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DespesaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DespesaGroupByArgs['orderBy'] }
+        : { orderBy?: DespesaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DespesaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDespesaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Despesa model
+   */
+  readonly fields: DespesaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Despesa.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DespesaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tenant<T extends TenantDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TenantDefaultArgs<ExtArgs>>): Prisma__TenantClient<$Result.GetResult<Prisma.$TenantPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Despesa model
+   */
+  interface DespesaFieldRefs {
+    readonly id: FieldRef<"Despesa", 'String'>
+    readonly tenantId: FieldRef<"Despesa", 'String'>
+    readonly descricao: FieldRef<"Despesa", 'String'>
+    readonly valor: FieldRef<"Despesa", 'Decimal'>
+    readonly vencimento: FieldRef<"Despesa", 'DateTime'>
+    readonly categoria: FieldRef<"Despesa", 'String'>
+    readonly status: FieldRef<"Despesa", 'String'>
+    readonly dataPagamento: FieldRef<"Despesa", 'DateTime'>
+    readonly formaPagamento: FieldRef<"Despesa", 'String'>
+    readonly createdAt: FieldRef<"Despesa", 'DateTime'>
+    readonly updatedAt: FieldRef<"Despesa", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Despesa findUnique
+   */
+  export type DespesaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * Filter, which Despesa to fetch.
+     */
+    where: DespesaWhereUniqueInput
+  }
+
+  /**
+   * Despesa findUniqueOrThrow
+   */
+  export type DespesaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * Filter, which Despesa to fetch.
+     */
+    where: DespesaWhereUniqueInput
+  }
+
+  /**
+   * Despesa findFirst
+   */
+  export type DespesaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * Filter, which Despesa to fetch.
+     */
+    where?: DespesaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Despesas to fetch.
+     */
+    orderBy?: DespesaOrderByWithRelationInput | DespesaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Despesas.
+     */
+    cursor?: DespesaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Despesas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Despesas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Despesas.
+     */
+    distinct?: DespesaScalarFieldEnum | DespesaScalarFieldEnum[]
+  }
+
+  /**
+   * Despesa findFirstOrThrow
+   */
+  export type DespesaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * Filter, which Despesa to fetch.
+     */
+    where?: DespesaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Despesas to fetch.
+     */
+    orderBy?: DespesaOrderByWithRelationInput | DespesaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Despesas.
+     */
+    cursor?: DespesaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Despesas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Despesas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Despesas.
+     */
+    distinct?: DespesaScalarFieldEnum | DespesaScalarFieldEnum[]
+  }
+
+  /**
+   * Despesa findMany
+   */
+  export type DespesaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * Filter, which Despesas to fetch.
+     */
+    where?: DespesaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Despesas to fetch.
+     */
+    orderBy?: DespesaOrderByWithRelationInput | DespesaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Despesas.
+     */
+    cursor?: DespesaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Despesas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Despesas.
+     */
+    skip?: number
+    distinct?: DespesaScalarFieldEnum | DespesaScalarFieldEnum[]
+  }
+
+  /**
+   * Despesa create
+   */
+  export type DespesaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Despesa.
+     */
+    data: XOR<DespesaCreateInput, DespesaUncheckedCreateInput>
+  }
+
+  /**
+   * Despesa createMany
+   */
+  export type DespesaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Despesas.
+     */
+    data: DespesaCreateManyInput | DespesaCreateManyInput[]
+  }
+
+  /**
+   * Despesa createManyAndReturn
+   */
+  export type DespesaCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * The data used to create many Despesas.
+     */
+    data: DespesaCreateManyInput | DespesaCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Despesa update
+   */
+  export type DespesaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Despesa.
+     */
+    data: XOR<DespesaUpdateInput, DespesaUncheckedUpdateInput>
+    /**
+     * Choose, which Despesa to update.
+     */
+    where: DespesaWhereUniqueInput
+  }
+
+  /**
+   * Despesa updateMany
+   */
+  export type DespesaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Despesas.
+     */
+    data: XOR<DespesaUpdateManyMutationInput, DespesaUncheckedUpdateManyInput>
+    /**
+     * Filter which Despesas to update
+     */
+    where?: DespesaWhereInput
+    /**
+     * Limit how many Despesas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Despesa updateManyAndReturn
+   */
+  export type DespesaUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * The data used to update Despesas.
+     */
+    data: XOR<DespesaUpdateManyMutationInput, DespesaUncheckedUpdateManyInput>
+    /**
+     * Filter which Despesas to update
+     */
+    where?: DespesaWhereInput
+    /**
+     * Limit how many Despesas to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Despesa upsert
+   */
+  export type DespesaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Despesa to update in case it exists.
+     */
+    where: DespesaWhereUniqueInput
+    /**
+     * In case the Despesa found by the `where` argument doesn't exist, create a new Despesa with this data.
+     */
+    create: XOR<DespesaCreateInput, DespesaUncheckedCreateInput>
+    /**
+     * In case the Despesa was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DespesaUpdateInput, DespesaUncheckedUpdateInput>
+  }
+
+  /**
+   * Despesa delete
+   */
+  export type DespesaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+    /**
+     * Filter which Despesa to delete.
+     */
+    where: DespesaWhereUniqueInput
+  }
+
+  /**
+   * Despesa deleteMany
+   */
+  export type DespesaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Despesas to delete
+     */
+    where?: DespesaWhereInput
+    /**
+     * Limit how many Despesas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Despesa without action
+   */
+  export type DespesaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Despesa
+     */
+    select?: DespesaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Despesa
+     */
+    omit?: DespesaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DespesaInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6738,6 +13310,7 @@ export namespace Prisma {
     passwordHash: 'passwordHash',
     role: 'role',
     tenantId: 'tenantId',
+    ativo: 'ativo',
     createdAt: 'createdAt',
     emailVerified: 'emailVerified',
     image: 'image'
@@ -6784,6 +13357,90 @@ export namespace Prisma {
   export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
 
 
+  export const ClienteScalarFieldEnum: {
+    id: 'id',
+    tenantId: 'tenantId',
+    nome: 'nome',
+    cpfCnpj: 'cpfCnpj',
+    email: 'email',
+    telefone: 'telefone',
+    ativo: 'ativo',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ClienteScalarFieldEnum = (typeof ClienteScalarFieldEnum)[keyof typeof ClienteScalarFieldEnum]
+
+
+  export const BoletoScalarFieldEnum: {
+    id: 'id',
+    tenantId: 'tenantId',
+    clienteId: 'clienteId',
+    nossoNumero: 'nossoNumero',
+    valor: 'valor',
+    vencimento: 'vencimento',
+    banco: 'banco',
+    status: 'status',
+    descricao: 'descricao',
+    parcela: 'parcela',
+    totalParcelas: 'totalParcelas',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BoletoScalarFieldEnum = (typeof BoletoScalarFieldEnum)[keyof typeof BoletoScalarFieldEnum]
+
+
+  export const ConfiguracaoBancariaScalarFieldEnum: {
+    id: 'id',
+    tenantId: 'tenantId',
+    banco: 'banco',
+    agencia: 'agencia',
+    conta: 'conta',
+    convenio: 'convenio',
+    nossoNumeroInicial: 'nossoNumeroInicial',
+    nossoNumeroAtual: 'nossoNumeroAtual',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ConfiguracaoBancariaScalarFieldEnum = (typeof ConfiguracaoBancariaScalarFieldEnum)[keyof typeof ConfiguracaoBancariaScalarFieldEnum]
+
+
+  export const LancamentoScalarFieldEnum: {
+    id: 'id',
+    tenantId: 'tenantId',
+    clienteId: 'clienteId',
+    valor: 'valor',
+    vencimento: 'vencimento',
+    metodo: 'metodo',
+    status: 'status',
+    descricao: 'descricao',
+    dataPagamento: 'dataPagamento',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type LancamentoScalarFieldEnum = (typeof LancamentoScalarFieldEnum)[keyof typeof LancamentoScalarFieldEnum]
+
+
+  export const DespesaScalarFieldEnum: {
+    id: 'id',
+    tenantId: 'tenantId',
+    descricao: 'descricao',
+    valor: 'valor',
+    vencimento: 'vencimento',
+    categoria: 'categoria',
+    status: 'status',
+    dataPagamento: 'dataPagamento',
+    formaPagamento: 'formaPagamento',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DespesaScalarFieldEnum = (typeof DespesaScalarFieldEnum)[keyof typeof DespesaScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -6820,9 +13477,23 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
     
 
 
@@ -6844,6 +13515,11 @@ export namespace Prisma {
     name?: StringFilter<"Tenant"> | string
     createdAt?: DateTimeFilter<"Tenant"> | Date | string
     users?: UserListRelationFilter
+    clientes?: ClienteListRelationFilter
+    boletos?: BoletoListRelationFilter
+    lancamentos?: LancamentoListRelationFilter
+    configuracoesBancarias?: ConfiguracaoBancariaListRelationFilter
+    despesas?: DespesaListRelationFilter
   }
 
   export type TenantOrderByWithRelationInput = {
@@ -6851,6 +13527,11 @@ export namespace Prisma {
     name?: SortOrder
     createdAt?: SortOrder
     users?: UserOrderByRelationAggregateInput
+    clientes?: ClienteOrderByRelationAggregateInput
+    boletos?: BoletoOrderByRelationAggregateInput
+    lancamentos?: LancamentoOrderByRelationAggregateInput
+    configuracoesBancarias?: ConfiguracaoBancariaOrderByRelationAggregateInput
+    despesas?: DespesaOrderByRelationAggregateInput
   }
 
   export type TenantWhereUniqueInput = Prisma.AtLeast<{
@@ -6861,6 +13542,11 @@ export namespace Prisma {
     name?: StringFilter<"Tenant"> | string
     createdAt?: DateTimeFilter<"Tenant"> | Date | string
     users?: UserListRelationFilter
+    clientes?: ClienteListRelationFilter
+    boletos?: BoletoListRelationFilter
+    lancamentos?: LancamentoListRelationFilter
+    configuracoesBancarias?: ConfiguracaoBancariaListRelationFilter
+    despesas?: DespesaListRelationFilter
   }, "id">
 
   export type TenantOrderByWithAggregationInput = {
@@ -6891,6 +13577,7 @@ export namespace Prisma {
     passwordHash?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     tenantId?: StringFilter<"User"> | string
+    ativo?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
@@ -6906,6 +13593,7 @@ export namespace Prisma {
     passwordHash?: SortOrder
     role?: SortOrder
     tenantId?: SortOrder
+    ativo?: SortOrder
     createdAt?: SortOrder
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
@@ -6924,6 +13612,7 @@ export namespace Prisma {
     passwordHash?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     tenantId?: StringFilter<"User"> | string
+    ativo?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
@@ -6939,6 +13628,7 @@ export namespace Prisma {
     passwordHash?: SortOrder
     role?: SortOrder
     tenantId?: SortOrder
+    ativo?: SortOrder
     createdAt?: SortOrder
     emailVerified?: SortOrderInput | SortOrder
     image?: SortOrderInput | SortOrder
@@ -6957,6 +13647,7 @@ export namespace Prisma {
     passwordHash?: StringWithAggregatesFilter<"User"> | string
     role?: StringWithAggregatesFilter<"User"> | string
     tenantId?: StringWithAggregatesFilter<"User"> | string
+    ativo?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     emailVerified?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     image?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -7153,11 +13844,458 @@ export namespace Prisma {
     expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
   }
 
+  export type ClienteWhereInput = {
+    AND?: ClienteWhereInput | ClienteWhereInput[]
+    OR?: ClienteWhereInput[]
+    NOT?: ClienteWhereInput | ClienteWhereInput[]
+    id?: StringFilter<"Cliente"> | string
+    tenantId?: StringFilter<"Cliente"> | string
+    nome?: StringFilter<"Cliente"> | string
+    cpfCnpj?: StringNullableFilter<"Cliente"> | string | null
+    email?: StringNullableFilter<"Cliente"> | string | null
+    telefone?: StringNullableFilter<"Cliente"> | string | null
+    ativo?: BoolFilter<"Cliente"> | boolean
+    createdAt?: DateTimeFilter<"Cliente"> | Date | string
+    updatedAt?: DateTimeFilter<"Cliente"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+    boletos?: BoletoListRelationFilter
+    lancamentos?: LancamentoListRelationFilter
+  }
+
+  export type ClienteOrderByWithRelationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    nome?: SortOrder
+    cpfCnpj?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    telefone?: SortOrderInput | SortOrder
+    ativo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tenant?: TenantOrderByWithRelationInput
+    boletos?: BoletoOrderByRelationAggregateInput
+    lancamentos?: LancamentoOrderByRelationAggregateInput
+  }
+
+  export type ClienteWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ClienteWhereInput | ClienteWhereInput[]
+    OR?: ClienteWhereInput[]
+    NOT?: ClienteWhereInput | ClienteWhereInput[]
+    tenantId?: StringFilter<"Cliente"> | string
+    nome?: StringFilter<"Cliente"> | string
+    cpfCnpj?: StringNullableFilter<"Cliente"> | string | null
+    email?: StringNullableFilter<"Cliente"> | string | null
+    telefone?: StringNullableFilter<"Cliente"> | string | null
+    ativo?: BoolFilter<"Cliente"> | boolean
+    createdAt?: DateTimeFilter<"Cliente"> | Date | string
+    updatedAt?: DateTimeFilter<"Cliente"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+    boletos?: BoletoListRelationFilter
+    lancamentos?: LancamentoListRelationFilter
+  }, "id">
+
+  export type ClienteOrderByWithAggregationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    nome?: SortOrder
+    cpfCnpj?: SortOrderInput | SortOrder
+    email?: SortOrderInput | SortOrder
+    telefone?: SortOrderInput | SortOrder
+    ativo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ClienteCountOrderByAggregateInput
+    _max?: ClienteMaxOrderByAggregateInput
+    _min?: ClienteMinOrderByAggregateInput
+  }
+
+  export type ClienteScalarWhereWithAggregatesInput = {
+    AND?: ClienteScalarWhereWithAggregatesInput | ClienteScalarWhereWithAggregatesInput[]
+    OR?: ClienteScalarWhereWithAggregatesInput[]
+    NOT?: ClienteScalarWhereWithAggregatesInput | ClienteScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Cliente"> | string
+    tenantId?: StringWithAggregatesFilter<"Cliente"> | string
+    nome?: StringWithAggregatesFilter<"Cliente"> | string
+    cpfCnpj?: StringNullableWithAggregatesFilter<"Cliente"> | string | null
+    email?: StringNullableWithAggregatesFilter<"Cliente"> | string | null
+    telefone?: StringNullableWithAggregatesFilter<"Cliente"> | string | null
+    ativo?: BoolWithAggregatesFilter<"Cliente"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Cliente"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Cliente"> | Date | string
+  }
+
+  export type BoletoWhereInput = {
+    AND?: BoletoWhereInput | BoletoWhereInput[]
+    OR?: BoletoWhereInput[]
+    NOT?: BoletoWhereInput | BoletoWhereInput[]
+    id?: StringFilter<"Boleto"> | string
+    tenantId?: StringFilter<"Boleto"> | string
+    clienteId?: StringFilter<"Boleto"> | string
+    nossoNumero?: StringFilter<"Boleto"> | string
+    valor?: DecimalFilter<"Boleto"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Boleto"> | Date | string
+    banco?: StringFilter<"Boleto"> | string
+    status?: StringFilter<"Boleto"> | string
+    descricao?: StringNullableFilter<"Boleto"> | string | null
+    parcela?: IntNullableFilter<"Boleto"> | number | null
+    totalParcelas?: IntNullableFilter<"Boleto"> | number | null
+    createdAt?: DateTimeFilter<"Boleto"> | Date | string
+    updatedAt?: DateTimeFilter<"Boleto"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+    cliente?: XOR<ClienteScalarRelationFilter, ClienteWhereInput>
+  }
+
+  export type BoletoOrderByWithRelationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    nossoNumero?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    banco?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrderInput | SortOrder
+    parcela?: SortOrderInput | SortOrder
+    totalParcelas?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tenant?: TenantOrderByWithRelationInput
+    cliente?: ClienteOrderByWithRelationInput
+  }
+
+  export type BoletoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    tenantId_nossoNumero?: BoletoTenantIdNossoNumeroCompoundUniqueInput
+    AND?: BoletoWhereInput | BoletoWhereInput[]
+    OR?: BoletoWhereInput[]
+    NOT?: BoletoWhereInput | BoletoWhereInput[]
+    tenantId?: StringFilter<"Boleto"> | string
+    clienteId?: StringFilter<"Boleto"> | string
+    nossoNumero?: StringFilter<"Boleto"> | string
+    valor?: DecimalFilter<"Boleto"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Boleto"> | Date | string
+    banco?: StringFilter<"Boleto"> | string
+    status?: StringFilter<"Boleto"> | string
+    descricao?: StringNullableFilter<"Boleto"> | string | null
+    parcela?: IntNullableFilter<"Boleto"> | number | null
+    totalParcelas?: IntNullableFilter<"Boleto"> | number | null
+    createdAt?: DateTimeFilter<"Boleto"> | Date | string
+    updatedAt?: DateTimeFilter<"Boleto"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+    cliente?: XOR<ClienteScalarRelationFilter, ClienteWhereInput>
+  }, "id" | "tenantId_nossoNumero">
+
+  export type BoletoOrderByWithAggregationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    nossoNumero?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    banco?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrderInput | SortOrder
+    parcela?: SortOrderInput | SortOrder
+    totalParcelas?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BoletoCountOrderByAggregateInput
+    _avg?: BoletoAvgOrderByAggregateInput
+    _max?: BoletoMaxOrderByAggregateInput
+    _min?: BoletoMinOrderByAggregateInput
+    _sum?: BoletoSumOrderByAggregateInput
+  }
+
+  export type BoletoScalarWhereWithAggregatesInput = {
+    AND?: BoletoScalarWhereWithAggregatesInput | BoletoScalarWhereWithAggregatesInput[]
+    OR?: BoletoScalarWhereWithAggregatesInput[]
+    NOT?: BoletoScalarWhereWithAggregatesInput | BoletoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Boleto"> | string
+    tenantId?: StringWithAggregatesFilter<"Boleto"> | string
+    clienteId?: StringWithAggregatesFilter<"Boleto"> | string
+    nossoNumero?: StringWithAggregatesFilter<"Boleto"> | string
+    valor?: DecimalWithAggregatesFilter<"Boleto"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeWithAggregatesFilter<"Boleto"> | Date | string
+    banco?: StringWithAggregatesFilter<"Boleto"> | string
+    status?: StringWithAggregatesFilter<"Boleto"> | string
+    descricao?: StringNullableWithAggregatesFilter<"Boleto"> | string | null
+    parcela?: IntNullableWithAggregatesFilter<"Boleto"> | number | null
+    totalParcelas?: IntNullableWithAggregatesFilter<"Boleto"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Boleto"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Boleto"> | Date | string
+  }
+
+  export type ConfiguracaoBancariaWhereInput = {
+    AND?: ConfiguracaoBancariaWhereInput | ConfiguracaoBancariaWhereInput[]
+    OR?: ConfiguracaoBancariaWhereInput[]
+    NOT?: ConfiguracaoBancariaWhereInput | ConfiguracaoBancariaWhereInput[]
+    id?: StringFilter<"ConfiguracaoBancaria"> | string
+    tenantId?: StringFilter<"ConfiguracaoBancaria"> | string
+    banco?: StringFilter<"ConfiguracaoBancaria"> | string
+    agencia?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    conta?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    convenio?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    nossoNumeroInicial?: IntFilter<"ConfiguracaoBancaria"> | number
+    nossoNumeroAtual?: IntFilter<"ConfiguracaoBancaria"> | number
+    createdAt?: DateTimeFilter<"ConfiguracaoBancaria"> | Date | string
+    updatedAt?: DateTimeFilter<"ConfiguracaoBancaria"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+  }
+
+  export type ConfiguracaoBancariaOrderByWithRelationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    banco?: SortOrder
+    agencia?: SortOrderInput | SortOrder
+    conta?: SortOrderInput | SortOrder
+    convenio?: SortOrderInput | SortOrder
+    nossoNumeroInicial?: SortOrder
+    nossoNumeroAtual?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tenant?: TenantOrderByWithRelationInput
+  }
+
+  export type ConfiguracaoBancariaWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    tenantId_banco?: ConfiguracaoBancariaTenantIdBancoCompoundUniqueInput
+    AND?: ConfiguracaoBancariaWhereInput | ConfiguracaoBancariaWhereInput[]
+    OR?: ConfiguracaoBancariaWhereInput[]
+    NOT?: ConfiguracaoBancariaWhereInput | ConfiguracaoBancariaWhereInput[]
+    tenantId?: StringFilter<"ConfiguracaoBancaria"> | string
+    banco?: StringFilter<"ConfiguracaoBancaria"> | string
+    agencia?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    conta?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    convenio?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    nossoNumeroInicial?: IntFilter<"ConfiguracaoBancaria"> | number
+    nossoNumeroAtual?: IntFilter<"ConfiguracaoBancaria"> | number
+    createdAt?: DateTimeFilter<"ConfiguracaoBancaria"> | Date | string
+    updatedAt?: DateTimeFilter<"ConfiguracaoBancaria"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+  }, "id" | "tenantId_banco">
+
+  export type ConfiguracaoBancariaOrderByWithAggregationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    banco?: SortOrder
+    agencia?: SortOrderInput | SortOrder
+    conta?: SortOrderInput | SortOrder
+    convenio?: SortOrderInput | SortOrder
+    nossoNumeroInicial?: SortOrder
+    nossoNumeroAtual?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ConfiguracaoBancariaCountOrderByAggregateInput
+    _avg?: ConfiguracaoBancariaAvgOrderByAggregateInput
+    _max?: ConfiguracaoBancariaMaxOrderByAggregateInput
+    _min?: ConfiguracaoBancariaMinOrderByAggregateInput
+    _sum?: ConfiguracaoBancariaSumOrderByAggregateInput
+  }
+
+  export type ConfiguracaoBancariaScalarWhereWithAggregatesInput = {
+    AND?: ConfiguracaoBancariaScalarWhereWithAggregatesInput | ConfiguracaoBancariaScalarWhereWithAggregatesInput[]
+    OR?: ConfiguracaoBancariaScalarWhereWithAggregatesInput[]
+    NOT?: ConfiguracaoBancariaScalarWhereWithAggregatesInput | ConfiguracaoBancariaScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ConfiguracaoBancaria"> | string
+    tenantId?: StringWithAggregatesFilter<"ConfiguracaoBancaria"> | string
+    banco?: StringWithAggregatesFilter<"ConfiguracaoBancaria"> | string
+    agencia?: StringNullableWithAggregatesFilter<"ConfiguracaoBancaria"> | string | null
+    conta?: StringNullableWithAggregatesFilter<"ConfiguracaoBancaria"> | string | null
+    convenio?: StringNullableWithAggregatesFilter<"ConfiguracaoBancaria"> | string | null
+    nossoNumeroInicial?: IntWithAggregatesFilter<"ConfiguracaoBancaria"> | number
+    nossoNumeroAtual?: IntWithAggregatesFilter<"ConfiguracaoBancaria"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"ConfiguracaoBancaria"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ConfiguracaoBancaria"> | Date | string
+  }
+
+  export type LancamentoWhereInput = {
+    AND?: LancamentoWhereInput | LancamentoWhereInput[]
+    OR?: LancamentoWhereInput[]
+    NOT?: LancamentoWhereInput | LancamentoWhereInput[]
+    id?: StringFilter<"Lancamento"> | string
+    tenantId?: StringFilter<"Lancamento"> | string
+    clienteId?: StringFilter<"Lancamento"> | string
+    valor?: DecimalFilter<"Lancamento"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Lancamento"> | Date | string
+    metodo?: StringFilter<"Lancamento"> | string
+    status?: StringFilter<"Lancamento"> | string
+    descricao?: StringNullableFilter<"Lancamento"> | string | null
+    dataPagamento?: DateTimeNullableFilter<"Lancamento"> | Date | string | null
+    createdAt?: DateTimeFilter<"Lancamento"> | Date | string
+    updatedAt?: DateTimeFilter<"Lancamento"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+    cliente?: XOR<ClienteScalarRelationFilter, ClienteWhereInput>
+  }
+
+  export type LancamentoOrderByWithRelationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    metodo?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrderInput | SortOrder
+    dataPagamento?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tenant?: TenantOrderByWithRelationInput
+    cliente?: ClienteOrderByWithRelationInput
+  }
+
+  export type LancamentoWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: LancamentoWhereInput | LancamentoWhereInput[]
+    OR?: LancamentoWhereInput[]
+    NOT?: LancamentoWhereInput | LancamentoWhereInput[]
+    tenantId?: StringFilter<"Lancamento"> | string
+    clienteId?: StringFilter<"Lancamento"> | string
+    valor?: DecimalFilter<"Lancamento"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Lancamento"> | Date | string
+    metodo?: StringFilter<"Lancamento"> | string
+    status?: StringFilter<"Lancamento"> | string
+    descricao?: StringNullableFilter<"Lancamento"> | string | null
+    dataPagamento?: DateTimeNullableFilter<"Lancamento"> | Date | string | null
+    createdAt?: DateTimeFilter<"Lancamento"> | Date | string
+    updatedAt?: DateTimeFilter<"Lancamento"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+    cliente?: XOR<ClienteScalarRelationFilter, ClienteWhereInput>
+  }, "id">
+
+  export type LancamentoOrderByWithAggregationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    metodo?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrderInput | SortOrder
+    dataPagamento?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: LancamentoCountOrderByAggregateInput
+    _avg?: LancamentoAvgOrderByAggregateInput
+    _max?: LancamentoMaxOrderByAggregateInput
+    _min?: LancamentoMinOrderByAggregateInput
+    _sum?: LancamentoSumOrderByAggregateInput
+  }
+
+  export type LancamentoScalarWhereWithAggregatesInput = {
+    AND?: LancamentoScalarWhereWithAggregatesInput | LancamentoScalarWhereWithAggregatesInput[]
+    OR?: LancamentoScalarWhereWithAggregatesInput[]
+    NOT?: LancamentoScalarWhereWithAggregatesInput | LancamentoScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Lancamento"> | string
+    tenantId?: StringWithAggregatesFilter<"Lancamento"> | string
+    clienteId?: StringWithAggregatesFilter<"Lancamento"> | string
+    valor?: DecimalWithAggregatesFilter<"Lancamento"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeWithAggregatesFilter<"Lancamento"> | Date | string
+    metodo?: StringWithAggregatesFilter<"Lancamento"> | string
+    status?: StringWithAggregatesFilter<"Lancamento"> | string
+    descricao?: StringNullableWithAggregatesFilter<"Lancamento"> | string | null
+    dataPagamento?: DateTimeNullableWithAggregatesFilter<"Lancamento"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Lancamento"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Lancamento"> | Date | string
+  }
+
+  export type DespesaWhereInput = {
+    AND?: DespesaWhereInput | DespesaWhereInput[]
+    OR?: DespesaWhereInput[]
+    NOT?: DespesaWhereInput | DespesaWhereInput[]
+    id?: StringFilter<"Despesa"> | string
+    tenantId?: StringFilter<"Despesa"> | string
+    descricao?: StringFilter<"Despesa"> | string
+    valor?: DecimalFilter<"Despesa"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Despesa"> | Date | string
+    categoria?: StringFilter<"Despesa"> | string
+    status?: StringFilter<"Despesa"> | string
+    dataPagamento?: DateTimeNullableFilter<"Despesa"> | Date | string | null
+    formaPagamento?: StringNullableFilter<"Despesa"> | string | null
+    createdAt?: DateTimeFilter<"Despesa"> | Date | string
+    updatedAt?: DateTimeFilter<"Despesa"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+  }
+
+  export type DespesaOrderByWithRelationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    descricao?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    categoria?: SortOrder
+    status?: SortOrder
+    dataPagamento?: SortOrderInput | SortOrder
+    formaPagamento?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    tenant?: TenantOrderByWithRelationInput
+  }
+
+  export type DespesaWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DespesaWhereInput | DespesaWhereInput[]
+    OR?: DespesaWhereInput[]
+    NOT?: DespesaWhereInput | DespesaWhereInput[]
+    tenantId?: StringFilter<"Despesa"> | string
+    descricao?: StringFilter<"Despesa"> | string
+    valor?: DecimalFilter<"Despesa"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Despesa"> | Date | string
+    categoria?: StringFilter<"Despesa"> | string
+    status?: StringFilter<"Despesa"> | string
+    dataPagamento?: DateTimeNullableFilter<"Despesa"> | Date | string | null
+    formaPagamento?: StringNullableFilter<"Despesa"> | string | null
+    createdAt?: DateTimeFilter<"Despesa"> | Date | string
+    updatedAt?: DateTimeFilter<"Despesa"> | Date | string
+    tenant?: XOR<TenantScalarRelationFilter, TenantWhereInput>
+  }, "id">
+
+  export type DespesaOrderByWithAggregationInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    descricao?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    categoria?: SortOrder
+    status?: SortOrder
+    dataPagamento?: SortOrderInput | SortOrder
+    formaPagamento?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DespesaCountOrderByAggregateInput
+    _avg?: DespesaAvgOrderByAggregateInput
+    _max?: DespesaMaxOrderByAggregateInput
+    _min?: DespesaMinOrderByAggregateInput
+    _sum?: DespesaSumOrderByAggregateInput
+  }
+
+  export type DespesaScalarWhereWithAggregatesInput = {
+    AND?: DespesaScalarWhereWithAggregatesInput | DespesaScalarWhereWithAggregatesInput[]
+    OR?: DespesaScalarWhereWithAggregatesInput[]
+    NOT?: DespesaScalarWhereWithAggregatesInput | DespesaScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Despesa"> | string
+    tenantId?: StringWithAggregatesFilter<"Despesa"> | string
+    descricao?: StringWithAggregatesFilter<"Despesa"> | string
+    valor?: DecimalWithAggregatesFilter<"Despesa"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeWithAggregatesFilter<"Despesa"> | Date | string
+    categoria?: StringWithAggregatesFilter<"Despesa"> | string
+    status?: StringWithAggregatesFilter<"Despesa"> | string
+    dataPagamento?: DateTimeNullableWithAggregatesFilter<"Despesa"> | Date | string | null
+    formaPagamento?: StringNullableWithAggregatesFilter<"Despesa"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Despesa"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Despesa"> | Date | string
+  }
+
   export type TenantCreateInput = {
     id?: string
     name: string
     createdAt?: Date | string
     users?: UserCreateNestedManyWithoutTenantInput
+    clientes?: ClienteCreateNestedManyWithoutTenantInput
+    boletos?: BoletoCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaCreateNestedManyWithoutTenantInput
+    despesas?: DespesaCreateNestedManyWithoutTenantInput
   }
 
   export type TenantUncheckedCreateInput = {
@@ -7165,6 +14303,11 @@ export namespace Prisma {
     name: string
     createdAt?: Date | string
     users?: UserUncheckedCreateNestedManyWithoutTenantInput
+    clientes?: ClienteUncheckedCreateNestedManyWithoutTenantInput
+    boletos?: BoletoUncheckedCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedCreateNestedManyWithoutTenantInput
+    despesas?: DespesaUncheckedCreateNestedManyWithoutTenantInput
   }
 
   export type TenantUpdateInput = {
@@ -7172,6 +14315,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: UserUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUpdateManyWithoutTenantNestedInput
   }
 
   export type TenantUncheckedUpdateInput = {
@@ -7179,6 +14327,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     users?: UserUncheckedUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUncheckedUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUncheckedUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUncheckedUpdateManyWithoutTenantNestedInput
   }
 
   export type TenantCreateManyInput = {
@@ -7205,6 +14358,7 @@ export namespace Prisma {
     email: string
     passwordHash: string
     role?: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -7220,6 +14374,7 @@ export namespace Prisma {
     passwordHash: string
     role?: string
     tenantId: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -7233,6 +14388,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7248,6 +14404,7 @@ export namespace Prisma {
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     tenantId?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7262,6 +14419,7 @@ export namespace Prisma {
     passwordHash: string
     role?: string
     tenantId: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -7273,6 +14431,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7285,6 +14444,7 @@ export namespace Prisma {
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     tenantId?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7491,6 +14651,490 @@ export namespace Prisma {
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type ClienteCreateInput = {
+    id?: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutClientesInput
+    boletos?: BoletoCreateNestedManyWithoutClienteInput
+    lancamentos?: LancamentoCreateNestedManyWithoutClienteInput
+  }
+
+  export type ClienteUncheckedCreateInput = {
+    id?: string
+    tenantId: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    boletos?: BoletoUncheckedCreateNestedManyWithoutClienteInput
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutClienteInput
+  }
+
+  export type ClienteUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutClientesNestedInput
+    boletos?: BoletoUpdateManyWithoutClienteNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutClienteNestedInput
+  }
+
+  export type ClienteUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    boletos?: BoletoUncheckedUpdateManyWithoutClienteNestedInput
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutClienteNestedInput
+  }
+
+  export type ClienteCreateManyInput = {
+    id?: string
+    tenantId: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClienteUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClienteUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BoletoCreateInput = {
+    id?: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutBoletosInput
+    cliente: ClienteCreateNestedOneWithoutBoletosInput
+  }
+
+  export type BoletoUncheckedCreateInput = {
+    id?: string
+    tenantId: string
+    clienteId: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BoletoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutBoletosNestedInput
+    cliente?: ClienteUpdateOneRequiredWithoutBoletosNestedInput
+  }
+
+  export type BoletoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    clienteId?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BoletoCreateManyInput = {
+    id?: string
+    tenantId: string
+    clienteId: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BoletoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BoletoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    clienteId?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConfiguracaoBancariaCreateInput = {
+    id?: string
+    banco: string
+    agencia?: string | null
+    conta?: string | null
+    convenio?: string | null
+    nossoNumeroInicial?: number
+    nossoNumeroAtual?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutConfiguracoesBancariasInput
+  }
+
+  export type ConfiguracaoBancariaUncheckedCreateInput = {
+    id?: string
+    tenantId: string
+    banco: string
+    agencia?: string | null
+    conta?: string | null
+    convenio?: string | null
+    nossoNumeroInicial?: number
+    nossoNumeroAtual?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ConfiguracaoBancariaUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    agencia?: NullableStringFieldUpdateOperationsInput | string | null
+    conta?: NullableStringFieldUpdateOperationsInput | string | null
+    convenio?: NullableStringFieldUpdateOperationsInput | string | null
+    nossoNumeroInicial?: IntFieldUpdateOperationsInput | number
+    nossoNumeroAtual?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutConfiguracoesBancariasNestedInput
+  }
+
+  export type ConfiguracaoBancariaUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    agencia?: NullableStringFieldUpdateOperationsInput | string | null
+    conta?: NullableStringFieldUpdateOperationsInput | string | null
+    convenio?: NullableStringFieldUpdateOperationsInput | string | null
+    nossoNumeroInicial?: IntFieldUpdateOperationsInput | number
+    nossoNumeroAtual?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConfiguracaoBancariaCreateManyInput = {
+    id?: string
+    tenantId: string
+    banco: string
+    agencia?: string | null
+    conta?: string | null
+    convenio?: string | null
+    nossoNumeroInicial?: number
+    nossoNumeroAtual?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ConfiguracaoBancariaUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    agencia?: NullableStringFieldUpdateOperationsInput | string | null
+    conta?: NullableStringFieldUpdateOperationsInput | string | null
+    convenio?: NullableStringFieldUpdateOperationsInput | string | null
+    nossoNumeroInicial?: IntFieldUpdateOperationsInput | number
+    nossoNumeroAtual?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConfiguracaoBancariaUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    agencia?: NullableStringFieldUpdateOperationsInput | string | null
+    conta?: NullableStringFieldUpdateOperationsInput | string | null
+    convenio?: NullableStringFieldUpdateOperationsInput | string | null
+    nossoNumeroInicial?: IntFieldUpdateOperationsInput | number
+    nossoNumeroAtual?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LancamentoCreateInput = {
+    id?: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutLancamentosInput
+    cliente: ClienteCreateNestedOneWithoutLancamentosInput
+  }
+
+  export type LancamentoUncheckedCreateInput = {
+    id?: string
+    tenantId: string
+    clienteId: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LancamentoUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutLancamentosNestedInput
+    cliente?: ClienteUpdateOneRequiredWithoutLancamentosNestedInput
+  }
+
+  export type LancamentoUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    clienteId?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LancamentoCreateManyInput = {
+    id?: string
+    tenantId: string
+    clienteId: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LancamentoUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LancamentoUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    clienteId?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DespesaCreateInput = {
+    id?: string
+    descricao: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    categoria: string
+    status?: string
+    dataPagamento?: Date | string | null
+    formaPagamento?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutDespesasInput
+  }
+
+  export type DespesaUncheckedCreateInput = {
+    id?: string
+    tenantId: string
+    descricao: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    categoria: string
+    status?: string
+    dataPagamento?: Date | string | null
+    formaPagamento?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DespesaUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    formaPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutDespesasNestedInput
+  }
+
+  export type DespesaUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    formaPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DespesaCreateManyInput = {
+    id?: string
+    tenantId: string
+    descricao: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    categoria: string
+    status?: string
+    dataPagamento?: Date | string | null
+    formaPagamento?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DespesaUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    formaPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DespesaUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    formaPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -7522,7 +15166,57 @@ export namespace Prisma {
     none?: UserWhereInput
   }
 
+  export type ClienteListRelationFilter = {
+    every?: ClienteWhereInput
+    some?: ClienteWhereInput
+    none?: ClienteWhereInput
+  }
+
+  export type BoletoListRelationFilter = {
+    every?: BoletoWhereInput
+    some?: BoletoWhereInput
+    none?: BoletoWhereInput
+  }
+
+  export type LancamentoListRelationFilter = {
+    every?: LancamentoWhereInput
+    some?: LancamentoWhereInput
+    none?: LancamentoWhereInput
+  }
+
+  export type ConfiguracaoBancariaListRelationFilter = {
+    every?: ConfiguracaoBancariaWhereInput
+    some?: ConfiguracaoBancariaWhereInput
+    none?: ConfiguracaoBancariaWhereInput
+  }
+
+  export type DespesaListRelationFilter = {
+    every?: DespesaWhereInput
+    some?: DespesaWhereInput
+    none?: DespesaWhereInput
+  }
+
   export type UserOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClienteOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BoletoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type LancamentoOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ConfiguracaoBancariaOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DespesaOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7589,6 +15283,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -7637,6 +15336,7 @@ export namespace Prisma {
     passwordHash?: SortOrder
     role?: SortOrder
     tenantId?: SortOrder
+    ativo?: SortOrder
     createdAt?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
@@ -7649,6 +15349,7 @@ export namespace Prisma {
     passwordHash?: SortOrder
     role?: SortOrder
     tenantId?: SortOrder
+    ativo?: SortOrder
     createdAt?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
@@ -7661,6 +15362,7 @@ export namespace Prisma {
     passwordHash?: SortOrder
     role?: SortOrder
     tenantId?: SortOrder
+    ativo?: SortOrder
     createdAt?: SortOrder
     emailVerified?: SortOrder
     image?: SortOrder
@@ -7681,6 +15383,14 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -7836,6 +15546,320 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
+  export type ClienteCountOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    nome?: SortOrder
+    cpfCnpj?: SortOrder
+    email?: SortOrder
+    telefone?: SortOrder
+    ativo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClienteMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    nome?: SortOrder
+    cpfCnpj?: SortOrder
+    email?: SortOrder
+    telefone?: SortOrder
+    ativo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClienteMinOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    nome?: SortOrder
+    cpfCnpj?: SortOrder
+    email?: SortOrder
+    telefone?: SortOrder
+    ativo?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ClienteScalarRelationFilter = {
+    is?: ClienteWhereInput
+    isNot?: ClienteWhereInput
+  }
+
+  export type BoletoTenantIdNossoNumeroCompoundUniqueInput = {
+    tenantId: string
+    nossoNumero: string
+  }
+
+  export type BoletoCountOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    nossoNumero?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    banco?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrder
+    parcela?: SortOrder
+    totalParcelas?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BoletoAvgOrderByAggregateInput = {
+    valor?: SortOrder
+    parcela?: SortOrder
+    totalParcelas?: SortOrder
+  }
+
+  export type BoletoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    nossoNumero?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    banco?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrder
+    parcela?: SortOrder
+    totalParcelas?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BoletoMinOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    nossoNumero?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    banco?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrder
+    parcela?: SortOrder
+    totalParcelas?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BoletoSumOrderByAggregateInput = {
+    valor?: SortOrder
+    parcela?: SortOrder
+    totalParcelas?: SortOrder
+  }
+
+  export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type ConfiguracaoBancariaTenantIdBancoCompoundUniqueInput = {
+    tenantId: string
+    banco: string
+  }
+
+  export type ConfiguracaoBancariaCountOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    banco?: SortOrder
+    agencia?: SortOrder
+    conta?: SortOrder
+    convenio?: SortOrder
+    nossoNumeroInicial?: SortOrder
+    nossoNumeroAtual?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ConfiguracaoBancariaAvgOrderByAggregateInput = {
+    nossoNumeroInicial?: SortOrder
+    nossoNumeroAtual?: SortOrder
+  }
+
+  export type ConfiguracaoBancariaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    banco?: SortOrder
+    agencia?: SortOrder
+    conta?: SortOrder
+    convenio?: SortOrder
+    nossoNumeroInicial?: SortOrder
+    nossoNumeroAtual?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ConfiguracaoBancariaMinOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    banco?: SortOrder
+    agencia?: SortOrder
+    conta?: SortOrder
+    convenio?: SortOrder
+    nossoNumeroInicial?: SortOrder
+    nossoNumeroAtual?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ConfiguracaoBancariaSumOrderByAggregateInput = {
+    nossoNumeroInicial?: SortOrder
+    nossoNumeroAtual?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type LancamentoCountOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    metodo?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrder
+    dataPagamento?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LancamentoAvgOrderByAggregateInput = {
+    valor?: SortOrder
+  }
+
+  export type LancamentoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    metodo?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrder
+    dataPagamento?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LancamentoMinOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    clienteId?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    metodo?: SortOrder
+    status?: SortOrder
+    descricao?: SortOrder
+    dataPagamento?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type LancamentoSumOrderByAggregateInput = {
+    valor?: SortOrder
+  }
+
+  export type DespesaCountOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    descricao?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    categoria?: SortOrder
+    status?: SortOrder
+    dataPagamento?: SortOrder
+    formaPagamento?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DespesaAvgOrderByAggregateInput = {
+    valor?: SortOrder
+  }
+
+  export type DespesaMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    descricao?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    categoria?: SortOrder
+    status?: SortOrder
+    dataPagamento?: SortOrder
+    formaPagamento?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DespesaMinOrderByAggregateInput = {
+    id?: SortOrder
+    tenantId?: SortOrder
+    descricao?: SortOrder
+    valor?: SortOrder
+    vencimento?: SortOrder
+    categoria?: SortOrder
+    status?: SortOrder
+    dataPagamento?: SortOrder
+    formaPagamento?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DespesaSumOrderByAggregateInput = {
+    valor?: SortOrder
+  }
+
   export type UserCreateNestedManyWithoutTenantInput = {
     create?: XOR<UserCreateWithoutTenantInput, UserUncheckedCreateWithoutTenantInput> | UserCreateWithoutTenantInput[] | UserUncheckedCreateWithoutTenantInput[]
     connectOrCreate?: UserCreateOrConnectWithoutTenantInput | UserCreateOrConnectWithoutTenantInput[]
@@ -7843,11 +15867,81 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
+  export type ClienteCreateNestedManyWithoutTenantInput = {
+    create?: XOR<ClienteCreateWithoutTenantInput, ClienteUncheckedCreateWithoutTenantInput> | ClienteCreateWithoutTenantInput[] | ClienteUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: ClienteCreateOrConnectWithoutTenantInput | ClienteCreateOrConnectWithoutTenantInput[]
+    createMany?: ClienteCreateManyTenantInputEnvelope
+    connect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+  }
+
+  export type BoletoCreateNestedManyWithoutTenantInput = {
+    create?: XOR<BoletoCreateWithoutTenantInput, BoletoUncheckedCreateWithoutTenantInput> | BoletoCreateWithoutTenantInput[] | BoletoUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: BoletoCreateOrConnectWithoutTenantInput | BoletoCreateOrConnectWithoutTenantInput[]
+    createMany?: BoletoCreateManyTenantInputEnvelope
+    connect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+  }
+
+  export type LancamentoCreateNestedManyWithoutTenantInput = {
+    create?: XOR<LancamentoCreateWithoutTenantInput, LancamentoUncheckedCreateWithoutTenantInput> | LancamentoCreateWithoutTenantInput[] | LancamentoUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: LancamentoCreateOrConnectWithoutTenantInput | LancamentoCreateOrConnectWithoutTenantInput[]
+    createMany?: LancamentoCreateManyTenantInputEnvelope
+    connect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+  }
+
+  export type ConfiguracaoBancariaCreateNestedManyWithoutTenantInput = {
+    create?: XOR<ConfiguracaoBancariaCreateWithoutTenantInput, ConfiguracaoBancariaUncheckedCreateWithoutTenantInput> | ConfiguracaoBancariaCreateWithoutTenantInput[] | ConfiguracaoBancariaUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: ConfiguracaoBancariaCreateOrConnectWithoutTenantInput | ConfiguracaoBancariaCreateOrConnectWithoutTenantInput[]
+    createMany?: ConfiguracaoBancariaCreateManyTenantInputEnvelope
+    connect?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+  }
+
+  export type DespesaCreateNestedManyWithoutTenantInput = {
+    create?: XOR<DespesaCreateWithoutTenantInput, DespesaUncheckedCreateWithoutTenantInput> | DespesaCreateWithoutTenantInput[] | DespesaUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: DespesaCreateOrConnectWithoutTenantInput | DespesaCreateOrConnectWithoutTenantInput[]
+    createMany?: DespesaCreateManyTenantInputEnvelope
+    connect?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+  }
+
   export type UserUncheckedCreateNestedManyWithoutTenantInput = {
     create?: XOR<UserCreateWithoutTenantInput, UserUncheckedCreateWithoutTenantInput> | UserCreateWithoutTenantInput[] | UserUncheckedCreateWithoutTenantInput[]
     connectOrCreate?: UserCreateOrConnectWithoutTenantInput | UserCreateOrConnectWithoutTenantInput[]
     createMany?: UserCreateManyTenantInputEnvelope
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
+  export type ClienteUncheckedCreateNestedManyWithoutTenantInput = {
+    create?: XOR<ClienteCreateWithoutTenantInput, ClienteUncheckedCreateWithoutTenantInput> | ClienteCreateWithoutTenantInput[] | ClienteUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: ClienteCreateOrConnectWithoutTenantInput | ClienteCreateOrConnectWithoutTenantInput[]
+    createMany?: ClienteCreateManyTenantInputEnvelope
+    connect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+  }
+
+  export type BoletoUncheckedCreateNestedManyWithoutTenantInput = {
+    create?: XOR<BoletoCreateWithoutTenantInput, BoletoUncheckedCreateWithoutTenantInput> | BoletoCreateWithoutTenantInput[] | BoletoUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: BoletoCreateOrConnectWithoutTenantInput | BoletoCreateOrConnectWithoutTenantInput[]
+    createMany?: BoletoCreateManyTenantInputEnvelope
+    connect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+  }
+
+  export type LancamentoUncheckedCreateNestedManyWithoutTenantInput = {
+    create?: XOR<LancamentoCreateWithoutTenantInput, LancamentoUncheckedCreateWithoutTenantInput> | LancamentoCreateWithoutTenantInput[] | LancamentoUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: LancamentoCreateOrConnectWithoutTenantInput | LancamentoCreateOrConnectWithoutTenantInput[]
+    createMany?: LancamentoCreateManyTenantInputEnvelope
+    connect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+  }
+
+  export type ConfiguracaoBancariaUncheckedCreateNestedManyWithoutTenantInput = {
+    create?: XOR<ConfiguracaoBancariaCreateWithoutTenantInput, ConfiguracaoBancariaUncheckedCreateWithoutTenantInput> | ConfiguracaoBancariaCreateWithoutTenantInput[] | ConfiguracaoBancariaUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: ConfiguracaoBancariaCreateOrConnectWithoutTenantInput | ConfiguracaoBancariaCreateOrConnectWithoutTenantInput[]
+    createMany?: ConfiguracaoBancariaCreateManyTenantInputEnvelope
+    connect?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+  }
+
+  export type DespesaUncheckedCreateNestedManyWithoutTenantInput = {
+    create?: XOR<DespesaCreateWithoutTenantInput, DespesaUncheckedCreateWithoutTenantInput> | DespesaCreateWithoutTenantInput[] | DespesaUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: DespesaCreateOrConnectWithoutTenantInput | DespesaCreateOrConnectWithoutTenantInput[]
+    createMany?: DespesaCreateManyTenantInputEnvelope
+    connect?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -7872,6 +15966,76 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
+  export type ClienteUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<ClienteCreateWithoutTenantInput, ClienteUncheckedCreateWithoutTenantInput> | ClienteCreateWithoutTenantInput[] | ClienteUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: ClienteCreateOrConnectWithoutTenantInput | ClienteCreateOrConnectWithoutTenantInput[]
+    upsert?: ClienteUpsertWithWhereUniqueWithoutTenantInput | ClienteUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: ClienteCreateManyTenantInputEnvelope
+    set?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+    disconnect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+    delete?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+    connect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+    update?: ClienteUpdateWithWhereUniqueWithoutTenantInput | ClienteUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: ClienteUpdateManyWithWhereWithoutTenantInput | ClienteUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
+  }
+
+  export type BoletoUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<BoletoCreateWithoutTenantInput, BoletoUncheckedCreateWithoutTenantInput> | BoletoCreateWithoutTenantInput[] | BoletoUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: BoletoCreateOrConnectWithoutTenantInput | BoletoCreateOrConnectWithoutTenantInput[]
+    upsert?: BoletoUpsertWithWhereUniqueWithoutTenantInput | BoletoUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: BoletoCreateManyTenantInputEnvelope
+    set?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    disconnect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    delete?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    connect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    update?: BoletoUpdateWithWhereUniqueWithoutTenantInput | BoletoUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: BoletoUpdateManyWithWhereWithoutTenantInput | BoletoUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: BoletoScalarWhereInput | BoletoScalarWhereInput[]
+  }
+
+  export type LancamentoUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<LancamentoCreateWithoutTenantInput, LancamentoUncheckedCreateWithoutTenantInput> | LancamentoCreateWithoutTenantInput[] | LancamentoUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: LancamentoCreateOrConnectWithoutTenantInput | LancamentoCreateOrConnectWithoutTenantInput[]
+    upsert?: LancamentoUpsertWithWhereUniqueWithoutTenantInput | LancamentoUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: LancamentoCreateManyTenantInputEnvelope
+    set?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    disconnect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    delete?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    connect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    update?: LancamentoUpdateWithWhereUniqueWithoutTenantInput | LancamentoUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: LancamentoUpdateManyWithWhereWithoutTenantInput | LancamentoUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: LancamentoScalarWhereInput | LancamentoScalarWhereInput[]
+  }
+
+  export type ConfiguracaoBancariaUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<ConfiguracaoBancariaCreateWithoutTenantInput, ConfiguracaoBancariaUncheckedCreateWithoutTenantInput> | ConfiguracaoBancariaCreateWithoutTenantInput[] | ConfiguracaoBancariaUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: ConfiguracaoBancariaCreateOrConnectWithoutTenantInput | ConfiguracaoBancariaCreateOrConnectWithoutTenantInput[]
+    upsert?: ConfiguracaoBancariaUpsertWithWhereUniqueWithoutTenantInput | ConfiguracaoBancariaUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: ConfiguracaoBancariaCreateManyTenantInputEnvelope
+    set?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+    disconnect?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+    delete?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+    connect?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+    update?: ConfiguracaoBancariaUpdateWithWhereUniqueWithoutTenantInput | ConfiguracaoBancariaUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: ConfiguracaoBancariaUpdateManyWithWhereWithoutTenantInput | ConfiguracaoBancariaUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: ConfiguracaoBancariaScalarWhereInput | ConfiguracaoBancariaScalarWhereInput[]
+  }
+
+  export type DespesaUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<DespesaCreateWithoutTenantInput, DespesaUncheckedCreateWithoutTenantInput> | DespesaCreateWithoutTenantInput[] | DespesaUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: DespesaCreateOrConnectWithoutTenantInput | DespesaCreateOrConnectWithoutTenantInput[]
+    upsert?: DespesaUpsertWithWhereUniqueWithoutTenantInput | DespesaUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: DespesaCreateManyTenantInputEnvelope
+    set?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+    disconnect?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+    delete?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+    connect?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+    update?: DespesaUpdateWithWhereUniqueWithoutTenantInput | DespesaUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: DespesaUpdateManyWithWhereWithoutTenantInput | DespesaUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: DespesaScalarWhereInput | DespesaScalarWhereInput[]
+  }
+
   export type UserUncheckedUpdateManyWithoutTenantNestedInput = {
     create?: XOR<UserCreateWithoutTenantInput, UserUncheckedCreateWithoutTenantInput> | UserCreateWithoutTenantInput[] | UserUncheckedCreateWithoutTenantInput[]
     connectOrCreate?: UserCreateOrConnectWithoutTenantInput | UserCreateOrConnectWithoutTenantInput[]
@@ -7884,6 +16048,76 @@ export namespace Prisma {
     update?: UserUpdateWithWhereUniqueWithoutTenantInput | UserUpdateWithWhereUniqueWithoutTenantInput[]
     updateMany?: UserUpdateManyWithWhereWithoutTenantInput | UserUpdateManyWithWhereWithoutTenantInput[]
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  }
+
+  export type ClienteUncheckedUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<ClienteCreateWithoutTenantInput, ClienteUncheckedCreateWithoutTenantInput> | ClienteCreateWithoutTenantInput[] | ClienteUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: ClienteCreateOrConnectWithoutTenantInput | ClienteCreateOrConnectWithoutTenantInput[]
+    upsert?: ClienteUpsertWithWhereUniqueWithoutTenantInput | ClienteUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: ClienteCreateManyTenantInputEnvelope
+    set?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+    disconnect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+    delete?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+    connect?: ClienteWhereUniqueInput | ClienteWhereUniqueInput[]
+    update?: ClienteUpdateWithWhereUniqueWithoutTenantInput | ClienteUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: ClienteUpdateManyWithWhereWithoutTenantInput | ClienteUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
+  }
+
+  export type BoletoUncheckedUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<BoletoCreateWithoutTenantInput, BoletoUncheckedCreateWithoutTenantInput> | BoletoCreateWithoutTenantInput[] | BoletoUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: BoletoCreateOrConnectWithoutTenantInput | BoletoCreateOrConnectWithoutTenantInput[]
+    upsert?: BoletoUpsertWithWhereUniqueWithoutTenantInput | BoletoUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: BoletoCreateManyTenantInputEnvelope
+    set?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    disconnect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    delete?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    connect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    update?: BoletoUpdateWithWhereUniqueWithoutTenantInput | BoletoUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: BoletoUpdateManyWithWhereWithoutTenantInput | BoletoUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: BoletoScalarWhereInput | BoletoScalarWhereInput[]
+  }
+
+  export type LancamentoUncheckedUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<LancamentoCreateWithoutTenantInput, LancamentoUncheckedCreateWithoutTenantInput> | LancamentoCreateWithoutTenantInput[] | LancamentoUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: LancamentoCreateOrConnectWithoutTenantInput | LancamentoCreateOrConnectWithoutTenantInput[]
+    upsert?: LancamentoUpsertWithWhereUniqueWithoutTenantInput | LancamentoUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: LancamentoCreateManyTenantInputEnvelope
+    set?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    disconnect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    delete?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    connect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    update?: LancamentoUpdateWithWhereUniqueWithoutTenantInput | LancamentoUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: LancamentoUpdateManyWithWhereWithoutTenantInput | LancamentoUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: LancamentoScalarWhereInput | LancamentoScalarWhereInput[]
+  }
+
+  export type ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<ConfiguracaoBancariaCreateWithoutTenantInput, ConfiguracaoBancariaUncheckedCreateWithoutTenantInput> | ConfiguracaoBancariaCreateWithoutTenantInput[] | ConfiguracaoBancariaUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: ConfiguracaoBancariaCreateOrConnectWithoutTenantInput | ConfiguracaoBancariaCreateOrConnectWithoutTenantInput[]
+    upsert?: ConfiguracaoBancariaUpsertWithWhereUniqueWithoutTenantInput | ConfiguracaoBancariaUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: ConfiguracaoBancariaCreateManyTenantInputEnvelope
+    set?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+    disconnect?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+    delete?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+    connect?: ConfiguracaoBancariaWhereUniqueInput | ConfiguracaoBancariaWhereUniqueInput[]
+    update?: ConfiguracaoBancariaUpdateWithWhereUniqueWithoutTenantInput | ConfiguracaoBancariaUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: ConfiguracaoBancariaUpdateManyWithWhereWithoutTenantInput | ConfiguracaoBancariaUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: ConfiguracaoBancariaScalarWhereInput | ConfiguracaoBancariaScalarWhereInput[]
+  }
+
+  export type DespesaUncheckedUpdateManyWithoutTenantNestedInput = {
+    create?: XOR<DespesaCreateWithoutTenantInput, DespesaUncheckedCreateWithoutTenantInput> | DespesaCreateWithoutTenantInput[] | DespesaUncheckedCreateWithoutTenantInput[]
+    connectOrCreate?: DespesaCreateOrConnectWithoutTenantInput | DespesaCreateOrConnectWithoutTenantInput[]
+    upsert?: DespesaUpsertWithWhereUniqueWithoutTenantInput | DespesaUpsertWithWhereUniqueWithoutTenantInput[]
+    createMany?: DespesaCreateManyTenantInputEnvelope
+    set?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+    disconnect?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+    delete?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+    connect?: DespesaWhereUniqueInput | DespesaWhereUniqueInput[]
+    update?: DespesaUpdateWithWhereUniqueWithoutTenantInput | DespesaUpdateWithWhereUniqueWithoutTenantInput[]
+    updateMany?: DespesaUpdateManyWithWhereWithoutTenantInput | DespesaUpdateManyWithWhereWithoutTenantInput[]
+    deleteMany?: DespesaScalarWhereInput | DespesaScalarWhereInput[]
   }
 
   export type TenantCreateNestedOneWithoutUsersInput = {
@@ -7922,6 +16156,10 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -8028,6 +16266,204 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
   }
 
+  export type TenantCreateNestedOneWithoutClientesInput = {
+    create?: XOR<TenantCreateWithoutClientesInput, TenantUncheckedCreateWithoutClientesInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutClientesInput
+    connect?: TenantWhereUniqueInput
+  }
+
+  export type BoletoCreateNestedManyWithoutClienteInput = {
+    create?: XOR<BoletoCreateWithoutClienteInput, BoletoUncheckedCreateWithoutClienteInput> | BoletoCreateWithoutClienteInput[] | BoletoUncheckedCreateWithoutClienteInput[]
+    connectOrCreate?: BoletoCreateOrConnectWithoutClienteInput | BoletoCreateOrConnectWithoutClienteInput[]
+    createMany?: BoletoCreateManyClienteInputEnvelope
+    connect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+  }
+
+  export type LancamentoCreateNestedManyWithoutClienteInput = {
+    create?: XOR<LancamentoCreateWithoutClienteInput, LancamentoUncheckedCreateWithoutClienteInput> | LancamentoCreateWithoutClienteInput[] | LancamentoUncheckedCreateWithoutClienteInput[]
+    connectOrCreate?: LancamentoCreateOrConnectWithoutClienteInput | LancamentoCreateOrConnectWithoutClienteInput[]
+    createMany?: LancamentoCreateManyClienteInputEnvelope
+    connect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+  }
+
+  export type BoletoUncheckedCreateNestedManyWithoutClienteInput = {
+    create?: XOR<BoletoCreateWithoutClienteInput, BoletoUncheckedCreateWithoutClienteInput> | BoletoCreateWithoutClienteInput[] | BoletoUncheckedCreateWithoutClienteInput[]
+    connectOrCreate?: BoletoCreateOrConnectWithoutClienteInput | BoletoCreateOrConnectWithoutClienteInput[]
+    createMany?: BoletoCreateManyClienteInputEnvelope
+    connect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+  }
+
+  export type LancamentoUncheckedCreateNestedManyWithoutClienteInput = {
+    create?: XOR<LancamentoCreateWithoutClienteInput, LancamentoUncheckedCreateWithoutClienteInput> | LancamentoCreateWithoutClienteInput[] | LancamentoUncheckedCreateWithoutClienteInput[]
+    connectOrCreate?: LancamentoCreateOrConnectWithoutClienteInput | LancamentoCreateOrConnectWithoutClienteInput[]
+    createMany?: LancamentoCreateManyClienteInputEnvelope
+    connect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+  }
+
+  export type TenantUpdateOneRequiredWithoutClientesNestedInput = {
+    create?: XOR<TenantCreateWithoutClientesInput, TenantUncheckedCreateWithoutClientesInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutClientesInput
+    upsert?: TenantUpsertWithoutClientesInput
+    connect?: TenantWhereUniqueInput
+    update?: XOR<XOR<TenantUpdateToOneWithWhereWithoutClientesInput, TenantUpdateWithoutClientesInput>, TenantUncheckedUpdateWithoutClientesInput>
+  }
+
+  export type BoletoUpdateManyWithoutClienteNestedInput = {
+    create?: XOR<BoletoCreateWithoutClienteInput, BoletoUncheckedCreateWithoutClienteInput> | BoletoCreateWithoutClienteInput[] | BoletoUncheckedCreateWithoutClienteInput[]
+    connectOrCreate?: BoletoCreateOrConnectWithoutClienteInput | BoletoCreateOrConnectWithoutClienteInput[]
+    upsert?: BoletoUpsertWithWhereUniqueWithoutClienteInput | BoletoUpsertWithWhereUniqueWithoutClienteInput[]
+    createMany?: BoletoCreateManyClienteInputEnvelope
+    set?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    disconnect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    delete?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    connect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    update?: BoletoUpdateWithWhereUniqueWithoutClienteInput | BoletoUpdateWithWhereUniqueWithoutClienteInput[]
+    updateMany?: BoletoUpdateManyWithWhereWithoutClienteInput | BoletoUpdateManyWithWhereWithoutClienteInput[]
+    deleteMany?: BoletoScalarWhereInput | BoletoScalarWhereInput[]
+  }
+
+  export type LancamentoUpdateManyWithoutClienteNestedInput = {
+    create?: XOR<LancamentoCreateWithoutClienteInput, LancamentoUncheckedCreateWithoutClienteInput> | LancamentoCreateWithoutClienteInput[] | LancamentoUncheckedCreateWithoutClienteInput[]
+    connectOrCreate?: LancamentoCreateOrConnectWithoutClienteInput | LancamentoCreateOrConnectWithoutClienteInput[]
+    upsert?: LancamentoUpsertWithWhereUniqueWithoutClienteInput | LancamentoUpsertWithWhereUniqueWithoutClienteInput[]
+    createMany?: LancamentoCreateManyClienteInputEnvelope
+    set?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    disconnect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    delete?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    connect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    update?: LancamentoUpdateWithWhereUniqueWithoutClienteInput | LancamentoUpdateWithWhereUniqueWithoutClienteInput[]
+    updateMany?: LancamentoUpdateManyWithWhereWithoutClienteInput | LancamentoUpdateManyWithWhereWithoutClienteInput[]
+    deleteMany?: LancamentoScalarWhereInput | LancamentoScalarWhereInput[]
+  }
+
+  export type BoletoUncheckedUpdateManyWithoutClienteNestedInput = {
+    create?: XOR<BoletoCreateWithoutClienteInput, BoletoUncheckedCreateWithoutClienteInput> | BoletoCreateWithoutClienteInput[] | BoletoUncheckedCreateWithoutClienteInput[]
+    connectOrCreate?: BoletoCreateOrConnectWithoutClienteInput | BoletoCreateOrConnectWithoutClienteInput[]
+    upsert?: BoletoUpsertWithWhereUniqueWithoutClienteInput | BoletoUpsertWithWhereUniqueWithoutClienteInput[]
+    createMany?: BoletoCreateManyClienteInputEnvelope
+    set?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    disconnect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    delete?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    connect?: BoletoWhereUniqueInput | BoletoWhereUniqueInput[]
+    update?: BoletoUpdateWithWhereUniqueWithoutClienteInput | BoletoUpdateWithWhereUniqueWithoutClienteInput[]
+    updateMany?: BoletoUpdateManyWithWhereWithoutClienteInput | BoletoUpdateManyWithWhereWithoutClienteInput[]
+    deleteMany?: BoletoScalarWhereInput | BoletoScalarWhereInput[]
+  }
+
+  export type LancamentoUncheckedUpdateManyWithoutClienteNestedInput = {
+    create?: XOR<LancamentoCreateWithoutClienteInput, LancamentoUncheckedCreateWithoutClienteInput> | LancamentoCreateWithoutClienteInput[] | LancamentoUncheckedCreateWithoutClienteInput[]
+    connectOrCreate?: LancamentoCreateOrConnectWithoutClienteInput | LancamentoCreateOrConnectWithoutClienteInput[]
+    upsert?: LancamentoUpsertWithWhereUniqueWithoutClienteInput | LancamentoUpsertWithWhereUniqueWithoutClienteInput[]
+    createMany?: LancamentoCreateManyClienteInputEnvelope
+    set?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    disconnect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    delete?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    connect?: LancamentoWhereUniqueInput | LancamentoWhereUniqueInput[]
+    update?: LancamentoUpdateWithWhereUniqueWithoutClienteInput | LancamentoUpdateWithWhereUniqueWithoutClienteInput[]
+    updateMany?: LancamentoUpdateManyWithWhereWithoutClienteInput | LancamentoUpdateManyWithWhereWithoutClienteInput[]
+    deleteMany?: LancamentoScalarWhereInput | LancamentoScalarWhereInput[]
+  }
+
+  export type TenantCreateNestedOneWithoutBoletosInput = {
+    create?: XOR<TenantCreateWithoutBoletosInput, TenantUncheckedCreateWithoutBoletosInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutBoletosInput
+    connect?: TenantWhereUniqueInput
+  }
+
+  export type ClienteCreateNestedOneWithoutBoletosInput = {
+    create?: XOR<ClienteCreateWithoutBoletosInput, ClienteUncheckedCreateWithoutBoletosInput>
+    connectOrCreate?: ClienteCreateOrConnectWithoutBoletosInput
+    connect?: ClienteWhereUniqueInput
+  }
+
+  export type DecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type TenantUpdateOneRequiredWithoutBoletosNestedInput = {
+    create?: XOR<TenantCreateWithoutBoletosInput, TenantUncheckedCreateWithoutBoletosInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutBoletosInput
+    upsert?: TenantUpsertWithoutBoletosInput
+    connect?: TenantWhereUniqueInput
+    update?: XOR<XOR<TenantUpdateToOneWithWhereWithoutBoletosInput, TenantUpdateWithoutBoletosInput>, TenantUncheckedUpdateWithoutBoletosInput>
+  }
+
+  export type ClienteUpdateOneRequiredWithoutBoletosNestedInput = {
+    create?: XOR<ClienteCreateWithoutBoletosInput, ClienteUncheckedCreateWithoutBoletosInput>
+    connectOrCreate?: ClienteCreateOrConnectWithoutBoletosInput
+    upsert?: ClienteUpsertWithoutBoletosInput
+    connect?: ClienteWhereUniqueInput
+    update?: XOR<XOR<ClienteUpdateToOneWithWhereWithoutBoletosInput, ClienteUpdateWithoutBoletosInput>, ClienteUncheckedUpdateWithoutBoletosInput>
+  }
+
+  export type TenantCreateNestedOneWithoutConfiguracoesBancariasInput = {
+    create?: XOR<TenantCreateWithoutConfiguracoesBancariasInput, TenantUncheckedCreateWithoutConfiguracoesBancariasInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutConfiguracoesBancariasInput
+    connect?: TenantWhereUniqueInput
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type TenantUpdateOneRequiredWithoutConfiguracoesBancariasNestedInput = {
+    create?: XOR<TenantCreateWithoutConfiguracoesBancariasInput, TenantUncheckedCreateWithoutConfiguracoesBancariasInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutConfiguracoesBancariasInput
+    upsert?: TenantUpsertWithoutConfiguracoesBancariasInput
+    connect?: TenantWhereUniqueInput
+    update?: XOR<XOR<TenantUpdateToOneWithWhereWithoutConfiguracoesBancariasInput, TenantUpdateWithoutConfiguracoesBancariasInput>, TenantUncheckedUpdateWithoutConfiguracoesBancariasInput>
+  }
+
+  export type TenantCreateNestedOneWithoutLancamentosInput = {
+    create?: XOR<TenantCreateWithoutLancamentosInput, TenantUncheckedCreateWithoutLancamentosInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutLancamentosInput
+    connect?: TenantWhereUniqueInput
+  }
+
+  export type ClienteCreateNestedOneWithoutLancamentosInput = {
+    create?: XOR<ClienteCreateWithoutLancamentosInput, ClienteUncheckedCreateWithoutLancamentosInput>
+    connectOrCreate?: ClienteCreateOrConnectWithoutLancamentosInput
+    connect?: ClienteWhereUniqueInput
+  }
+
+  export type TenantUpdateOneRequiredWithoutLancamentosNestedInput = {
+    create?: XOR<TenantCreateWithoutLancamentosInput, TenantUncheckedCreateWithoutLancamentosInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutLancamentosInput
+    upsert?: TenantUpsertWithoutLancamentosInput
+    connect?: TenantWhereUniqueInput
+    update?: XOR<XOR<TenantUpdateToOneWithWhereWithoutLancamentosInput, TenantUpdateWithoutLancamentosInput>, TenantUncheckedUpdateWithoutLancamentosInput>
+  }
+
+  export type ClienteUpdateOneRequiredWithoutLancamentosNestedInput = {
+    create?: XOR<ClienteCreateWithoutLancamentosInput, ClienteUncheckedCreateWithoutLancamentosInput>
+    connectOrCreate?: ClienteCreateOrConnectWithoutLancamentosInput
+    upsert?: ClienteUpsertWithoutLancamentosInput
+    connect?: ClienteWhereUniqueInput
+    update?: XOR<XOR<ClienteUpdateToOneWithWhereWithoutLancamentosInput, ClienteUpdateWithoutLancamentosInput>, ClienteUncheckedUpdateWithoutLancamentosInput>
+  }
+
+  export type TenantCreateNestedOneWithoutDespesasInput = {
+    create?: XOR<TenantCreateWithoutDespesasInput, TenantUncheckedCreateWithoutDespesasInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutDespesasInput
+    connect?: TenantWhereUniqueInput
+  }
+
+  export type TenantUpdateOneRequiredWithoutDespesasNestedInput = {
+    create?: XOR<TenantCreateWithoutDespesasInput, TenantUncheckedCreateWithoutDespesasInput>
+    connectOrCreate?: TenantCreateOrConnectWithoutDespesasInput
+    upsert?: TenantUpsertWithoutDespesasInput
+    connect?: TenantWhereUniqueInput
+    update?: XOR<XOR<TenantUpdateToOneWithWhereWithoutDespesasInput, TenantUpdateWithoutDespesasInput>, TenantUncheckedUpdateWithoutDespesasInput>
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -8109,6 +16545,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -8146,6 +16587,14 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8189,12 +16638,67 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDecimalFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[]
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedDecimalFilter<$PrismaModel>
+    _sum?: NestedDecimalFilter<$PrismaModel>
+    _min?: NestedDecimalFilter<$PrismaModel>
+    _max?: NestedDecimalFilter<$PrismaModel>
+  }
+
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type UserCreateWithoutTenantInput = {
     id?: string
     name?: string | null
     email: string
     passwordHash: string
     role?: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -8208,6 +16712,7 @@ export namespace Prisma {
     email: string
     passwordHash: string
     role?: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -8222,6 +16727,183 @@ export namespace Prisma {
 
   export type UserCreateManyTenantInputEnvelope = {
     data: UserCreateManyTenantInput | UserCreateManyTenantInput[]
+  }
+
+  export type ClienteCreateWithoutTenantInput = {
+    id?: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    boletos?: BoletoCreateNestedManyWithoutClienteInput
+    lancamentos?: LancamentoCreateNestedManyWithoutClienteInput
+  }
+
+  export type ClienteUncheckedCreateWithoutTenantInput = {
+    id?: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    boletos?: BoletoUncheckedCreateNestedManyWithoutClienteInput
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutClienteInput
+  }
+
+  export type ClienteCreateOrConnectWithoutTenantInput = {
+    where: ClienteWhereUniqueInput
+    create: XOR<ClienteCreateWithoutTenantInput, ClienteUncheckedCreateWithoutTenantInput>
+  }
+
+  export type ClienteCreateManyTenantInputEnvelope = {
+    data: ClienteCreateManyTenantInput | ClienteCreateManyTenantInput[]
+  }
+
+  export type BoletoCreateWithoutTenantInput = {
+    id?: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cliente: ClienteCreateNestedOneWithoutBoletosInput
+  }
+
+  export type BoletoUncheckedCreateWithoutTenantInput = {
+    id?: string
+    clienteId: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BoletoCreateOrConnectWithoutTenantInput = {
+    where: BoletoWhereUniqueInput
+    create: XOR<BoletoCreateWithoutTenantInput, BoletoUncheckedCreateWithoutTenantInput>
+  }
+
+  export type BoletoCreateManyTenantInputEnvelope = {
+    data: BoletoCreateManyTenantInput | BoletoCreateManyTenantInput[]
+  }
+
+  export type LancamentoCreateWithoutTenantInput = {
+    id?: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cliente: ClienteCreateNestedOneWithoutLancamentosInput
+  }
+
+  export type LancamentoUncheckedCreateWithoutTenantInput = {
+    id?: string
+    clienteId: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LancamentoCreateOrConnectWithoutTenantInput = {
+    where: LancamentoWhereUniqueInput
+    create: XOR<LancamentoCreateWithoutTenantInput, LancamentoUncheckedCreateWithoutTenantInput>
+  }
+
+  export type LancamentoCreateManyTenantInputEnvelope = {
+    data: LancamentoCreateManyTenantInput | LancamentoCreateManyTenantInput[]
+  }
+
+  export type ConfiguracaoBancariaCreateWithoutTenantInput = {
+    id?: string
+    banco: string
+    agencia?: string | null
+    conta?: string | null
+    convenio?: string | null
+    nossoNumeroInicial?: number
+    nossoNumeroAtual?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ConfiguracaoBancariaUncheckedCreateWithoutTenantInput = {
+    id?: string
+    banco: string
+    agencia?: string | null
+    conta?: string | null
+    convenio?: string | null
+    nossoNumeroInicial?: number
+    nossoNumeroAtual?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ConfiguracaoBancariaCreateOrConnectWithoutTenantInput = {
+    where: ConfiguracaoBancariaWhereUniqueInput
+    create: XOR<ConfiguracaoBancariaCreateWithoutTenantInput, ConfiguracaoBancariaUncheckedCreateWithoutTenantInput>
+  }
+
+  export type ConfiguracaoBancariaCreateManyTenantInputEnvelope = {
+    data: ConfiguracaoBancariaCreateManyTenantInput | ConfiguracaoBancariaCreateManyTenantInput[]
+  }
+
+  export type DespesaCreateWithoutTenantInput = {
+    id?: string
+    descricao: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    categoria: string
+    status?: string
+    dataPagamento?: Date | string | null
+    formaPagamento?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DespesaUncheckedCreateWithoutTenantInput = {
+    id?: string
+    descricao: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    categoria: string
+    status?: string
+    dataPagamento?: Date | string | null
+    formaPagamento?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DespesaCreateOrConnectWithoutTenantInput = {
+    where: DespesaWhereUniqueInput
+    create: XOR<DespesaCreateWithoutTenantInput, DespesaUncheckedCreateWithoutTenantInput>
+  }
+
+  export type DespesaCreateManyTenantInputEnvelope = {
+    data: DespesaCreateManyTenantInput | DespesaCreateManyTenantInput[]
   }
 
   export type UserUpsertWithWhereUniqueWithoutTenantInput = {
@@ -8250,21 +16932,196 @@ export namespace Prisma {
     passwordHash?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     tenantId?: StringFilter<"User"> | string
+    ativo?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     emailVerified?: DateTimeNullableFilter<"User"> | Date | string | null
     image?: StringNullableFilter<"User"> | string | null
+  }
+
+  export type ClienteUpsertWithWhereUniqueWithoutTenantInput = {
+    where: ClienteWhereUniqueInput
+    update: XOR<ClienteUpdateWithoutTenantInput, ClienteUncheckedUpdateWithoutTenantInput>
+    create: XOR<ClienteCreateWithoutTenantInput, ClienteUncheckedCreateWithoutTenantInput>
+  }
+
+  export type ClienteUpdateWithWhereUniqueWithoutTenantInput = {
+    where: ClienteWhereUniqueInput
+    data: XOR<ClienteUpdateWithoutTenantInput, ClienteUncheckedUpdateWithoutTenantInput>
+  }
+
+  export type ClienteUpdateManyWithWhereWithoutTenantInput = {
+    where: ClienteScalarWhereInput
+    data: XOR<ClienteUpdateManyMutationInput, ClienteUncheckedUpdateManyWithoutTenantInput>
+  }
+
+  export type ClienteScalarWhereInput = {
+    AND?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
+    OR?: ClienteScalarWhereInput[]
+    NOT?: ClienteScalarWhereInput | ClienteScalarWhereInput[]
+    id?: StringFilter<"Cliente"> | string
+    tenantId?: StringFilter<"Cliente"> | string
+    nome?: StringFilter<"Cliente"> | string
+    cpfCnpj?: StringNullableFilter<"Cliente"> | string | null
+    email?: StringNullableFilter<"Cliente"> | string | null
+    telefone?: StringNullableFilter<"Cliente"> | string | null
+    ativo?: BoolFilter<"Cliente"> | boolean
+    createdAt?: DateTimeFilter<"Cliente"> | Date | string
+    updatedAt?: DateTimeFilter<"Cliente"> | Date | string
+  }
+
+  export type BoletoUpsertWithWhereUniqueWithoutTenantInput = {
+    where: BoletoWhereUniqueInput
+    update: XOR<BoletoUpdateWithoutTenantInput, BoletoUncheckedUpdateWithoutTenantInput>
+    create: XOR<BoletoCreateWithoutTenantInput, BoletoUncheckedCreateWithoutTenantInput>
+  }
+
+  export type BoletoUpdateWithWhereUniqueWithoutTenantInput = {
+    where: BoletoWhereUniqueInput
+    data: XOR<BoletoUpdateWithoutTenantInput, BoletoUncheckedUpdateWithoutTenantInput>
+  }
+
+  export type BoletoUpdateManyWithWhereWithoutTenantInput = {
+    where: BoletoScalarWhereInput
+    data: XOR<BoletoUpdateManyMutationInput, BoletoUncheckedUpdateManyWithoutTenantInput>
+  }
+
+  export type BoletoScalarWhereInput = {
+    AND?: BoletoScalarWhereInput | BoletoScalarWhereInput[]
+    OR?: BoletoScalarWhereInput[]
+    NOT?: BoletoScalarWhereInput | BoletoScalarWhereInput[]
+    id?: StringFilter<"Boleto"> | string
+    tenantId?: StringFilter<"Boleto"> | string
+    clienteId?: StringFilter<"Boleto"> | string
+    nossoNumero?: StringFilter<"Boleto"> | string
+    valor?: DecimalFilter<"Boleto"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Boleto"> | Date | string
+    banco?: StringFilter<"Boleto"> | string
+    status?: StringFilter<"Boleto"> | string
+    descricao?: StringNullableFilter<"Boleto"> | string | null
+    parcela?: IntNullableFilter<"Boleto"> | number | null
+    totalParcelas?: IntNullableFilter<"Boleto"> | number | null
+    createdAt?: DateTimeFilter<"Boleto"> | Date | string
+    updatedAt?: DateTimeFilter<"Boleto"> | Date | string
+  }
+
+  export type LancamentoUpsertWithWhereUniqueWithoutTenantInput = {
+    where: LancamentoWhereUniqueInput
+    update: XOR<LancamentoUpdateWithoutTenantInput, LancamentoUncheckedUpdateWithoutTenantInput>
+    create: XOR<LancamentoCreateWithoutTenantInput, LancamentoUncheckedCreateWithoutTenantInput>
+  }
+
+  export type LancamentoUpdateWithWhereUniqueWithoutTenantInput = {
+    where: LancamentoWhereUniqueInput
+    data: XOR<LancamentoUpdateWithoutTenantInput, LancamentoUncheckedUpdateWithoutTenantInput>
+  }
+
+  export type LancamentoUpdateManyWithWhereWithoutTenantInput = {
+    where: LancamentoScalarWhereInput
+    data: XOR<LancamentoUpdateManyMutationInput, LancamentoUncheckedUpdateManyWithoutTenantInput>
+  }
+
+  export type LancamentoScalarWhereInput = {
+    AND?: LancamentoScalarWhereInput | LancamentoScalarWhereInput[]
+    OR?: LancamentoScalarWhereInput[]
+    NOT?: LancamentoScalarWhereInput | LancamentoScalarWhereInput[]
+    id?: StringFilter<"Lancamento"> | string
+    tenantId?: StringFilter<"Lancamento"> | string
+    clienteId?: StringFilter<"Lancamento"> | string
+    valor?: DecimalFilter<"Lancamento"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Lancamento"> | Date | string
+    metodo?: StringFilter<"Lancamento"> | string
+    status?: StringFilter<"Lancamento"> | string
+    descricao?: StringNullableFilter<"Lancamento"> | string | null
+    dataPagamento?: DateTimeNullableFilter<"Lancamento"> | Date | string | null
+    createdAt?: DateTimeFilter<"Lancamento"> | Date | string
+    updatedAt?: DateTimeFilter<"Lancamento"> | Date | string
+  }
+
+  export type ConfiguracaoBancariaUpsertWithWhereUniqueWithoutTenantInput = {
+    where: ConfiguracaoBancariaWhereUniqueInput
+    update: XOR<ConfiguracaoBancariaUpdateWithoutTenantInput, ConfiguracaoBancariaUncheckedUpdateWithoutTenantInput>
+    create: XOR<ConfiguracaoBancariaCreateWithoutTenantInput, ConfiguracaoBancariaUncheckedCreateWithoutTenantInput>
+  }
+
+  export type ConfiguracaoBancariaUpdateWithWhereUniqueWithoutTenantInput = {
+    where: ConfiguracaoBancariaWhereUniqueInput
+    data: XOR<ConfiguracaoBancariaUpdateWithoutTenantInput, ConfiguracaoBancariaUncheckedUpdateWithoutTenantInput>
+  }
+
+  export type ConfiguracaoBancariaUpdateManyWithWhereWithoutTenantInput = {
+    where: ConfiguracaoBancariaScalarWhereInput
+    data: XOR<ConfiguracaoBancariaUpdateManyMutationInput, ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantInput>
+  }
+
+  export type ConfiguracaoBancariaScalarWhereInput = {
+    AND?: ConfiguracaoBancariaScalarWhereInput | ConfiguracaoBancariaScalarWhereInput[]
+    OR?: ConfiguracaoBancariaScalarWhereInput[]
+    NOT?: ConfiguracaoBancariaScalarWhereInput | ConfiguracaoBancariaScalarWhereInput[]
+    id?: StringFilter<"ConfiguracaoBancaria"> | string
+    tenantId?: StringFilter<"ConfiguracaoBancaria"> | string
+    banco?: StringFilter<"ConfiguracaoBancaria"> | string
+    agencia?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    conta?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    convenio?: StringNullableFilter<"ConfiguracaoBancaria"> | string | null
+    nossoNumeroInicial?: IntFilter<"ConfiguracaoBancaria"> | number
+    nossoNumeroAtual?: IntFilter<"ConfiguracaoBancaria"> | number
+    createdAt?: DateTimeFilter<"ConfiguracaoBancaria"> | Date | string
+    updatedAt?: DateTimeFilter<"ConfiguracaoBancaria"> | Date | string
+  }
+
+  export type DespesaUpsertWithWhereUniqueWithoutTenantInput = {
+    where: DespesaWhereUniqueInput
+    update: XOR<DespesaUpdateWithoutTenantInput, DespesaUncheckedUpdateWithoutTenantInput>
+    create: XOR<DespesaCreateWithoutTenantInput, DespesaUncheckedCreateWithoutTenantInput>
+  }
+
+  export type DespesaUpdateWithWhereUniqueWithoutTenantInput = {
+    where: DespesaWhereUniqueInput
+    data: XOR<DespesaUpdateWithoutTenantInput, DespesaUncheckedUpdateWithoutTenantInput>
+  }
+
+  export type DespesaUpdateManyWithWhereWithoutTenantInput = {
+    where: DespesaScalarWhereInput
+    data: XOR<DespesaUpdateManyMutationInput, DespesaUncheckedUpdateManyWithoutTenantInput>
+  }
+
+  export type DespesaScalarWhereInput = {
+    AND?: DespesaScalarWhereInput | DespesaScalarWhereInput[]
+    OR?: DespesaScalarWhereInput[]
+    NOT?: DespesaScalarWhereInput | DespesaScalarWhereInput[]
+    id?: StringFilter<"Despesa"> | string
+    tenantId?: StringFilter<"Despesa"> | string
+    descricao?: StringFilter<"Despesa"> | string
+    valor?: DecimalFilter<"Despesa"> | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFilter<"Despesa"> | Date | string
+    categoria?: StringFilter<"Despesa"> | string
+    status?: StringFilter<"Despesa"> | string
+    dataPagamento?: DateTimeNullableFilter<"Despesa"> | Date | string | null
+    formaPagamento?: StringNullableFilter<"Despesa"> | string | null
+    createdAt?: DateTimeFilter<"Despesa"> | Date | string
+    updatedAt?: DateTimeFilter<"Despesa"> | Date | string
   }
 
   export type TenantCreateWithoutUsersInput = {
     id?: string
     name: string
     createdAt?: Date | string
+    clientes?: ClienteCreateNestedManyWithoutTenantInput
+    boletos?: BoletoCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaCreateNestedManyWithoutTenantInput
+    despesas?: DespesaCreateNestedManyWithoutTenantInput
   }
 
   export type TenantUncheckedCreateWithoutUsersInput = {
     id?: string
     name: string
     createdAt?: Date | string
+    clientes?: ClienteUncheckedCreateNestedManyWithoutTenantInput
+    boletos?: BoletoUncheckedCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedCreateNestedManyWithoutTenantInput
+    despesas?: DespesaUncheckedCreateNestedManyWithoutTenantInput
   }
 
   export type TenantCreateOrConnectWithoutUsersInput = {
@@ -8347,12 +17204,22 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clientes?: ClienteUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUpdateManyWithoutTenantNestedInput
   }
 
   export type TenantUncheckedUpdateWithoutUsersInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    clientes?: ClienteUncheckedUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUncheckedUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUncheckedUpdateManyWithoutTenantNestedInput
   }
 
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
@@ -8422,6 +17289,7 @@ export namespace Prisma {
     email: string
     passwordHash: string
     role?: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -8436,6 +17304,7 @@ export namespace Prisma {
     passwordHash: string
     role?: string
     tenantId: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -8464,6 +17333,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8478,6 +17348,7 @@ export namespace Prisma {
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     tenantId?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8490,6 +17361,7 @@ export namespace Prisma {
     email: string
     passwordHash: string
     role?: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -8504,6 +17376,7 @@ export namespace Prisma {
     passwordHash: string
     role?: string
     tenantId: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
@@ -8532,6 +17405,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8546,10 +17420,553 @@ export namespace Prisma {
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     tenantId?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type TenantCreateWithoutClientesInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserCreateNestedManyWithoutTenantInput
+    boletos?: BoletoCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaCreateNestedManyWithoutTenantInput
+    despesas?: DespesaCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantUncheckedCreateWithoutClientesInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserUncheckedCreateNestedManyWithoutTenantInput
+    boletos?: BoletoUncheckedCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedCreateNestedManyWithoutTenantInput
+    despesas?: DespesaUncheckedCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantCreateOrConnectWithoutClientesInput = {
+    where: TenantWhereUniqueInput
+    create: XOR<TenantCreateWithoutClientesInput, TenantUncheckedCreateWithoutClientesInput>
+  }
+
+  export type BoletoCreateWithoutClienteInput = {
+    id?: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutBoletosInput
+  }
+
+  export type BoletoUncheckedCreateWithoutClienteInput = {
+    id?: string
+    tenantId: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BoletoCreateOrConnectWithoutClienteInput = {
+    where: BoletoWhereUniqueInput
+    create: XOR<BoletoCreateWithoutClienteInput, BoletoUncheckedCreateWithoutClienteInput>
+  }
+
+  export type BoletoCreateManyClienteInputEnvelope = {
+    data: BoletoCreateManyClienteInput | BoletoCreateManyClienteInput[]
+  }
+
+  export type LancamentoCreateWithoutClienteInput = {
+    id?: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutLancamentosInput
+  }
+
+  export type LancamentoUncheckedCreateWithoutClienteInput = {
+    id?: string
+    tenantId: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LancamentoCreateOrConnectWithoutClienteInput = {
+    where: LancamentoWhereUniqueInput
+    create: XOR<LancamentoCreateWithoutClienteInput, LancamentoUncheckedCreateWithoutClienteInput>
+  }
+
+  export type LancamentoCreateManyClienteInputEnvelope = {
+    data: LancamentoCreateManyClienteInput | LancamentoCreateManyClienteInput[]
+  }
+
+  export type TenantUpsertWithoutClientesInput = {
+    update: XOR<TenantUpdateWithoutClientesInput, TenantUncheckedUpdateWithoutClientesInput>
+    create: XOR<TenantCreateWithoutClientesInput, TenantUncheckedCreateWithoutClientesInput>
+    where?: TenantWhereInput
+  }
+
+  export type TenantUpdateToOneWithWhereWithoutClientesInput = {
+    where?: TenantWhereInput
+    data: XOR<TenantUpdateWithoutClientesInput, TenantUncheckedUpdateWithoutClientesInput>
+  }
+
+  export type TenantUpdateWithoutClientesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUpdateManyWithoutTenantNestedInput
+  }
+
+  export type TenantUncheckedUpdateWithoutClientesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUncheckedUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUncheckedUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUncheckedUpdateManyWithoutTenantNestedInput
+  }
+
+  export type BoletoUpsertWithWhereUniqueWithoutClienteInput = {
+    where: BoletoWhereUniqueInput
+    update: XOR<BoletoUpdateWithoutClienteInput, BoletoUncheckedUpdateWithoutClienteInput>
+    create: XOR<BoletoCreateWithoutClienteInput, BoletoUncheckedCreateWithoutClienteInput>
+  }
+
+  export type BoletoUpdateWithWhereUniqueWithoutClienteInput = {
+    where: BoletoWhereUniqueInput
+    data: XOR<BoletoUpdateWithoutClienteInput, BoletoUncheckedUpdateWithoutClienteInput>
+  }
+
+  export type BoletoUpdateManyWithWhereWithoutClienteInput = {
+    where: BoletoScalarWhereInput
+    data: XOR<BoletoUpdateManyMutationInput, BoletoUncheckedUpdateManyWithoutClienteInput>
+  }
+
+  export type LancamentoUpsertWithWhereUniqueWithoutClienteInput = {
+    where: LancamentoWhereUniqueInput
+    update: XOR<LancamentoUpdateWithoutClienteInput, LancamentoUncheckedUpdateWithoutClienteInput>
+    create: XOR<LancamentoCreateWithoutClienteInput, LancamentoUncheckedCreateWithoutClienteInput>
+  }
+
+  export type LancamentoUpdateWithWhereUniqueWithoutClienteInput = {
+    where: LancamentoWhereUniqueInput
+    data: XOR<LancamentoUpdateWithoutClienteInput, LancamentoUncheckedUpdateWithoutClienteInput>
+  }
+
+  export type LancamentoUpdateManyWithWhereWithoutClienteInput = {
+    where: LancamentoScalarWhereInput
+    data: XOR<LancamentoUpdateManyMutationInput, LancamentoUncheckedUpdateManyWithoutClienteInput>
+  }
+
+  export type TenantCreateWithoutBoletosInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserCreateNestedManyWithoutTenantInput
+    clientes?: ClienteCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaCreateNestedManyWithoutTenantInput
+    despesas?: DespesaCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantUncheckedCreateWithoutBoletosInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserUncheckedCreateNestedManyWithoutTenantInput
+    clientes?: ClienteUncheckedCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedCreateNestedManyWithoutTenantInput
+    despesas?: DespesaUncheckedCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantCreateOrConnectWithoutBoletosInput = {
+    where: TenantWhereUniqueInput
+    create: XOR<TenantCreateWithoutBoletosInput, TenantUncheckedCreateWithoutBoletosInput>
+  }
+
+  export type ClienteCreateWithoutBoletosInput = {
+    id?: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutClientesInput
+    lancamentos?: LancamentoCreateNestedManyWithoutClienteInput
+  }
+
+  export type ClienteUncheckedCreateWithoutBoletosInput = {
+    id?: string
+    tenantId: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutClienteInput
+  }
+
+  export type ClienteCreateOrConnectWithoutBoletosInput = {
+    where: ClienteWhereUniqueInput
+    create: XOR<ClienteCreateWithoutBoletosInput, ClienteUncheckedCreateWithoutBoletosInput>
+  }
+
+  export type TenantUpsertWithoutBoletosInput = {
+    update: XOR<TenantUpdateWithoutBoletosInput, TenantUncheckedUpdateWithoutBoletosInput>
+    create: XOR<TenantCreateWithoutBoletosInput, TenantUncheckedCreateWithoutBoletosInput>
+    where?: TenantWhereInput
+  }
+
+  export type TenantUpdateToOneWithWhereWithoutBoletosInput = {
+    where?: TenantWhereInput
+    data: XOR<TenantUpdateWithoutBoletosInput, TenantUncheckedUpdateWithoutBoletosInput>
+  }
+
+  export type TenantUpdateWithoutBoletosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUpdateManyWithoutTenantNestedInput
+  }
+
+  export type TenantUncheckedUpdateWithoutBoletosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUncheckedUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUncheckedUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUncheckedUpdateManyWithoutTenantNestedInput
+  }
+
+  export type ClienteUpsertWithoutBoletosInput = {
+    update: XOR<ClienteUpdateWithoutBoletosInput, ClienteUncheckedUpdateWithoutBoletosInput>
+    create: XOR<ClienteCreateWithoutBoletosInput, ClienteUncheckedCreateWithoutBoletosInput>
+    where?: ClienteWhereInput
+  }
+
+  export type ClienteUpdateToOneWithWhereWithoutBoletosInput = {
+    where?: ClienteWhereInput
+    data: XOR<ClienteUpdateWithoutBoletosInput, ClienteUncheckedUpdateWithoutBoletosInput>
+  }
+
+  export type ClienteUpdateWithoutBoletosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutClientesNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutClienteNestedInput
+  }
+
+  export type ClienteUncheckedUpdateWithoutBoletosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutClienteNestedInput
+  }
+
+  export type TenantCreateWithoutConfiguracoesBancariasInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserCreateNestedManyWithoutTenantInput
+    clientes?: ClienteCreateNestedManyWithoutTenantInput
+    boletos?: BoletoCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoCreateNestedManyWithoutTenantInput
+    despesas?: DespesaCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantUncheckedCreateWithoutConfiguracoesBancariasInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserUncheckedCreateNestedManyWithoutTenantInput
+    clientes?: ClienteUncheckedCreateNestedManyWithoutTenantInput
+    boletos?: BoletoUncheckedCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutTenantInput
+    despesas?: DespesaUncheckedCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantCreateOrConnectWithoutConfiguracoesBancariasInput = {
+    where: TenantWhereUniqueInput
+    create: XOR<TenantCreateWithoutConfiguracoesBancariasInput, TenantUncheckedCreateWithoutConfiguracoesBancariasInput>
+  }
+
+  export type TenantUpsertWithoutConfiguracoesBancariasInput = {
+    update: XOR<TenantUpdateWithoutConfiguracoesBancariasInput, TenantUncheckedUpdateWithoutConfiguracoesBancariasInput>
+    create: XOR<TenantCreateWithoutConfiguracoesBancariasInput, TenantUncheckedCreateWithoutConfiguracoesBancariasInput>
+    where?: TenantWhereInput
+  }
+
+  export type TenantUpdateToOneWithWhereWithoutConfiguracoesBancariasInput = {
+    where?: TenantWhereInput
+    data: XOR<TenantUpdateWithoutConfiguracoesBancariasInput, TenantUncheckedUpdateWithoutConfiguracoesBancariasInput>
+  }
+
+  export type TenantUpdateWithoutConfiguracoesBancariasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUpdateManyWithoutTenantNestedInput
+  }
+
+  export type TenantUncheckedUpdateWithoutConfiguracoesBancariasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUncheckedUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUncheckedUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUncheckedUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUncheckedUpdateManyWithoutTenantNestedInput
+  }
+
+  export type TenantCreateWithoutLancamentosInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserCreateNestedManyWithoutTenantInput
+    clientes?: ClienteCreateNestedManyWithoutTenantInput
+    boletos?: BoletoCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaCreateNestedManyWithoutTenantInput
+    despesas?: DespesaCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantUncheckedCreateWithoutLancamentosInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserUncheckedCreateNestedManyWithoutTenantInput
+    clientes?: ClienteUncheckedCreateNestedManyWithoutTenantInput
+    boletos?: BoletoUncheckedCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedCreateNestedManyWithoutTenantInput
+    despesas?: DespesaUncheckedCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantCreateOrConnectWithoutLancamentosInput = {
+    where: TenantWhereUniqueInput
+    create: XOR<TenantCreateWithoutLancamentosInput, TenantUncheckedCreateWithoutLancamentosInput>
+  }
+
+  export type ClienteCreateWithoutLancamentosInput = {
+    id?: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    tenant: TenantCreateNestedOneWithoutClientesInput
+    boletos?: BoletoCreateNestedManyWithoutClienteInput
+  }
+
+  export type ClienteUncheckedCreateWithoutLancamentosInput = {
+    id?: string
+    tenantId: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    boletos?: BoletoUncheckedCreateNestedManyWithoutClienteInput
+  }
+
+  export type ClienteCreateOrConnectWithoutLancamentosInput = {
+    where: ClienteWhereUniqueInput
+    create: XOR<ClienteCreateWithoutLancamentosInput, ClienteUncheckedCreateWithoutLancamentosInput>
+  }
+
+  export type TenantUpsertWithoutLancamentosInput = {
+    update: XOR<TenantUpdateWithoutLancamentosInput, TenantUncheckedUpdateWithoutLancamentosInput>
+    create: XOR<TenantCreateWithoutLancamentosInput, TenantUncheckedCreateWithoutLancamentosInput>
+    where?: TenantWhereInput
+  }
+
+  export type TenantUpdateToOneWithWhereWithoutLancamentosInput = {
+    where?: TenantWhereInput
+    data: XOR<TenantUpdateWithoutLancamentosInput, TenantUncheckedUpdateWithoutLancamentosInput>
+  }
+
+  export type TenantUpdateWithoutLancamentosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUpdateManyWithoutTenantNestedInput
+  }
+
+  export type TenantUncheckedUpdateWithoutLancamentosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUncheckedUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUncheckedUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUncheckedUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantNestedInput
+    despesas?: DespesaUncheckedUpdateManyWithoutTenantNestedInput
+  }
+
+  export type ClienteUpsertWithoutLancamentosInput = {
+    update: XOR<ClienteUpdateWithoutLancamentosInput, ClienteUncheckedUpdateWithoutLancamentosInput>
+    create: XOR<ClienteCreateWithoutLancamentosInput, ClienteUncheckedCreateWithoutLancamentosInput>
+    where?: ClienteWhereInput
+  }
+
+  export type ClienteUpdateToOneWithWhereWithoutLancamentosInput = {
+    where?: ClienteWhereInput
+    data: XOR<ClienteUpdateWithoutLancamentosInput, ClienteUncheckedUpdateWithoutLancamentosInput>
+  }
+
+  export type ClienteUpdateWithoutLancamentosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutClientesNestedInput
+    boletos?: BoletoUpdateManyWithoutClienteNestedInput
+  }
+
+  export type ClienteUncheckedUpdateWithoutLancamentosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    boletos?: BoletoUncheckedUpdateManyWithoutClienteNestedInput
+  }
+
+  export type TenantCreateWithoutDespesasInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserCreateNestedManyWithoutTenantInput
+    clientes?: ClienteCreateNestedManyWithoutTenantInput
+    boletos?: BoletoCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantUncheckedCreateWithoutDespesasInput = {
+    id?: string
+    name: string
+    createdAt?: Date | string
+    users?: UserUncheckedCreateNestedManyWithoutTenantInput
+    clientes?: ClienteUncheckedCreateNestedManyWithoutTenantInput
+    boletos?: BoletoUncheckedCreateNestedManyWithoutTenantInput
+    lancamentos?: LancamentoUncheckedCreateNestedManyWithoutTenantInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedCreateNestedManyWithoutTenantInput
+  }
+
+  export type TenantCreateOrConnectWithoutDespesasInput = {
+    where: TenantWhereUniqueInput
+    create: XOR<TenantCreateWithoutDespesasInput, TenantUncheckedCreateWithoutDespesasInput>
+  }
+
+  export type TenantUpsertWithoutDespesasInput = {
+    update: XOR<TenantUpdateWithoutDespesasInput, TenantUncheckedUpdateWithoutDespesasInput>
+    create: XOR<TenantCreateWithoutDespesasInput, TenantUncheckedCreateWithoutDespesasInput>
+    where?: TenantWhereInput
+  }
+
+  export type TenantUpdateToOneWithWhereWithoutDespesasInput = {
+    where?: TenantWhereInput
+    data: XOR<TenantUpdateWithoutDespesasInput, TenantUncheckedUpdateWithoutDespesasInput>
+  }
+
+  export type TenantUpdateWithoutDespesasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUpdateManyWithoutTenantNestedInput
+  }
+
+  export type TenantUncheckedUpdateWithoutDespesasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    users?: UserUncheckedUpdateManyWithoutTenantNestedInput
+    clientes?: ClienteUncheckedUpdateManyWithoutTenantNestedInput
+    boletos?: BoletoUncheckedUpdateManyWithoutTenantNestedInput
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutTenantNestedInput
+    configuracoesBancarias?: ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantNestedInput
   }
 
   export type UserCreateManyTenantInput = {
@@ -8558,9 +17975,74 @@ export namespace Prisma {
     email: string
     passwordHash: string
     role?: string
+    ativo?: boolean
     createdAt?: Date | string
     emailVerified?: Date | string | null
     image?: string | null
+  }
+
+  export type ClienteCreateManyTenantInput = {
+    id?: string
+    nome: string
+    cpfCnpj?: string | null
+    email?: string | null
+    telefone?: string | null
+    ativo?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BoletoCreateManyTenantInput = {
+    id?: string
+    clienteId: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LancamentoCreateManyTenantInput = {
+    id?: string
+    clienteId: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ConfiguracaoBancariaCreateManyTenantInput = {
+    id?: string
+    banco: string
+    agencia?: string | null
+    conta?: string | null
+    convenio?: string | null
+    nossoNumeroInicial?: number
+    nossoNumeroAtual?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DespesaCreateManyTenantInput = {
+    id?: string
+    descricao: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    categoria: string
+    status?: string
+    dataPagamento?: Date | string | null
+    formaPagamento?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUpdateWithoutTenantInput = {
@@ -8569,6 +18051,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8582,6 +18065,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8595,9 +18079,206 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     passwordHash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
+    ativo?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     image?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClienteUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    boletos?: BoletoUpdateManyWithoutClienteNestedInput
+    lancamentos?: LancamentoUpdateManyWithoutClienteNestedInput
+  }
+
+  export type ClienteUncheckedUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    boletos?: BoletoUncheckedUpdateManyWithoutClienteNestedInput
+    lancamentos?: LancamentoUncheckedUpdateManyWithoutClienteNestedInput
+  }
+
+  export type ClienteUncheckedUpdateManyWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    cpfCnpj?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    telefone?: NullableStringFieldUpdateOperationsInput | string | null
+    ativo?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BoletoUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente?: ClienteUpdateOneRequiredWithoutBoletosNestedInput
+  }
+
+  export type BoletoUncheckedUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clienteId?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BoletoUncheckedUpdateManyWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clienteId?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LancamentoUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cliente?: ClienteUpdateOneRequiredWithoutLancamentosNestedInput
+  }
+
+  export type LancamentoUncheckedUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clienteId?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LancamentoUncheckedUpdateManyWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clienteId?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConfiguracaoBancariaUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    agencia?: NullableStringFieldUpdateOperationsInput | string | null
+    conta?: NullableStringFieldUpdateOperationsInput | string | null
+    convenio?: NullableStringFieldUpdateOperationsInput | string | null
+    nossoNumeroInicial?: IntFieldUpdateOperationsInput | number
+    nossoNumeroAtual?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConfiguracaoBancariaUncheckedUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    agencia?: NullableStringFieldUpdateOperationsInput | string | null
+    conta?: NullableStringFieldUpdateOperationsInput | string | null
+    convenio?: NullableStringFieldUpdateOperationsInput | string | null
+    nossoNumeroInicial?: IntFieldUpdateOperationsInput | number
+    nossoNumeroAtual?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ConfiguracaoBancariaUncheckedUpdateManyWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    banco?: StringFieldUpdateOperationsInput | string
+    agencia?: NullableStringFieldUpdateOperationsInput | string | null
+    conta?: NullableStringFieldUpdateOperationsInput | string | null
+    convenio?: NullableStringFieldUpdateOperationsInput | string | null
+    nossoNumeroInicial?: IntFieldUpdateOperationsInput | number
+    nossoNumeroAtual?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DespesaUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    formaPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DespesaUncheckedUpdateWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    formaPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DespesaUncheckedUpdateManyWithoutTenantInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    categoria?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    formaPagamento?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AccountCreateManyUserInput = {
@@ -8682,6 +18363,118 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sessionToken?: StringFieldUpdateOperationsInput | string
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BoletoCreateManyClienteInput = {
+    id?: string
+    tenantId: string
+    nossoNumero: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    banco: string
+    status?: string
+    descricao?: string | null
+    parcela?: number | null
+    totalParcelas?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type LancamentoCreateManyClienteInput = {
+    id?: string
+    tenantId: string
+    valor: Decimal | DecimalJsLike | number | string
+    vencimento: Date | string
+    metodo: string
+    status?: string
+    descricao?: string | null
+    dataPagamento?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BoletoUpdateWithoutClienteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutBoletosNestedInput
+  }
+
+  export type BoletoUncheckedUpdateWithoutClienteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BoletoUncheckedUpdateManyWithoutClienteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    nossoNumero?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    banco?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    parcela?: NullableIntFieldUpdateOperationsInput | number | null
+    totalParcelas?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LancamentoUpdateWithoutClienteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    tenant?: TenantUpdateOneRequiredWithoutLancamentosNestedInput
+  }
+
+  export type LancamentoUncheckedUpdateWithoutClienteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LancamentoUncheckedUpdateManyWithoutClienteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    tenantId?: StringFieldUpdateOperationsInput | string
+    valor?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    vencimento?: DateTimeFieldUpdateOperationsInput | Date | string
+    metodo?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
+    dataPagamento?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

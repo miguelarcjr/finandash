@@ -27,7 +27,7 @@ const { auth: uncachedAuth, handlers, signIn, signOut } = NextAuth({
                         where: { email: credentials.email as string },
                     });
 
-                    if (!user || !user.passwordHash) {
+                    if (!user || !user.passwordHash || !user.ativo) {
                         return null;
                     }
 
@@ -45,6 +45,7 @@ const { auth: uncachedAuth, handlers, signIn, signOut } = NextAuth({
                         name: user.name,
                         email: user.email,
                         tenantId: user.tenantId,
+                        role: user.role,
                     };
                 } catch (error) {
                     console.error("Auth DB Error:", error);

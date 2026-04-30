@@ -13,6 +13,7 @@ declare module "next-auth" {
       id: string;
       // ...other properties
       tenantId: string;
+      role: string;
       // role query será reidratada no trpc no caso
     } & DefaultSession["user"];
   }
@@ -20,6 +21,7 @@ declare module "next-auth" {
   interface User {
     // ...other properties
     tenantId: string;
+    role: string;
   }
 }
 
@@ -27,12 +29,14 @@ declare module "next-auth/jwt" {
   interface JWT {
     id: string;
     tenantId: string;
+    role: string;
   }
 }
 
 declare module "@auth/core/adapters" {
   interface AdapterUser {
     tenantId: string;
+    role: string;
   }
 }
 
@@ -51,6 +55,7 @@ export const authConfig = {
       if (user) {
         token.id = user.id as string;
         token.tenantId = user.tenantId as string;
+        token.role = user.role as string;
       }
       return token;
     },
@@ -60,6 +65,7 @@ export const authConfig = {
         ...session.user,
         id: token.id as string,
         tenantId: token.tenantId as string,
+        role: token.role as string,
       },
     }),
   },

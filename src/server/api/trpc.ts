@@ -131,3 +131,19 @@ export const protectedProcedure = t.procedure
       },
     });
   });
+
+/**
+ * Role protected (authenticated) procedure
+ *
+ * Verifica se o usuário possui os papéis permitidos.
+ */
+export const roleProcedure = (allowedRoles: string[]) =>
+  protectedProcedure.use(({ ctx, next }) => {
+    if (!ctx.session.user.role || !allowedRoles.includes(ctx.session.user.role)) {
+      throw new TRPCError({ 
+        code: "FORBIDDEN", 
+        message: "O usuário não possui permissão para acessar este recurso." 
+      });
+    }
+    return next({ ctx });
+  });

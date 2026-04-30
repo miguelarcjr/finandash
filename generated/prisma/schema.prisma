@@ -18,7 +18,12 @@ model Tenant {
   name      String
   createdAt DateTime @default(now())
 
-  users User[]
+  users                  User[]
+  clientes               Cliente[]
+  boletos                Boleto[]
+  lancamentos            Lancamento[]
+  configuracoesBancarias ConfiguracaoBancaria[]
+  despesas               Despesa[]
 }
 
 // ─── Autenticação ─────────────────────────────────────────────────────────────
@@ -30,6 +35,7 @@ model User {
   passwordHash String
   role         String   @default("FINANCEIRO")
   tenantId     String
+  ativo        Boolean  @default(true)
   tenant       Tenant   @relation(fields: [tenantId], references: [id])
   createdAt    DateTime @default(now())
 
@@ -77,4 +83,116 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+// ─── Clientes ─────────────────────────────────────────────────────────────
+
+model Cliente {
+  id        String   @id @default(cuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  nome      String
+  cpfCnpj   String?
+  email     String?
+  telefone  String?
+  ativo     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  boletos     Boleto[]
+  lancamentos Lancamento[]
+
+  @@index([tenantId])
+}
+
+// ─── Boletos ─────────────────────────────────────────────────────────────
+
+model Boleto {
+  id        String  @id @default(cuid())
+  tenantId  String
+  tenant    Tenant  @relation(fields: [tenantId], references: [id])
+  clienteId String
+  cliente   Cliente @relation(fields: [clienteId], references: [id])
+
+  nossoNumero   String
+  valor         Decimal
+  vencimento    DateTime
+  banco         String // SICOOB, ITAU
+  status        String   @default("PENDENTE") // PENDENTE, REGISTRADO, PAGO, VENCIDO, OCORRENCIA, CANCELADO
+  descricao     String?
+  parcela       Int?
+  totalParcelas Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, nossoNumero])
+  @@index([tenantId])
+  @@index([nossoNumero])
+}
+
+// ─── Configuração Bancária ─────────────────────────────────────────────────────────────
+
+model ConfiguracaoBancaria {
+  id       String @id @default(cuid())
+  tenantId String
+  tenant   Tenant @relation(fields: [tenantId], references: [id])
+
+  banco              String // SICOOB, ITAU
+  agencia            String?
+  conta              String?
+  convenio           String?
+  nossoNumeroInicial Int     @default(1)
+  nossoNumeroAtual   Int     @default(1)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, banco])
+  @@index([tenantId])
+}
+
+// ─── Lançamentos Manuais ─────────────────────────────────────────────────────────────
+
+model Lancamento {
+  id        String  @id @default(cuid())
+  tenantId  String
+  tenant    Tenant  @relation(fields: [tenantId], references: [id])
+  clienteId String
+  cliente   Cliente @relation(fields: [clienteId], references: [id])
+
+  valor         Decimal
+  vencimento    DateTime
+  metodo        String // PIX, TED, DOC, DINHEIRO, CHEQUE
+  status        String    @default("PENDENTE") // PENDENTE, PAGO, CANCELADO
+  descricao     String?
+  dataPagamento DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId])
+  @@index([vencimento])
+}
+
+// ─── Despesas (Contas a Pagar) ──────────────────────────────────────────────────
+
+model Despesa {
+  id       String @id @default(cuid())
+  tenantId String
+  tenant   Tenant @relation(fields: [tenantId], references: [id])
+
+  descricao      String
+  valor          Decimal
+  vencimento     DateTime
+  categoria      String
+  status         String    @default("PENDENTE") // PENDENTE, PAGO, VENCIDO, CANCELADO
+  dataPagamento  DateTime?
+  formaPagamento String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([tenantId])
+  @@index([vencimento])
 }
